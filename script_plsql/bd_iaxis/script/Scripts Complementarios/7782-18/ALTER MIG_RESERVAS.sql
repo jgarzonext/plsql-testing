@@ -1,0 +1,24 @@
+BEGIN
+  EXECUTE IMMEDIATE 'ALTER TABLE MIG_SIN_TRAMITA_RESERVA_UAT DROP COLUMN MIG_PKPAG'; 
+EXCEPTION
+  WHEN OTHERS THEN
+    IF (SQLCODE = -00904) THEN
+         DBMS_OUTPUT.PUT_LINE('La columna MIG_PKPAG no existe en la tabla mig_sin_tramita_reserva_uat. Ignorar este mensaje cuando se ejecute el lanzador varias veces.');
+    ELSE
+     DBMS_OUTPUT.PUT_LINE('ERROR...' || '. Descripción del Error-> ' || SQLERRM || ' - ' || DBMS_UTILITY.FORMAT_ERROR_BACKTRACE);
+    END IF;
+END;
+/
+BEGIN
+  EXECUTE IMMEDIATE 'ALTER TABLE MIG_SIN_TRAMITA_RESERVA DROP COLUMN MIG_PKPAG'; 
+EXCEPTION
+  WHEN OTHERS THEN
+    IF (SQLCODE = -00904) THEN
+         DBMS_OUTPUT.PUT_LINE('La columna MIG_PKPAG no existe en la tabla MIG_SIN_TRAMITA_RESERVA. Ignorar este mensaje cuando se ejecute el lanzador varias veces.');
+    ELSE
+     DBMS_OUTPUT.PUT_LINE('ERROR...' || '. Descripción del Error-> ' || SQLERRM || ' - ' || DBMS_UTILITY.FORMAT_ERROR_BACKTRACE);
+    END IF;
+END;
+/
+ALTER TABLE MIG_SIN_TRAMITA_RESERVA_UAT ADD MIG_PKPAG VARCHAR2(50);
+ALTER TABLE MIG_SIN_TRAMITA_RESERVA ADD MIG_PKPAG VARCHAR2(50);

@@ -1,0 +1,59 @@
+--------------------------------------------------------
+--  DDL for Table ESTPER_PERSONAS
+--------------------------------------------------------
+
+  CREATE TABLE "AXIS"."ESTPER_PERSONAS" 
+   (	"SPERSON" NUMBER(10,0), 
+	"NNUMIDE" VARCHAR2(50 BYTE), 
+	"NORDIDE" NUMBER(10,0), 
+	"CTIPIDE" NUMBER(3,0), 
+	"CSEXPER" NUMBER(1,0), 
+	"FNACIMI" DATE, 
+	"CESTPER" NUMBER(2,0) DEFAULT 0, 
+	"FJUBILA" DATE, 
+	"CUSUARI" VARCHAR2(20 BYTE), 
+	"FMOVIMI" DATE, 
+	"CMUTUALISTA" NUMBER(1,0) DEFAULT 0, 
+	"SPEREAL" NUMBER(10,0), 
+	"FDEFUNC" DATE, 
+	"SSEGURO" NUMBER, 
+	"SNIP" VARCHAR2(15 BYTE), 
+	"SWPUBLI" NUMBER(1,0), 
+	"CORIGEN" VARCHAR2(3 BYTE), 
+	"TRECIBIDO" VARCHAR2(2000 BYTE), 
+	"CTIPPER" NUMBER(3,0), 
+	"TDIGITOIDE" VARCHAR2(1 BYTE), 
+	"CAGENTE" NUMBER
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "AXIS" ;
+
+   COMMENT ON COLUMN "AXIS"."ESTPER_PERSONAS"."SPERSON" IS 'Secuencia unica de identificacion de una persona';
+   COMMENT ON COLUMN "AXIS"."ESTPER_PERSONAS"."NNUMIDE" IS 'Numero de Censo/Pasaporte de la persona';
+   COMMENT ON COLUMN "AXIS"."ESTPER_PERSONAS"."NORDIDE" IS 'Numero orden para posibles Censos/Pasaportes repetidos.';
+   COMMENT ON COLUMN "AXIS"."ESTPER_PERSONAS"."CTIPIDE" IS 'Tipo de identificación persona ( V.F. 672.  NIf, pasaporte, etc.';
+   COMMENT ON COLUMN "AXIS"."ESTPER_PERSONAS"."CSEXPER" IS 'Sexo de la persona';
+   COMMENT ON COLUMN "AXIS"."ESTPER_PERSONAS"."FNACIMI" IS 'Fecha de Nacimiento de la persona';
+   COMMENT ON COLUMN "AXIS"."ESTPER_PERSONAS"."CESTPER" IS 'Estado de la persona (V.F. 13)';
+   COMMENT ON COLUMN "AXIS"."ESTPER_PERSONAS"."FJUBILA" IS 'Fecha de Jubilacion de la persona';
+   COMMENT ON COLUMN "AXIS"."ESTPER_PERSONAS"."CUSUARI" IS 'Código usuario modificación registro';
+   COMMENT ON COLUMN "AXIS"."ESTPER_PERSONAS"."FMOVIMI" IS 'Fecha modificación registro';
+   COMMENT ON COLUMN "AXIS"."ESTPER_PERSONAS"."CMUTUALISTA" IS 'Indica si es mutualista o no. 0.- No es mutualista, 1.- Sí es mutualista';
+   COMMENT ON COLUMN "AXIS"."ESTPER_PERSONAS"."SPEREAL" IS 'Secuencia unica de identificacion de una persona que corresponderá a la columna SPERSON de la Tabla PER_PERSONAS';
+   COMMENT ON COLUMN "AXIS"."ESTPER_PERSONAS"."FDEFUNC" IS 'Fecha de Defunción';
+   COMMENT ON COLUMN "AXIS"."ESTPER_PERSONAS"."SSEGURO" IS 'Identificador del seguro al que pertenece. Se corresponde con el sseguro de estseguros';
+   COMMENT ON COLUMN "AXIS"."ESTPER_PERSONAS"."SWPUBLI" IS 'Vale 1 si la persona es publica (la pueden ver todos), 0 en caso contrario';
+   COMMENT ON COLUMN "AXIS"."ESTPER_PERSONAS"."CTIPPER" IS 'Tipo de persona. Física o Jurídica (V.F. 85)';
+   COMMENT ON COLUMN "AXIS"."ESTPER_PERSONAS"."TDIGITOIDE" IS 'Dígito verificación';
+   COMMENT ON COLUMN "AXIS"."ESTPER_PERSONAS"."CAGENTE" IS 'Código del agente';
+   COMMENT ON TABLE "AXIS"."ESTPER_PERSONAS"  IS 'Tabla Maestra de información de personas';
+  GRANT UPDATE ON "AXIS"."ESTPER_PERSONAS" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."ESTPER_PERSONAS" TO "R_AXIS";
+  GRANT INSERT ON "AXIS"."ESTPER_PERSONAS" TO "R_AXIS";
+  GRANT DELETE ON "AXIS"."ESTPER_PERSONAS" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."ESTPER_PERSONAS" TO "CONF_DWH";
+  GRANT SELECT ON "AXIS"."ESTPER_PERSONAS" TO "PROGRAMADORESCSI";

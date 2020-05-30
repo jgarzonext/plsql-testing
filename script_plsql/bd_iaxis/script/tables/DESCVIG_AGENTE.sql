@@ -1,0 +1,25 @@
+--------------------------------------------------------
+--  DDL for Table DESCVIG_AGENTE
+--------------------------------------------------------
+
+  CREATE TABLE "AXIS"."DESCVIG_AGENTE" 
+   (	"CAGENTE" NUMBER, 
+	"CDESC" NUMBER(2,0), 
+	"FINIVIG" DATE, 
+	"FFINVIG" DATE
+   ) SEGMENT CREATION DEFERRED 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "AXIS" ;
+
+   COMMENT ON COLUMN "AXIS"."DESCVIG_AGENTE"."CAGENTE" IS 'Código de agente';
+   COMMENT ON COLUMN "AXIS"."DESCVIG_AGENTE"."CDESC" IS 'Código de descuento';
+   COMMENT ON COLUMN "AXIS"."DESCVIG_AGENTE"."FINIVIG" IS 'Fecha inicio vigencia del cuadro de descuento asignado al agente';
+   COMMENT ON COLUMN "AXIS"."DESCVIG_AGENTE"."FFINVIG" IS 'Fecha Fin vigencia del cuadro de descuento asignado al agente';
+   COMMENT ON TABLE "AXIS"."DESCVIG_AGENTE"  IS 'Vigencias del cuadro de descuento del agente';
+  GRANT UPDATE ON "AXIS"."DESCVIG_AGENTE" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."DESCVIG_AGENTE" TO "R_AXIS";
+  GRANT INSERT ON "AXIS"."DESCVIG_AGENTE" TO "R_AXIS";
+  GRANT DELETE ON "AXIS"."DESCVIG_AGENTE" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."DESCVIG_AGENTE" TO "CONF_DWH";
+  GRANT SELECT ON "AXIS"."DESCVIG_AGENTE" TO "PROGRAMADORESCSI";

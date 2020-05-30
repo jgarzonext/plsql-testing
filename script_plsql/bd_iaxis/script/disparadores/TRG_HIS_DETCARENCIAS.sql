@@ -1,0 +1,62 @@
+--------------------------------------------------------
+--  DDL for Trigger TRG_HIS_DETCARENCIAS
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TRIGGER "AXIS"."TRG_HIS_DETCARENCIAS" 
+   BEFORE UPDATE OR DELETE
+   ON DETCARENCIAS
+   FOR EACH ROW
+   DECLARE
+       vaccion VARCHAR2(2);
+BEGIN
+   IF UPDATING THEN
+       vaccion := 'U';
+   ELSE
+       vaccion := 'D';
+   END IF;
+
+      -- crear registro histórico
+      INSERT INTO his_DETCARENCIAS(
+CSEXO,
+NMESCAR,
+CGARANT,
+CCAREN,
+SPRODUC,
+CACTIVI,
+CRAMO,
+CMODALI,
+CTIPSEG,
+CCOLECT,
+CUSUALT,
+FALTA,
+CUSUMOD,
+FMODIFI,
+CUSUHIST,FCREAHIST,ACCION)
+VALUES(
+:OLD.CSEXO,
+:OLD.NMESCAR,
+:OLD.CGARANT,
+:OLD.CCAREN,
+:OLD.SPRODUC,
+:OLD.CACTIVI,
+:OLD.CRAMO,
+:OLD.CMODALI,
+:OLD.CTIPSEG,
+:OLD.CCOLECT,
+:OLD.CUSUALT,
+:OLD.FALTA,
+:OLD.CUSUMOD,
+:OLD.FMODIFI,
+f_user, f_sysdate, ''||vaccion||'');
+EXCEPTION
+   WHEN OTHERS THEN
+      p_tab_error(f_sysdate, f_user, 'TRIGGER trg_his_DETCARENCIAS', 1, SQLCODE, SQLERRM);
+      RAISE;
+END trg_his_DETCARENCIAS;
+
+
+
+
+
+/
+ALTER TRIGGER "AXIS"."TRG_HIS_DETCARENCIAS" ENABLE;

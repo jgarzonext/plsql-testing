@@ -1,0 +1,144 @@
+CREATE OR REPLACE PROCEDURE P_FACT_SINIESTROS_PAGADOS_BDG(PI_FINICIO IN DATE,
+                                                          PI_FFIN    IN DATE) IS
+
+  CURSOR RESULT(P_FINICIO DATE, P_FFIN DATE) IS
+    SELECT DISTINCT SEG.NPOLIZA SINPAG_NUM_POLIZA,
+           (SELECT RD.NCERTDIAN
+              FROM AXIS.RANGO_DIAN_MOVSEGURO RD
+             WHERE RD.SSEGURO = SEG.SSEGURO
+               AND RD.NMOVIMI = SSIN.NMOVIMI) SINPAG_NUM_CERTIFICADO,
+           STP.SIDEPAG SINPAG_NUM_ORDEN,
+           SSIN.NSINIES SINPAG_NUM_SINIESTRO,
+           DECODE(STP.CMONRES,
+                  'COP',
+                  STP.ISINRET,
+                  'USD',
+                  STP.ISINRETPAG,
+                  'EUR',
+                  STP.ISINRETPAG) SINPAG_SINIESTRO_BASE,
+           DECODE(STP.CMONRES,
+                  'COP',
+                  STP.IFRANQ,
+                  'USD',
+                  STP.IFRANQPAG,
+                  'EUR',
+                  STP.IFRANQPAG) SINPAG_SINIESTRO_DEDUCIBLE,                  
+           (SELECT MAX(DT.TIE_ID)
+              FROM DIM_TIEMPO DT
+             WHERE DT.TIE_FECHA = TRUNC(STP.FORDPAG)
+               AND DT.ESTADO = 'ACTIVO') SINPAG_FK_FECDOC,               
+           (SELECT MAX(GEO_ID)
+              FROM DIM_GEOGRAFICA DG
+             WHERE DG.GEO_SUCURSAL = SUBSTR(TO_CHAR(AXIS.PAC_REDCOMERCIAL.F_BUSCA_PADRE(24,
+                                                                                            SEG.CAGENTE,
+                                                                                            NULL,
+                                                                                            NULL)),
+                                            3,
+                                            5)
+               AND DG.ESTADO = 'ACTIVO') SINPAG_FK_SUCURSAL,
+           (SELECT MAX(PER_CODIGO)
+              FROM DIM_PERSONA DP
+             WHERE DP.PER_PERSONA IN
+                   (SELECT PP1.NNUMIDE
+                      FROM AXIS.TOMADORES TOM, AXIS.PER_PERSONAS PP1
+                     WHERE PP1.SPERSON = TOM.SPERSON
+                       AND TOM.SSEGURO = SEG.SSEGURO)
+               AND DP.ESTADO = 'ACTIVO') SINPAG_FK_CLIENTE,
+           (SELECT MAX(PER_CODIGO)
+              FROM DIM_PERSONA DP
+             WHERE DP.PER_PERSONA IN
+                   (SELECT PP1.NNUMIDE
+                      FROM AXIS.ASEGURADOS ASE, AXIS.PER_PERSONAS PP1
+                     WHERE PP1.SPERSON = ASE.SPERSON
+                       AND ASE.SSEGURO = SEG.SSEGURO
+                       AND ROWNUM = 1)
+               AND DP.ESTADO = 'ACTIVO') SINPAG_FK_ASEGURADO,
+           SYSDATE FECHA_CONTROL,
+           SYSDATE FECHA_REGISTRO,
+           P_FINICIO FECHA_INICIO,
+           P_FFIN FECHA_FIN,
+           (SELECT MAX(INTER.INTRM_ID)
+              FROM DIM_INTERMEDIARIO INTER
+             WHERE INTER.ESTADO = 'ACTIVO'
+               AND INTRM_INTERMEDIARIO IN
+                   (SELECT PP1.NNUMIDE
+                      FROM AXIS.AGENTES AGE, AXIS.PER_PERSONAS PP1
+                     WHERE PP1.SPERSON = AGE.SPERSON
+                       AND AGE.CAGENTE = SEG.CAGENTE)) SINPAG_FK_AGENTE,
+           (SELECT MAX(DT.TIE_ID)
+              FROM DIM_TIEMPO DT
+             WHERE DT.TIE_FECHA = TRUNC(SSIN.FSINIES)
+               AND DT.ESTADO = 'ACTIVO') SINPAG_FK_FECSINIESTRO,
+           (SELECT MAX(DT.TIE_ID)
+              FROM DIM_TIEMPO DT
+             WHERE DT.TIE_FECHA = TRUNC(SSIN.FNOTIFI)
+               AND DT.ESTADO = 'ACTIVO') SINPAG_FK_FECRECLAMO
+      FROM AXIS.SIN_SINIESTRO       SSIN,
+           AXIS.SIN_TRAMITA_PAGO    STP,
+           AXIS.SIN_TRAMITA_MOVPAGO STM,
+           AXIS.SEGUROS             SEG,
+           AXIS.SIN_TRAMITA_RESERVA STR,
+           AXIS.HOMOLOGAPRODUC      HOM
+     WHERE SEG.SSEGURO = SSIN.SSEGURO
+       AND STR.SIDEPAG = STP.SIDEPAG
+       AND STR.NSINIES = STP.NSINIES
+       AND HOM.SPRODUC = SEG.SPRODUC
+       AND HOM.CGARANT = STR.CGARANT
+       AND HOM.CACTIVI = SEG.CACTIVI
+       AND STP.SIDEPAG = STM.SIDEPAG
+       AND STM.CESTPAG IN (0, 2)
+       AND STP.CTIPPAG = 2
+       AND STM.NMOVPAG = (SELECT MAX(STM1.NMOVPAG)
+                            FROM AXIS.SIN_TRAMITA_MOVPAGO STM1
+                           WHERE STM1.SIDEPAG = STP.SIDEPAG)
+       AND STP.NSINIES = SSIN.NSINIES
+       AND STP.FORDPAG BETWEEN P_FINICIO AND P_FFIN;
+BEGIN
+
+  DELETE FROM FACT_SINI_PAG_BDG_DUMMY;
+  COMMIT;
+
+  FOR ROWS IN RESULT(PI_FINICIO, PI_FFIN) LOOP
+    INSERT INTO FACT_SINI_PAG_BDG_DUMMY
+      (SINPAG_BDG_ID,
+       SINPAG_NUM_POLIZA,
+       SINPAG_NUM_CERTIFICADO,
+       SINPAG_NUM_ORDEN,
+       SINPAG_NUM_SINIESTRO,
+       SINPAG_SINIESTRO_BASE,
+       SINPAG_SINIESTRO_DEDUCIBLE,
+       SINPAG_FK_FECDOC,
+       SINPAG_FK_SUCURSAL,
+       SINPAG_FK_CLIENTE,
+       SINPAG_FK_ASEGURADO,
+       FECHA_CONTROL,
+       FECHA_REGISTRO,
+       FECHA_INICIO,
+       FECHA_FIN,
+       SINPAG_FK_AGENTE,
+       SINPAG_FK_FECSINIESTRO,
+       SINPAG_FK_FECRECLAMO)
+    VALUES
+      (SINPAG_ID.NEXTVAL,
+       ROWS.SINPAG_NUM_POLIZA,
+       ROWS.SINPAG_NUM_CERTIFICADO,
+       ROWS.SINPAG_NUM_ORDEN,
+       ROWS.SINPAG_NUM_SINIESTRO,
+       ROWS.SINPAG_SINIESTRO_BASE,
+       ROWS.SINPAG_SINIESTRO_DEDUCIBLE,
+       ROWS.SINPAG_FK_FECDOC,
+       ROWS.SINPAG_FK_SUCURSAL,
+       ROWS.SINPAG_FK_CLIENTE,
+       ROWS.SINPAG_FK_ASEGURADO,
+       ROWS.FECHA_CONTROL,
+       ROWS.FECHA_REGISTRO,
+       ROWS.FECHA_INICIO,
+       ROWS.FECHA_FIN,
+       ROWS.SINPAG_FK_AGENTE,
+       ROWS.SINPAG_FK_FECSINIESTRO,
+       ROWS.SINPAG_FK_FECRECLAMO);
+  END LOOP;
+
+  COMMIT;
+END P_FACT_SINIESTROS_PAGADOS_BDG;
+/

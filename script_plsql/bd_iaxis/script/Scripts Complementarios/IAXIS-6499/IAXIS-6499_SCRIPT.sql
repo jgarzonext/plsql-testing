@@ -1,0 +1,29 @@
+	 
+	--Insert for area
+    Insert into DETVALORES(CVALOR,CIDIOMA,CATRIBU,TATRIBU) values (800075,8,9,'Validación');
+    
+    --insert in det_lanzar    
+    Insert into DET_LANZAR_INFORMES (CEMPRES,CMAP,CIDIOMA,TDESCRIP,CINFORME) 
+    values (24,'DiferidoDeComisiones',8,'Generar reporte Diferido de comisiones','ReporteDiferidoComisiones.jasper');
+    
+    --insert into AXIS_LITERALES
+    Insert into AXIS_CODLITERALES (SLITERA,CLITERA) VALUES (89907086,2);
+    Insert into AXIS_LITERALES (CIDIOMA,SLITERA,TLITERA) values (1,89907086,'COMISIONES FIN DE MES PENDIENTE CTA 1920');
+    Insert into AXIS_LITERALES (CIDIOMA,SLITERA,TLITERA) values (2,89907086,'COMISIONES FIN DE MES PENDIENTE CTA 1920');
+    Insert into AXIS_LITERALES (CIDIOMA,SLITERA,TLITERA) values (8,89907086,'COMISIONES FIN DE MES PENDIENTE CTA 1920');
+
+    --insert in CFG_LANZAR_INFORMES
+     Insert into CFG_LANZAR_INFORMES (CEMPRES,CFORM,CMAP,TEVENTO,SPRODUC,SLITERA,LPARAMS,GENERA_REPORT,CCFGFORM,LEXPORT,CTIPO,CGENREC,CAREA)
+     values (24,'AXISLIST003','DiferidoDeComisiones','GENERAL',0,89907086,null,1,'GENERAL','XLSX',1,0,9);
+
+
+    --insert in CFG_LANZAR_INFORMES_PARAMS
+     Insert into CFG_LANZAR_INFORMES_PARAMS (CEMPRES,CFORM,CMAP,TEVENTO,SPRODUC,CCFGFORM,TPARAM,NORDER,SLITERA,CTIPO,NOTNULL,LVALOR) 
+     values (24,'AXISLIST003','DiferidoDeComisiones','GENERAL',0,'GENERAL','FECHA_CORTE',1,9910301,3,1,null);
+
+     Insert into CFG_LANZAR_INFORMES_PARAMS (CEMPRES,CFORM,CMAP,TEVENTO,SPRODUC,CCFGFORM,TPARAM,NORDER,SLITERA,CTIPO,NOTNULL,LVALOR)
+     values (24,'AXISLIST003','DiferidoDeComisiones','GENERAL',0,'GENERAL','SUCURSAL',2,9910689,2,1,'SELECT:select a.cagente v, a.cagente || ''.'' || PAC_REDCOMERCIAL.ff_desagente (a.cagente, 8 , 8 ) d
+     FROM agentes a, redcomercial r WHERE a.ctipage in (2,3) AND r.cagente = a.cagente  AND r.fmovfin IS NULL  ORDER BY 1');
+
+	 commit;
+	 /

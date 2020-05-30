@@ -1,0 +1,11 @@
+--------------------------------------------------------
+--  DDL for Type T_IAX_SIN_TRAMI_DESTINATARIO
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TYPE "AXIS"."T_IAX_SIN_TRAMI_DESTINATARIO" AS TABLE OF ob_iax_sin_trami_destinatario;
+
+/
+
+  GRANT EXECUTE ON "AXIS"."T_IAX_SIN_TRAMI_DESTINATARIO" TO "PROGRAMADORESCSI";
+  GRANT EXECUTE ON "AXIS"."T_IAX_SIN_TRAMI_DESTINATARIO" TO "CONF_DWH";
+  GRANT EXECUTE ON "AXIS"."T_IAX_SIN_TRAMI_DESTINATARIO" TO "R_AXIS";

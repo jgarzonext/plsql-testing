@@ -1,0 +1,32 @@
+--------------------------------------------------------
+--  DDL for Materialized View DIM_VDETRECIBOS
+--------------------------------------------------------
+
+  CREATE MATERIALIZED VIEW "CONF_DWH"."DIM_VDETRECIBOS" ("CMONINT", "NRECIBO", "IPRINET", "IRECEXT", "ICONSOR", "IRECCON", "IIPS", "IDGS", "IARBITR", "IFNG", "IRECFRA", "IDTOTEC", "IDTOCOM", "ICOMBRU", "ICOMRET", "IDTOOM", "IPRIDEV", "ITOTPRI", "ITOTDTO", "ITOTCON", "ITOTIMP", "ITOTALR", "IDERREG", "ITOTREC", "ICOMDEV", "IRETDEV", "ICEDNET", "ICEDREX", "ICEDCON", "ICEDRCO", "ICEDIPS", "ICEDDGS", "ICEDARB", "ICEDFNG", "ICEDRFR", "ICEDDTE", "ICEDDCO", "ICEDCBR", "ICEDCRT", "ICEDDOM", "ICEDPDV", "ICEDREG", "ICEDCDV", "ICEDRDV", "IT1PRI", "IT1DTO", "IT1CON", "IT1IMP", "IT1REC", "IT1TOTR", "IT2PRI", "IT2DTO", "IT2CON", "IT2IMP", "IT2REC", "IT2TOTR", "ICOMCIA", "ICOMBRUI", "ICOMRETI", "ICOMDEVI", "ICOMDRTI", "ICOMBRUC", "ICOMRETC", "ICOMDEVC", "ICOMDRTC", "IOCOREC", "IIMP_1", "IIMP_2", "IIMP_3", "IIMP_4", "ICONVOLEODUCTO", "IIMP_5", "IIMP_6", "IIMP_7", "IIMP_8")
+  ORGANIZATION HEAP PCTFREE 10 PCTUSED 0 INITRANS 2 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "CONF_DWH" 
+  BUILD IMMEDIATE
+  USING INDEX 
+  REFRESH FORCE ON DEMAND START WITH sysdate+0 NEXT TRUNC(SYSDATE + 1) + 20/24
+  USING DEFAULT LOCAL ROLLBACK SEGMENT
+  USING ENFORCED CONSTRAINTS DISABLE QUERY REWRITE
+  AS select m.cmonint, v.*
+from vdetrecibos v, recibos r, seguros s, productos p, monedas m
+where 
+r.nrecibo = v.nrecibo
+and s.sseguro = r.sseguro
+and p.sproduc = s.sproduc
+and p.cdivisa = m.cmoneda
+and m.cidioma = 8
+union 
+select m.cmonint, v.*
+from vdetrecibos_monpol v, recibos r, monedas m
+where r.nrecibo = v.nrecibo
+and m.cmoneda = pac_parametros.f_parempresa_n (r.cempres, 'MONEDACONTAB')
+and m.cidioma = 8;
+
+   COMMENT ON MATERIALIZED VIEW "CONF_DWH"."DIM_VDETRECIBOS"  IS 'snapshot table for snapshot CONF_DWH.DIM_VDETRECIBOS';

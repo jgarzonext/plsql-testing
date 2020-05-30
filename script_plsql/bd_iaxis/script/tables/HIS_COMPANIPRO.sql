@@ -1,0 +1,39 @@
+--------------------------------------------------------
+--  DDL for Table HIS_COMPANIPRO
+--------------------------------------------------------
+
+  CREATE TABLE "AXIS"."HIS_COMPANIPRO" 
+   (	"SPRODUC" NUMBER(22,0), 
+	"CCOMPANI" NUMBER(22,0), 
+	"CAGENCORR" VARCHAR2(30 BYTE), 
+	"SPRODUCESP" NUMBER(22,0), 
+	"CUSUALT" VARCHAR2(20 BYTE), 
+	"FALTA" DATE, 
+	"CUSUMOD" VARCHAR2(20 BYTE), 
+	"FMODIFI" DATE, 
+	"CUSUHIST" VARCHAR2(20 BYTE), 
+	"FCREAHIST" DATE, 
+	"ACCION" VARCHAR2(2 BYTE)
+   ) SEGMENT CREATION DEFERRED 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "AXIS" ;
+
+   COMMENT ON COLUMN "AXIS"."HIS_COMPANIPRO"."SPRODUC" IS 'Codigo del Producto asociado a la compañia';
+   COMMENT ON COLUMN "AXIS"."HIS_COMPANIPRO"."CCOMPANI" IS 'Codigo de Compañia';
+   COMMENT ON COLUMN "AXIS"."HIS_COMPANIPRO"."CAGENCORR" IS 'Codigo del agente en la compañia/producto';
+   COMMENT ON COLUMN "AXIS"."HIS_COMPANIPRO"."SPRODUCESP" IS 'Codigo del producto especifico (si se ha definido un producto genérico)';
+   COMMENT ON COLUMN "AXIS"."HIS_COMPANIPRO"."CUSUALT" IS 'Usuario que ha dado de alta el registro';
+   COMMENT ON COLUMN "AXIS"."HIS_COMPANIPRO"."FALTA" IS 'Fecha de Alta';
+   COMMENT ON COLUMN "AXIS"."HIS_COMPANIPRO"."CUSUMOD" IS 'Usuario que ha realizado la ultima modificacion del registro';
+   COMMENT ON COLUMN "AXIS"."HIS_COMPANIPRO"."FMODIFI" IS 'Fecha de la ultima modificacion del registro';
+   COMMENT ON COLUMN "AXIS"."HIS_COMPANIPRO"."CUSUHIST" IS 'Usuario que realiza la acción';
+   COMMENT ON COLUMN "AXIS"."HIS_COMPANIPRO"."FCREAHIST" IS 'Fecha en que se realiza la acción';
+   COMMENT ON COLUMN "AXIS"."HIS_COMPANIPRO"."ACCION" IS 'Acción realizada';
+   COMMENT ON TABLE "AXIS"."HIS_COMPANIPRO"  IS 'Histórico de la tabla COMPANIPRO';
+  GRANT UPDATE ON "AXIS"."HIS_COMPANIPRO" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."HIS_COMPANIPRO" TO "R_AXIS";
+  GRANT INSERT ON "AXIS"."HIS_COMPANIPRO" TO "R_AXIS";
+  GRANT DELETE ON "AXIS"."HIS_COMPANIPRO" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."HIS_COMPANIPRO" TO "CONF_DWH";
+  GRANT SELECT ON "AXIS"."HIS_COMPANIPRO" TO "PROGRAMADORESCSI";

@@ -1,0 +1,4 @@
+UPDATE PREGUNPROGARAN SET CPREOBL = 0, TVALFOR = null WHERE cpregun = 6621;
+
+commit;
+/

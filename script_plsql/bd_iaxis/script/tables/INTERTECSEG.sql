@@ -1,0 +1,34 @@
+--------------------------------------------------------
+--  DDL for Table INTERTECSEG
+--------------------------------------------------------
+
+  CREATE TABLE "AXIS"."INTERTECSEG" 
+   (	"SSEGURO" NUMBER, 
+	"FEFEMOV" DATE, 
+	"NMOVIMI" NUMBER(4,0), 
+	"FMOVDIA" DATE, 
+	"PINTTEC" NUMBER(7,2), 
+	"NDESDE" NUMBER DEFAULT 0, 
+	"NHASTA" NUMBER DEFAULT 0, 
+	"NINNTEC" NUMBER(7,2)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS NOLOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "AXIS" ;
+
+   COMMENT ON COLUMN "AXIS"."INTERTECSEG"."SSEGURO" IS 'Identificador del seguro';
+   COMMENT ON COLUMN "AXIS"."INTERTECSEG"."FEFEMOV" IS 'Fecha efecto de movimiento. Es la fecha que se utilizará para averiguar el interés';
+   COMMENT ON COLUMN "AXIS"."INTERTECSEG"."NMOVIMI" IS 'Número de Movimiento de la Póliza (alta o renovación)';
+   COMMENT ON COLUMN "AXIS"."INTERTECSEG"."FMOVDIA" IS 'Fecha día que se hace el movimiento';
+   COMMENT ON COLUMN "AXIS"."INTERTECSEG"."PINTTEC" IS 'Porcentaje de interés técnico';
+   COMMENT ON COLUMN "AXIS"."INTERTECSEG"."NINNTEC" IS 'Porcentaje de interés parametrizado en el momento de la inserción';
+   COMMENT ON TABLE "AXIS"."INTERTECSEG"  IS 'Interés Ténico asociado a la Póliza. Se graba cada movimiento en el cual se asigna interés (alta y renovación)';
+  GRANT UPDATE ON "AXIS"."INTERTECSEG" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."INTERTECSEG" TO "R_AXIS";
+  GRANT INSERT ON "AXIS"."INTERTECSEG" TO "R_AXIS";
+  GRANT DELETE ON "AXIS"."INTERTECSEG" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."INTERTECSEG" TO "CONF_DWH";
+  GRANT SELECT ON "AXIS"."INTERTECSEG" TO "PROGRAMADORESCSI";

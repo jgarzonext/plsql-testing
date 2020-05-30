@@ -1,0 +1,11 @@
+--------------------------------------------------------
+--  DDL for Type T_IAX_PRESTAMOSEG
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TYPE "AXIS"."T_IAX_PRESTAMOSEG" AS TABLE OF OB_IAX_PRESTAMOSEG;
+
+/
+
+  GRANT EXECUTE ON "AXIS"."T_IAX_PRESTAMOSEG" TO "R_AXIS";
+  GRANT EXECUTE ON "AXIS"."T_IAX_PRESTAMOSEG" TO "CONF_DWH";
+  GRANT EXECUTE ON "AXIS"."T_IAX_PRESTAMOSEG" TO "PROGRAMADORESCSI";

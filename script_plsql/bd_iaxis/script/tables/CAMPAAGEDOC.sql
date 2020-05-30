@@ -1,0 +1,25 @@
+--------------------------------------------------------
+--  DDL for Table CAMPAAGEDOC
+--------------------------------------------------------
+
+  CREATE TABLE "AXIS"."CAMPAAGEDOC" 
+   (	"CCODIGO" NUMBER, 
+	"CAGENTE" NUMBER, 
+	"CDOCUME" NUMBER, 
+	"BGENERADO" VARCHAR2(1 BYTE)
+   ) SEGMENT CREATION DEFERRED 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "AXIS" ;
+
+   COMMENT ON COLUMN "AXIS"."CAMPAAGEDOC"."CCODIGO" IS 'Código único de la campaña';
+   COMMENT ON COLUMN "AXIS"."CAMPAAGEDOC"."CAGENTE" IS 'Código del Agente';
+   COMMENT ON COLUMN "AXIS"."CAMPAAGEDOC"."CDOCUME" IS 'Numerador sequencial de productos';
+   COMMENT ON COLUMN "AXIS"."CAMPAAGEDOC"."BGENERADO" IS 'Indicador de generación del documento';
+   COMMENT ON TABLE "AXIS"."CAMPAAGEDOC"  IS 'Tabla donde se registran los documentos generados para un agente asociados a una campaña ';
+  GRANT UPDATE ON "AXIS"."CAMPAAGEDOC" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."CAMPAAGEDOC" TO "R_AXIS";
+  GRANT INSERT ON "AXIS"."CAMPAAGEDOC" TO "R_AXIS";
+  GRANT DELETE ON "AXIS"."CAMPAAGEDOC" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."CAMPAAGEDOC" TO "CONF_DWH";
+  GRANT SELECT ON "AXIS"."CAMPAAGEDOC" TO "PROGRAMADORESCSI";

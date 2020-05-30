@@ -1,0 +1,35 @@
+--------------------------------------------------------
+--  DDL for Table IBNR_SAM
+--------------------------------------------------------
+
+  CREATE TABLE "AXIS"."IBNR_SAM" 
+   (	"SPROCES" NUMBER, 
+	"FCALCUL" DATE, 
+	"FCALCUL_I" DATE, 
+	"FCALCUL_J" DATE, 
+	"CTIPO" NUMBER, 
+	"IBNR" NUMBER, 
+	"CMODO" VARCHAR2(1 BYTE), 
+	"CGARANT" NUMBER, 
+	"SPRODUC" NUMBER
+   ) SEGMENT CREATION DEFERRED 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "AXIS" ;
+
+   COMMENT ON COLUMN "AXIS"."IBNR_SAM"."SPROCES" IS 'Identificador del proceso';
+   COMMENT ON COLUMN "AXIS"."IBNR_SAM"."FCALCUL" IS 'Fecha del cálculo (real)';
+   COMMENT ON COLUMN "AXIS"."IBNR_SAM"."FCALCUL_I" IS 'Periodo de ocurrencia X';
+   COMMENT ON COLUMN "AXIS"."IBNR_SAM"."FCALCUL_J" IS 'Periodo de ocurrencia Y';
+   COMMENT ON COLUMN "AXIS"."IBNR_SAM"."CTIPO" IS 'Tipo de inflación  (0 - pagos , 1- reservas)';
+   COMMENT ON COLUMN "AXIS"."IBNR_SAM"."IBNR" IS 'Importe de la IBNR';
+   COMMENT ON COLUMN "AXIS"."IBNR_SAM"."CMODO" IS 'Previo = P / Real = R';
+   COMMENT ON COLUMN "AXIS"."IBNR_SAM"."CGARANT" IS 'Identificador de la garantía';
+   COMMENT ON COLUMN "AXIS"."IBNR_SAM"."SPRODUC" IS 'Identificador del producto';
+   COMMENT ON TABLE "AXIS"."IBNR_SAM"  IS 'Tabla de IBNR Sud América';
+  GRANT UPDATE ON "AXIS"."IBNR_SAM" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."IBNR_SAM" TO "R_AXIS";
+  GRANT INSERT ON "AXIS"."IBNR_SAM" TO "R_AXIS";
+  GRANT DELETE ON "AXIS"."IBNR_SAM" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."IBNR_SAM" TO "CONF_DWH";
+  GRANT SELECT ON "AXIS"."IBNR_SAM" TO "PROGRAMADORESCSI";

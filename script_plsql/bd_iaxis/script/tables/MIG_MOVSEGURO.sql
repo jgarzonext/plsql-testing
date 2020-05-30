@@ -1,0 +1,42 @@
+--------------------------------------------------------
+--  DDL for Table MIG_MOVSEGURO
+--------------------------------------------------------
+
+  CREATE TABLE "AXIS"."MIG_MOVSEGURO" 
+   (	"NCARGA" NUMBER, 
+	"CESTMIG" NUMBER, 
+	"MIG_PK" VARCHAR2(50 BYTE), 
+	"MIG_FK" VARCHAR2(50 BYTE), 
+	"SSEGURO" NUMBER, 
+	"NMOVIMI" NUMBER(4,0), 
+	"CMOTMOV" NUMBER(3,0), 
+	"FMOVIMI" DATE, 
+	"FEFECTO" DATE, 
+	"CUSUMOV" VARCHAR2(20 BYTE), 
+	"CMOTVEN" NUMBER(3,0), 
+	"CMOVSEG" NUMBER(2,0), 
+	"NMOVIMI_ANT" VARCHAR2(20 BYTE)
+   ) SEGMENT CREATION DEFERRED 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "AXIS" ;
+
+   COMMENT ON COLUMN "AXIS"."MIG_MOVSEGURO"."NCARGA" IS 'N¿mero de carga';
+   COMMENT ON COLUMN "AXIS"."MIG_MOVSEGURO"."CESTMIG" IS 'Estado del registro';
+   COMMENT ON COLUMN "AXIS"."MIG_MOVSEGURO"."MIG_PK" IS 'Clave ¿nica de MIG_MOVSEGURO';
+   COMMENT ON COLUMN "AXIS"."MIG_MOVSEGURO"."MIG_FK" IS 'Clave externa para la p¿liza (MIG_SEGUROS)';
+   COMMENT ON COLUMN "AXIS"."MIG_MOVSEGURO"."SSEGURO" IS 'N¿mero de secuencia de seguro, valor=0, lo calcula el proceso de migraci¿n';
+   COMMENT ON COLUMN "AXIS"."MIG_MOVSEGURO"."NMOVIMI" IS 'N¿mero de movimiento';
+   COMMENT ON COLUMN "AXIS"."MIG_MOVSEGURO"."CMOTMOV" IS 'C¿digo motivo de movimiento';
+   COMMENT ON COLUMN "AXIS"."MIG_MOVSEGURO"."FMOVIMI" IS 'Fecha del movimiento';
+   COMMENT ON COLUMN "AXIS"."MIG_MOVSEGURO"."FEFECTO" IS 'Fecha de efecto';
+   COMMENT ON COLUMN "AXIS"."MIG_MOVSEGURO"."CUSUMOV" IS 'Usuario que realiza el movimiento';
+   COMMENT ON COLUMN "AXIS"."MIG_MOVSEGURO"."CMOTVEN" IS 'C¿digo motivo de movimiento. (Ver punto 9.1.1.1	Valor C¿digo de movimiento, tipo anulaci¿n)';
+   COMMENT ON COLUMN "AXIS"."MIG_MOVSEGURO"."CMOVSEG" IS 'C¿digo movimiento seguro (Marcar movimiento anulado = 52)';
+   COMMENT ON TABLE "AXIS"."MIG_MOVSEGURO"  IS 'Tabla Intermedia migraci¿n de Movimientos de P¿lizas';
+  GRANT UPDATE ON "AXIS"."MIG_MOVSEGURO" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."MIG_MOVSEGURO" TO "R_AXIS";
+  GRANT INSERT ON "AXIS"."MIG_MOVSEGURO" TO "R_AXIS";
+  GRANT DELETE ON "AXIS"."MIG_MOVSEGURO" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."MIG_MOVSEGURO" TO "CONF_DWH";
+  GRANT SELECT ON "AXIS"."MIG_MOVSEGURO" TO "PROGRAMADORESCSI";

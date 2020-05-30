@@ -1,0 +1,8 @@
+--------------------------------------------------------
+--  DDL for Sequence SMOVCUO
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "AXIS"."SMOVCUO"  MINVALUE 1 MAXVALUE 999999999999999999999999999 INCREMENT BY 1 START WITH 608 NOCACHE  NOORDER  NOCYCLE   ;
+  GRANT SELECT ON "AXIS"."SMOVCUO" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."SMOVCUO" TO "CONF_DWH";
+  GRANT SELECT ON "AXIS"."SMOVCUO" TO "PROGRAMADORESCSI";

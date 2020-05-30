@@ -1,0 +1,8 @@
+--------------------------------------------------------
+--  DDL for Sequence SSRECREN
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "AXIS"."SSRECREN"  MINVALUE 0 MAXVALUE 99999999 INCREMENT BY 1 START WITH 2112 NOCACHE  NOORDER  NOCYCLE   ;
+  GRANT SELECT ON "AXIS"."SSRECREN" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."SSRECREN" TO "CONF_DWH";
+  GRANT SELECT ON "AXIS"."SSRECREN" TO "PROGRAMADORESCSI";

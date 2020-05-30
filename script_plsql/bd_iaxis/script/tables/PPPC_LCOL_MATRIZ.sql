@@ -1,0 +1,66 @@
+--------------------------------------------------------
+--  DDL for Table PPPC_LCOL_MATRIZ
+--------------------------------------------------------
+
+  CREATE TABLE "AXIS"."PPPC_LCOL_MATRIZ" 
+   (	"CEMPRES" NUMBER(2,0), 
+	"FCALCUL" DATE, 
+	"SPROCES" NUMBER(6,0), 
+	"CRAMDGS" NUMBER(4,0), 
+	"CRAMO" NUMBER(8,0), 
+	"CMODALI" NUMBER(2,0), 
+	"CTIPSEG" NUMBER(2,0), 
+	"CCOLECT" NUMBER(2,0), 
+	"SSEGURO" NUMBER(6,0), 
+	"NRECIBO" NUMBER(9,0), 
+	"NMOVIMI" NUMBER(4,0), 
+	"FINIEFE" DATE, 
+	"CGARANT" NUMBER(4,0), 
+	"NRIESGO" NUMBER(6,0), 
+	"IPPPMAT" NUMBER, 
+	"IPPPMAT_MONCON" NUMBER, 
+	"IDERREG" NUMBER, 
+	"IDERREG_MONCON" NUMBER, 
+	"CMONEDA" NUMBER, 
+	"CERROR" NUMBER(2,0), 
+	"TEDAD" VARCHAR2(200 BYTE), 
+	"FCAMBIO" DATE, 
+	"IPPPMAT_COA" NUMBER(17,2), 
+	"IPPPMAT_MONCON_COA" NUMBER(17,2)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "AXIS" ;
+
+   COMMENT ON COLUMN "AXIS"."PPPC_LCOL_MATRIZ"."CEMPRES" IS 'Identificador de la empresa';
+   COMMENT ON COLUMN "AXIS"."PPPC_LCOL_MATRIZ"."FCALCUL" IS 'Fecha de calculo';
+   COMMENT ON COLUMN "AXIS"."PPPC_LCOL_MATRIZ"."SPROCES" IS 'proceso de calculo-> procesoslin';
+   COMMENT ON COLUMN "AXIS"."PPPC_LCOL_MATRIZ"."CRAMDGS" IS 'Ramo de la DGS';
+   COMMENT ON COLUMN "AXIS"."PPPC_LCOL_MATRIZ"."CRAMO" IS 'Ramo del producto';
+   COMMENT ON COLUMN "AXIS"."PPPC_LCOL_MATRIZ"."CMODALI" IS 'Codigo de modalidad .-> productos.cmodali';
+   COMMENT ON COLUMN "AXIS"."PPPC_LCOL_MATRIZ"."CTIPSEG" IS 'Tipo de seguro -> productos.ctipseg';
+   COMMENT ON COLUMN "AXIS"."PPPC_LCOL_MATRIZ"."CCOLECT" IS 'Tipo de colectivo -> productos-ccolect';
+   COMMENT ON COLUMN "AXIS"."PPPC_LCOL_MATRIZ"."SSEGURO" IS 'Identifcador del seguro -> seguros.sseguro';
+   COMMENT ON COLUMN "AXIS"."PPPC_LCOL_MATRIZ"."NRECIBO" IS 'Indentificador del recibo recibos->nrecibo';
+   COMMENT ON COLUMN "AXIS"."PPPC_LCOL_MATRIZ"."NMOVIMI" IS 'Movimiento del seguro en el que se ha generado el recibo';
+   COMMENT ON COLUMN "AXIS"."PPPC_LCOL_MATRIZ"."FINIEFE" IS 'Fecha de inicio del efecto del recibo';
+   COMMENT ON COLUMN "AXIS"."PPPC_LCOL_MATRIZ"."CGARANT" IS 'Garantia tratada en ese registro. detrecibo.cgarant';
+   COMMENT ON COLUMN "AXIS"."PPPC_LCOL_MATRIZ"."NRIESGO" IS 'Riesgo del recibo(id), detrecibos.nriesgo';
+   COMMENT ON COLUMN "AXIS"."PPPC_LCOL_MATRIZ"."IPPPMAT" IS 'Provisión matriz';
+   COMMENT ON COLUMN "AXIS"."PPPC_LCOL_MATRIZ"."IPPPMAT_MONCON" IS 'Provisión matriz, en contramoneda';
+   COMMENT ON COLUMN "AXIS"."PPPC_LCOL_MATRIZ"."IDERREG" IS 'Derechos de registro de la poliza tratada en ese recibo.';
+   COMMENT ON COLUMN "AXIS"."PPPC_LCOL_MATRIZ"."IDERREG_MONCON" IS 'Derechos de registro de la poliza tratada en ese recibo (en contramoneda)';
+   COMMENT ON COLUMN "AXIS"."PPPC_LCOL_MATRIZ"."CMONEDA" IS 'Id. de la moneda , numerico. Monedas.cmoneda';
+   COMMENT ON COLUMN "AXIS"."PPPC_LCOL_MATRIZ"."CERROR" IS 'Número de error';
+   COMMENT ON COLUMN "AXIS"."PPPC_LCOL_MATRIZ"."FCAMBIO" IS 'Fecha utilizada para el cálculo de los contravalores';
+   COMMENT ON COLUMN "AXIS"."PPPC_LCOL_MATRIZ"."IPPPMAT_COA" IS 'Provisión matriz coaseguro';
+   COMMENT ON COLUMN "AXIS"."PPPC_LCOL_MATRIZ"."IPPPMAT_MONCON_COA" IS 'Provisión matriz coaseguro, en contramoneda';
+  GRANT UPDATE ON "AXIS"."PPPC_LCOL_MATRIZ" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."PPPC_LCOL_MATRIZ" TO "R_AXIS";
+  GRANT INSERT ON "AXIS"."PPPC_LCOL_MATRIZ" TO "R_AXIS";
+  GRANT DELETE ON "AXIS"."PPPC_LCOL_MATRIZ" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."PPPC_LCOL_MATRIZ" TO "CONF_DWH";
+  GRANT SELECT ON "AXIS"."PPPC_LCOL_MATRIZ" TO "PROGRAMADORESCSI";

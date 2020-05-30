@@ -1,0 +1,11 @@
+--------------------------------------------------------
+--  DDL for Type T_IAX_TIPOSVIAS
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TYPE "AXIS"."T_IAX_TIPOSVIAS" AS TABLE OF OB_IAX_TIPOSVIAS;
+
+/
+
+  GRANT EXECUTE ON "AXIS"."T_IAX_TIPOSVIAS" TO "R_AXIS";
+  GRANT EXECUTE ON "AXIS"."T_IAX_TIPOSVIAS" TO "CONF_DWH";
+  GRANT EXECUTE ON "AXIS"."T_IAX_TIPOSVIAS" TO "PROGRAMADORESCSI";

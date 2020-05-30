@@ -1,0 +1,63 @@
+update bf_desgrup set tgrup = 'Predios, Labores y Operaciones Evento' where cgrup =200000;
+update bf_desgrup set tgrup = 'Lucro Cesante Evento' where cgrup =200001;
+update bf_desgrup set tgrup = 'Perjuicios Extrapatrimoniales(Daño Moral) Evento' where cgrup =200002;
+update bf_desgrup set tgrup = 'Resp  Civil Patronal Evento' where cgrup =200003;
+update bf_desgrup set tgrup = 'Contratistas  Subcont Evento' where cgrup =200004;
+update bf_desgrup set tgrup = 'Resp Civil Cruzada Evento' where cgrup =200005;
+update bf_desgrup set tgrup = 'Vehic Propios No Propios Evento' where cgrup =200006;
+update bf_desgrup set tgrup = 'Bienes bajo Cuidado Tenencia y control Evento' where cgrup =200007;
+update bf_desgrup set tgrup = 'Contaminación Evento' where cgrup =200008;
+update bf_desgrup set tgrup = 'Estruc Existen y/o Propiedades adyacentes Evento' where cgrup =200009;
+update bf_desgrup set tgrup = 'Conducci.Subterráneas Evento' where cgrup =200010;
+update bf_desgrup set tgrup = 'Gastos Judiciales Def Evento' where cgrup =200011;
+update bf_desgrup set tgrup = 'Prodtos Trabajos Operación t Evento' where cgrup =200012;
+update bf_desgrup set tgrup = 'Exportaciones Evento' where cgrup =200013;
+update bf_desgrup set tgrup = 'Unión y Mezcla Evento' where cgrup =200014;
+update bf_desgrup set tgrup = 'Transformación Evento' where cgrup =200015;
+update bf_desgrup set tgrup = 'Hoyo en Uno/Evento' where cgrup =200016;
+update bf_desgrup set tgrup = 'Sublímite Evento' where cgrup =200017;
+update bf_desgrup set tgrup = 'Ext Cobertura - Ley 550 Evento' where cgrup =200018;
+update bf_desgrup set tgrup = 'Predios, Labores y Operaciones/Vigencia' where cgrup =200019;
+update bf_desgrup set tgrup = 'Lucro Cesante/Vigencia' where cgrup =200020;
+update bf_desgrup set tgrup = 'Perjuicios Extrapatrimoniales/Vigencia' where cgrup =200021;
+update bf_desgrup set tgrup = 'Resp  Civil Patronal/vigencia' where cgrup =200022;
+update bf_desgrup set tgrup = 'Contratistas  Subcont/vigencia' where cgrup =200023;
+update bf_desgrup set tgrup = 'Resp Civil Cruzada/vigencia' where cgrup =200024;
+update bf_desgrup set tgrup = 'Vehic Propios No Propios/vigencia' where cgrup =200025;
+update bf_desgrup set tgrup = 'Bnes bajo Cuidado Tenencia y control/vigencia' where cgrup =200026;
+update bf_desgrup set tgrup = 'Contaminación/Vigencia' where cgrup =200027;
+update bf_desgrup set tgrup = 'Estruc Existen y/o Propiedades adyacentes/vigencia' where cgrup =200028;
+update bf_desgrup set tgrup = 'Conducci.Subterráneas/vigencia' where cgrup =200029;
+update bf_desgrup set tgrup = 'Gastos Judiciales Def/vigencia' where cgrup =200030;
+update bf_desgrup set tgrup = 'Prodtos Trabajos Operación t/vigencia' where cgrup =200031;
+update bf_desgrup set tgrup = 'Exportaciones/vigencia' where cgrup =200032;
+update bf_desgrup set tgrup = 'Unión y Mezcla/vigencia' where cgrup =200033;
+update bf_desgrup set tgrup = 'Transformación/vigencia' where cgrup =200034;
+update bf_desgrup set tgrup = 'Hoyo en Uno/Vigencia' where cgrup =200035;
+update bf_desgrup set tgrup = 'Sublímite/vigencia' where cgrup =200036;
+update bf_desgrup set tgrup = 'Ext Cobertura - Ley 550 Evento/vigencia' where cgrup =200037;
+
+
+UPDATE bf_desgrup SET tgrup ='Predios, Labores y Operaciones / vigencia' WHERE cgrup =300012;
+UPDATE bf_desgrup SET tgrup ='Predios, Labores y Operaciones/ evento' WHERE cgrup =300013;
+UPDATE bf_desgrup SET tgrup ='Resp Civil Patronal / vigencia' WHERE cgrup =300014;
+UPDATE bf_desgrup SET tgrup ='Resp Civil Patronal/evento' WHERE cgrup =300015;
+UPDATE bf_desgrup SET tgrup ='Contratistas Subcont / vigencia' WHERE cgrup =300016;
+UPDATE bf_desgrup SET tgrup ='Contratistas Subcont/evento' WHERE cgrup =300017;
+UPDATE bf_desgrup SET tgrup ='Resp Civil Cruzada / Vigencia' WHERE cgrup =300018;
+UPDATE bf_desgrup SET tgrup ='Resp Civil Cruzada/evento' WHERE cgrup =300019;
+UPDATE bf_desgrup SET tgrup ='Gastos Medicos / vigencia' WHERE cgrup =300020;
+UPDATE bf_desgrup SET tgrup ='Gastos Medicos /evento' WHERE cgrup =300021;
+UPDATE bf_desgrup SET tgrup ='Vehic Propios No Propios / vigencia' WHERE cgrup =300022;
+UPDATE bf_desgrup SET tgrup ='Vehic Propios No Propios/evento' WHERE cgrup =300023;
+UPDATE bf_desgrup SET tgrup ='Da¿o Moral / Vigencia' WHERE cgrup =300001;
+UPDATE bf_desgrup SET tgrup ='Da¿o Moral/evento' WHERE cgrup =300002;
+UPDATE bf_desgrup SET tgrup ='Lucro Cesante / Vigencia' WHERE cgrup =300003;
+UPDATE bf_desgrup SET tgrup ='Lucro Cesante/evento' WHERE cgrup =300004;
+UPDATE bf_desgrup SET tgrup ='Gastos Judiciales Def / Vigencia' WHERE cgrup =300005;
+UPDATE bf_desgrup SET tgrup ='Gastos Judiciales Def/evento' WHERE cgrup =300006;
+
+commit;
+
+
+COMMIT;

@@ -1,0 +1,155 @@
+BEGIN
+    PAC_SKIP_ORA.p_comprovadrop('OB_IAX_SIN_TRAMITA_JUDICIAL','TYPE');
+END;
+/
+
+--------------------------------------------------------
+--  DDL for Type OB_IAX_SIN_TRAMITA_JUDICIAL
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TYPE "AXIS"."OB_IAX_SIN_TRAMITA_JUDICIAL" AS OBJECT
+   /******************************************************************************
+   NOMBRE:       OB_IAX_SIN_TRAMITA_JUDICIAL
+   PROPOSITO:  Contiene la informacion de la tramitacion judicial
+   REVISIONES:
+   Ver        Fecha        Autor             Descripcion
+   ---------  ----------  ---------------  ------------------------------------
+   1.0        09/08/2016   IGIL                1. Creacion objeto
+   2.0        19/12/2016   JGONZALEZ           2. elimina campos de audiencia
+   3.0        25/01/2017   JGONZALEZ           3. agregar campos para sentencia
+   4.0        20/04/2017   JGONZALEZ           4. agregar campos de despacho origen y final
+   5.0        17/10/2017   JGONZALEZ           5. se agregan campos para complementar la informacion de los despachos
+******************************************************************************/
+   (
+   NSINIES VARCHAR2(14),
+   NTRAMIT NUMBER(3),
+   NORDEN NUMBER(3),
+   CPROCESO NUMBER(8),
+   TPROCESO NUMBER(8),
+   CPOSTAL VARCHAR2(30),
+   CPOBLAC NUMBER(5),
+   CPROVIN NUMBER(5),
+   TIEXTERNO VARCHAR2(2000),
+   SPROFES NUMBER(8),
+   FRECEP DATE,
+   FNOTIFI DATE,
+   FVENCIMI DATE,
+   FRESPUES DATE,
+   FCONCIL DATE,
+   FDESVIN DATE,
+   TPRETEN CLOB,
+   TEXCEP1 CLOB,
+   TEXCEP2 CLOB,
+   CCONTI NUMBER(8),
+   CDESPA NUMBER(8),
+   CDESCF VARCHAR2(200),
+   CPROVINF NUMBER(8),
+   CPOBLACF NUMBER(8),
+   CDESPAO NUMBER(8),
+   CDESCO VARCHAR2(200),
+   CPROVINO NUMBER(8),
+   CPOBLACO NUMBER(8),
+   TCONTI VARCHAR2(200),
+   TCDESPA VARCHAR2(200),
+   CPOSICI NUMBER(8),
+   CDEMAND NUMBER(8),
+   SAPODERA NUMBER(10),
+   IDEMAND NUMBER,
+   FTDEMAN DATE,
+   ICONDEN NUMBER,
+   CSENTEN NUMBER(8),
+   FSENTE1 DATE,
+   CSENTEN2 NUMBER(8),
+   FSENTE2 DATE,
+   CASACION NUMBER(1),
+   FCASACI DATE,
+   CTSENTE NUMBER(8),
+   FTSENTE DATE,
+   VTSENTE VARCHAR2(20),
+   TFALLO CLOB,
+   GARANTIAS T_IAX_SIN_T_VALPRETENSION,
+   PERSONAS T_IAX_SIN_T_JUDICIAL_DETPER,
+   AUDIENCIAS T_IAX_SIN_T_JUDICIAL_AUDIEN,
+   FMODIFI DATE,
+   CUSUALT VARCHAR2(20),
+   NNUMIDEPROFES VARCHAR2(50),
+   NOMBREPROFES VARCHAR2(200),
+   NNUMIDEAPO VARCHAR2(50),
+   NOMBREAPO VARCHAR2(200),
+   ITOTASEG NUMBER(19,2),
+   ITOTPRET NUMBER(19,2),
+   CORALPROC NUMBER(2),
+   UNICAINST NUMBER(1),
+   FUNICAINST DATE,
+   CONSTRUCTOR FUNCTION ob_iax_sin_tramita_judicial
+      RETURN SELF AS RESULT
+      );
+/
+CREATE OR REPLACE EDITIONABLE TYPE BODY "AXIS"."OB_IAX_SIN_TRAMITA_JUDICIAL" AS
+   CONSTRUCTOR FUNCTION ob_iax_sin_tramita_judicial
+      RETURN SELF AS RESULT IS
+   BEGIN
+    SELF.NSINIES    :=NULL;
+    SELF.NTRAMIT    :=NULL;
+    SELF.NORDEN     :=NULL;
+    SELF.CPROCESO   :=NULL;
+    SELF.TPROCESO   :=NULL;
+    SELF.CPOSTAL    :=NULL;
+    SELF.CPOBLAC    :=NULL;
+    SELF.CPROVIN    :=NULL;
+    SELF.TIEXTERNO  :=NULL;
+    SELF.SPROFES    :=NULL;
+    SELF.FRECEP     :=NULL;
+    SELF.FNOTIFI    :=NULL;
+    SELF.FVENCIMI   :=NULL;
+    SELF.FRESPUES   :=NULL;
+    SELF.FCONCIL    :=NULL;
+    SELF.FDESVIN    :=NULL;
+    SELF.TPRETEN    :=NULL;
+    SELF.TEXCEP1    :=NULL;
+    SELF.TEXCEP2    :=NULL;
+    SELF.CCONTI     :=NULL;
+    SELF.CDESPA     :=NULL;
+    SELF.CDESCF     :=NULL;
+    SELF.CPROVINF   :=NULL;
+    SELF.CPOBLACF   :=NULL;
+    SELF.CDESPAO    :=NULL;
+    SELF.CDESCO     :=NULL;
+    SELF.CPROVINO   :=NULL;
+    SELF.CPOBLACO   :=NULL;
+    SELF.TCONTI     :=NULL;
+    SELF.TCDESPA    :=NULL;
+    SELF.CPOSICI    :=NULL;
+    SELF.CDEMAND    :=NULL;
+    SELF.SAPODERA   :=NULL;
+    SELF.IDEMAND    :=NULL;
+    SELF.FTDEMAN    :=NULL;
+    SELF.ICONDEN    :=NULL;
+    SELF.CSENTEN    :=NULL;
+    SELF.FSENTE1    :=NULL;
+    SELF.CSENTEN2   :=NULL;
+    SELF.FSENTE2    :=NULL;
+    SELF.CASACION   :=NULL;
+    SELF.FCASACI    :=NULL;
+    SELF.CTSENTE    :=NULL;
+    SELF.FTSENTE    :=NULL;
+    SELF.VTSENTE    :=NULL;
+    SELF.TFALLO     :=NULL;
+    SELF.GARANTIAS  :=T_IAX_SIN_T_VALPRETENSION();
+    SELF.PERSONAS   :=T_IAX_SIN_T_JUDICIAL_DETPER();
+    SELF.AUDIENCIAS :=T_IAX_SIN_T_JUDICIAL_AUDIEN();
+    SELF.FMODIFI    :=NULL;
+    SELF.CUSUALT    :=NULL;
+    SELF.CORALPROC :=NULL;
+    SELF.UNICAINST :=NULL;
+    SELF.FUNICAINST :=NULL;
+
+      RETURN;
+   END;
+END;
+
+/
+
+  GRANT EXECUTE ON "AXIS"."OB_IAX_SIN_TRAMITA_JUDICIAL" TO "R_AXIS";
+  GRANT EXECUTE ON "AXIS"."OB_IAX_SIN_TRAMITA_JUDICIAL" TO "CONF_DWH";
+  GRANT EXECUTE ON "AXIS"."OB_IAX_SIN_TRAMITA_JUDICIAL" TO "PROGRAMADORESCSI";

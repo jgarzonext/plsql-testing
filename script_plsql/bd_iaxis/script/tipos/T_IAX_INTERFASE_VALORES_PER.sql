@@ -1,0 +1,11 @@
+--------------------------------------------------------
+--  DDL for Type T_IAX_INTERFASE_VALORES_PER
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TYPE "AXIS"."T_IAX_INTERFASE_VALORES_PER" AS TABLE OF ob_iax_interfase_valores_per;
+
+/
+
+  GRANT EXECUTE ON "AXIS"."T_IAX_INTERFASE_VALORES_PER" TO "R_AXIS";
+  GRANT EXECUTE ON "AXIS"."T_IAX_INTERFASE_VALORES_PER" TO "CONF_DWH";
+  GRANT EXECUTE ON "AXIS"."T_IAX_INTERFASE_VALORES_PER" TO "PROGRAMADORESCSI";

@@ -1,0 +1,52 @@
+--------------------------------------------------------
+--  DDL for Table REEMBFACT
+--------------------------------------------------------
+
+  CREATE TABLE "AXIS"."REEMBFACT" 
+   (	"NREEMB" NUMBER(8,0), 
+	"NFACT" NUMBER(8,0), 
+	"NFACT_CLI" VARCHAR2(20 BYTE), 
+	"NCASS_ASE" VARCHAR2(20 BYTE), 
+	"NCASS" VARCHAR2(20 BYTE), 
+	"FACUSE" DATE, 
+	"FFACTURA" DATE, 
+	"FBAJA" DATE, 
+	"CUSUBAJA" VARCHAR2(20 BYTE), 
+	"IMPFACT" NUMBER, 
+	"FALTA" DATE, 
+	"CUSUALTA" VARCHAR2(20 BYTE), 
+	"CORIGEN" NUMBER(2,0), 
+	"NFACTEXT" VARCHAR2(25 BYTE), 
+	"CIMPRESION" VARCHAR2(1 BYTE), 
+	"CTIPOFAC" NUMBER(1,0), 
+	"CTRACTAT" NUMBER(1,0)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "AXIS"  ENABLE ROW MOVEMENT ;
+
+   COMMENT ON COLUMN "AXIS"."REEMBFACT"."NREEMB" IS 'Nº de reembolso';
+   COMMENT ON COLUMN "AXIS"."REEMBFACT"."NFACT" IS 'Nº de factura externo';
+   COMMENT ON COLUMN "AXIS"."REEMBFACT"."NFACT_CLI" IS 'Nº de factura proveedor. En el caso de ficheros CASS corresponde con el campo cassdet.nhoja';
+   COMMENT ON COLUMN "AXIS"."REEMBFACT"."NCASS_ASE" IS 'Solo se cumplimenta cuando el registro procede de fichero CASS: "Número CASS de l''assegurat" (no confundir con el asegurado de la póliza)';
+   COMMENT ON COLUMN "AXIS"."REEMBFACT"."NCASS" IS 'Nº de CASS del riesgo-asegurado.Cuando el registro procede de fichero CASS: "Número CASS del beneficiari"';
+   COMMENT ON COLUMN "AXIS"."REEMBFACT"."FACUSE" IS 'Fecha recepción factura';
+   COMMENT ON COLUMN "AXIS"."REEMBFACT"."FFACTURA" IS 'Fecha factura. En caso de fichero CASS corresponde a fecha remesa';
+   COMMENT ON COLUMN "AXIS"."REEMBFACT"."FBAJA" IS 'Fecha de baja de la factura';
+   COMMENT ON COLUMN "AXIS"."REEMBFACT"."CUSUBAJA" IS 'Usuario de baja';
+   COMMENT ON COLUMN "AXIS"."REEMBFACT"."IMPFACT" IS 'Importe factura';
+   COMMENT ON COLUMN "AXIS"."REEMBFACT"."FALTA" IS 'Fecha alta';
+   COMMENT ON COLUMN "AXIS"."REEMBFACT"."CUSUALTA" IS 'Usuario de alta';
+   COMMENT ON COLUMN "AXIS"."REEMBFACT"."CORIGEN" IS 'Valor Fijo "Origen": 0-    Automático 1-    Manual';
+   COMMENT ON COLUMN "AXIS"."REEMBFACT"."CIMPRESION" IS 'Valores S -> Si , N -> No';
+   COMMENT ON COLUMN "AXIS"."REEMBFACT"."CTIPOFAC" IS 'V.F. 896. 0 -> Complementaria , 1 -> Ordinaria';
+   COMMENT ON COLUMN "AXIS"."REEMBFACT"."CTRACTAT" IS 'Tractada (0=No, 1=Sí)?';
+  GRANT UPDATE ON "AXIS"."REEMBFACT" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."REEMBFACT" TO "R_AXIS";
+  GRANT INSERT ON "AXIS"."REEMBFACT" TO "R_AXIS";
+  GRANT DELETE ON "AXIS"."REEMBFACT" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."REEMBFACT" TO "CONF_DWH";
+  GRANT SELECT ON "AXIS"."REEMBFACT" TO "PROGRAMADORESCSI";

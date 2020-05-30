@@ -1,0 +1,53 @@
+--------------------------------------------------------
+--  DDL for Table MAP_DEBUG
+--------------------------------------------------------
+
+  CREATE TABLE "AXIS"."MAP_DEBUG" 
+   (	"SMAPEAD" NUMBER, 
+	"CMAPEAD" VARCHAR2(5 BYTE), 
+	"TPARE" VARCHAR2(60 BYTE), 
+	"NORDFILL" NUMBER(4,0), 
+	"TTAG" VARCHAR2(60 BYTE), 
+	"NORDENDEB" NUMBER(4,0), 
+	"TLINIAPARE" VARCHAR2(1000 BYTE), 
+	"TLINIA" VARCHAR2(1000 BYTE), 
+	"TCAMPO" VARCHAR2(30 BYTE), 
+	"NNUMLIN" NUMBER, 
+	"TCONDICION" VARCHAR2(1000 BYTE), 
+	"CTABLA" NUMBER(8,0), 
+	"NVECES" NUMBER(6,0), 
+	"NCONDI" NUMBER(6,0), 
+	"CTIPO" NUMBER(2,0), 
+	"TMENSAJE" VARCHAR2(500 BYTE), 
+	"FDEBUG" DATE
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS NOLOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "AXIS" ;
+
+   COMMENT ON COLUMN "AXIS"."MAP_DEBUG"."SMAPEAD" IS 'Secuencia del mapeador';
+   COMMENT ON COLUMN "AXIS"."MAP_DEBUG"."CMAPEAD" IS 'Código del mapeador';
+   COMMENT ON COLUMN "AXIS"."MAP_DEBUG"."TPARE" IS 'Nombre del tag padre';
+   COMMENT ON COLUMN "AXIS"."MAP_DEBUG"."NORDFILL" IS 'Orden del tag en el padre';
+   COMMENT ON COLUMN "AXIS"."MAP_DEBUG"."TTAG" IS 'Nombre del tag';
+   COMMENT ON COLUMN "AXIS"."MAP_DEBUG"."NORDENDEB" IS 'Orden en la ejecución del debug';
+   COMMENT ON COLUMN "AXIS"."MAP_DEBUG"."TLINIAPARE" IS 'Linea del padre';
+   COMMENT ON COLUMN "AXIS"."MAP_DEBUG"."TLINIA" IS 'Contenido de la línea';
+   COMMENT ON COLUMN "AXIS"."MAP_DEBUG"."TCAMPO" IS 'Campo en la que se grabaran o obtendran los datos';
+   COMMENT ON COLUMN "AXIS"."MAP_DEBUG"."NNUMLIN" IS 'Número de la linea que se trata';
+   COMMENT ON COLUMN "AXIS"."MAP_DEBUG"."TCONDICION" IS 'Expresión de la condición de línea (puede ser compleja)';
+   COMMENT ON COLUMN "AXIS"."MAP_DEBUG"."CTABLA" IS 'Código de la tabla en la que se grabaran o obtendran los datos';
+   COMMENT ON COLUMN "AXIS"."MAP_DEBUG"."NVECES" IS 'Número de veces del campo en la tabla para una linea del fichero';
+   COMMENT ON COLUMN "AXIS"."MAP_DEBUG"."NCONDI" IS 'Condición simple';
+   COMMENT ON COLUMN "AXIS"."MAP_DEBUG"."CTIPO" IS 'Tipo de control de debuger';
+   COMMENT ON COLUMN "AXIS"."MAP_DEBUG"."TMENSAJE" IS 'Comentario del debuger';
+   COMMENT ON COLUMN "AXIS"."MAP_DEBUG"."FDEBUG" IS 'Fecha de grabación de la linea en la tabla';
+  GRANT UPDATE ON "AXIS"."MAP_DEBUG" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."MAP_DEBUG" TO "R_AXIS";
+  GRANT INSERT ON "AXIS"."MAP_DEBUG" TO "R_AXIS";
+  GRANT DELETE ON "AXIS"."MAP_DEBUG" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."MAP_DEBUG" TO "CONF_DWH";
+  GRANT SELECT ON "AXIS"."MAP_DEBUG" TO "PROGRAMADORESCSI";

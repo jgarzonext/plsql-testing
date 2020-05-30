@@ -1,0 +1,70 @@
+--------------------------------------------------------
+--  DDL for Trigger TRG_HIS_PROD_PLANT_CAB
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TRIGGER "AXIS"."TRG_HIS_PROD_PLANT_CAB" 
+   BEFORE UPDATE OR DELETE
+   ON PROD_PLANT_CAB
+   FOR EACH ROW
+   DECLARE
+       vaccion VARCHAR2(2);
+BEGIN
+   IF UPDATING THEN
+       vaccion := 'U';
+   ELSE
+       vaccion := 'D';
+   END IF;
+
+      -- crear registro histórico
+      INSERT INTO his_PROD_PLANT_CAB(
+SPRODUC,
+CTIPO,
+CCODPLAN,
+IMP_DEST,
+FDESDE,
+FHASTA,
+CGARANT,
+CDUPLICA,
+NORDEN,
+CLAVE,
+NRESPUE,
+TCOPIAS,
+CCATEGORIA,
+CDIFERIDO,
+CUSUALT,
+FALTA,
+CUSUMOD,
+FMODIFI,
+CUSUHIST,FCREAHIST,ACCION)
+VALUES(
+:OLD.SPRODUC,
+:OLD.CTIPO,
+:OLD.CCODPLAN,
+:OLD.IMP_DEST,
+:OLD.FDESDE,
+:OLD.FHASTA,
+:OLD.CGARANT,
+:OLD.CDUPLICA,
+:OLD.NORDEN,
+:OLD.CLAVE,
+:OLD.NRESPUE,
+:OLD.TCOPIAS,
+:OLD.CCATEGORIA,
+:OLD.CDIFERIDO,
+:OLD.CUSUALT,
+:OLD.FALTA,
+:OLD.CUSUMOD,
+:OLD.FMODIFI,
+f_user, f_sysdate, ''||vaccion||'');
+EXCEPTION
+   WHEN OTHERS THEN
+      p_tab_error(f_sysdate, f_user, 'TRIGGER trg_his_PROD_PLANT_CAB', 1, SQLCODE, SQLERRM);
+      RAISE;
+END trg_his_PROD_PLANT_CAB;
+
+
+
+
+
+/
+ALTER TRIGGER "AXIS"."TRG_HIS_PROD_PLANT_CAB" ENABLE;

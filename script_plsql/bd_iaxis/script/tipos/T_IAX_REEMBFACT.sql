@@ -1,0 +1,11 @@
+--------------------------------------------------------
+--  DDL for Type T_IAX_REEMBFACT
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TYPE "AXIS"."T_IAX_REEMBFACT" AS TABLE OF OB_IAX_REEMBFACT;
+
+/
+
+  GRANT EXECUTE ON "AXIS"."T_IAX_REEMBFACT" TO "R_AXIS";
+  GRANT EXECUTE ON "AXIS"."T_IAX_REEMBFACT" TO "CONF_DWH";
+  GRANT EXECUTE ON "AXIS"."T_IAX_REEMBFACT" TO "PROGRAMADORESCSI";

@@ -1,0 +1,79 @@
+--------------------------------------------------------
+--  DDL for Table USUARIOS
+--------------------------------------------------------
+
+  CREATE TABLE "AXIS"."USUARIOS" 
+   (	"CUSUARI" VARCHAR2(20 BYTE), 
+	"CIDIOMA" NUMBER(2,0), 
+	"CEMPRES" NUMBER(2,0), 
+	"TUSUNOM" VARCHAR2(70 BYTE), 
+	"TPCPATH" VARCHAR2(30 BYTE), 
+	"CDELEGA" NUMBER, 
+	"CPROVIN" NUMBER, 
+	"CPOBLAC" NUMBER, 
+	"CVISTAS" NUMBER(3,0), 
+	"CWEB" NUMBER(1,0), 
+	"REPSERVER" VARCHAR2(100 BYTE), 
+	"EJECUCION" NUMBER(1,0), 
+	"SPERSON" NUMBER(10,0), 
+	"FBAJA" DATE, 
+	"CTIPUSU" NUMBER(2,0), 
+	"CAGECOB" NUMBER(6,0), 
+	"COPCION" NUMBER(6,0), 
+	"TPWD" VARCHAR2(100 BYTE), 
+	"FALTA" DATE, 
+	"CUSUBBDD" VARCHAR2(30 BYTE), 
+	"CAUTLOG" NUMBER(1,0), 
+	"CEMPLEADO" VARCHAR2(100 BYTE) DEFAULT NULL, 
+	"CTERMINAL" VARCHAR2(50 BYTE), 
+	"CUSUBAJA" VARCHAR2(20 BYTE), 
+	"CTERMFISIC" VARCHAR2(50 BYTE), 
+	"CISLOGGED" NUMBER(1,0) DEFAULT 0, 
+	"FLOGIN" DATE, 
+	"CNSESIONES" NUMBER DEFAULT 0, 
+	"CVISPUBLI" NUMBER(1,0) DEFAULT 1, 
+	"CBLOQUEO" NUMBER(5,0), 
+	"FBLOQUEO" DATE, 
+	"MAIL_USU" VARCHAR2(100 BYTE), 
+	"TELFUSU" VARCHAR2(50 BYTE), 
+	"UNIDEPT" NUMBER, 
+	"CATEGPROF" NUMBER, 
+	"NDEBUG" NUMBER DEFAULT 1
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "AXIS" ;
+
+   COMMENT ON COLUMN "AXIS"."USUARIOS"."CUSUARI" IS 'Código de usuario.';
+   COMMENT ON COLUMN "AXIS"."USUARIOS"."CIDIOMA" IS 'Código de Idioma';
+   COMMENT ON COLUMN "AXIS"."USUARIOS"."CEMPRES" IS ' CAMPO OBSOLETO !!! NO UTILIZAR !!! Código de emprea. ';
+   COMMENT ON COLUMN "AXIS"."USUARIOS"."TUSUNOM" IS 'Nombre de usuario';
+   COMMENT ON COLUMN "AXIS"."USUARIOS"."TPCPATH" IS 'Path dónde se ubicaran los ficheros generados';
+   COMMENT ON COLUMN "AXIS"."USUARIOS"."CDELEGA" IS 'Código de agente de la Red comercial que tiene asignado el usuario';
+   COMMENT ON COLUMN "AXIS"."USUARIOS"."CAGECOB" IS 'Código de agente de cobro';
+   COMMENT ON COLUMN "AXIS"."USUARIOS"."COPCION" IS 'Opción de inicio del menú del usuario';
+   COMMENT ON COLUMN "AXIS"."USUARIOS"."CUSUBBDD" IS 'Código de usuario (Lógico) de Base de Datos';
+   COMMENT ON COLUMN "AXIS"."USUARIOS"."CAUTLOG" IS '1 usuario con autologin activado / 0 usuario sin autologin activado';
+   COMMENT ON COLUMN "AXIS"."USUARIOS"."CEMPLEADO" IS 'Código de empleado';
+   COMMENT ON COLUMN "AXIS"."USUARIOS"."CUSUBAJA" IS 'Data de baixa del usuari.';
+   COMMENT ON COLUMN "AXIS"."USUARIOS"."CTERMFISIC" IS 'Terminal físic de l''usuari';
+   COMMENT ON COLUMN "AXIS"."USUARIOS"."CISLOGGED" IS 'Indica si el usuario esta dentro del sistema.';
+   COMMENT ON COLUMN "AXIS"."USUARIOS"."FLOGIN" IS 'Fecha / Hora en que el usuario se ha conectado al sistema.';
+   COMMENT ON COLUMN "AXIS"."USUARIOS"."CNSESIONES" IS 'Numero de conexiones del usuario en el sistema.';
+   COMMENT ON COLUMN "AXIS"."USUARIOS"."CVISPUBLI" IS 'Usuario autorizado a ver persona publicas';
+   COMMENT ON COLUMN "AXIS"."USUARIOS"."CBLOQUEO" IS 'Código de Bloqueo (1 bloqueado)';
+   COMMENT ON COLUMN "AXIS"."USUARIOS"."FBLOQUEO" IS 'Fecha del bloqueo';
+   COMMENT ON COLUMN "AXIS"."USUARIOS"."MAIL_USU" IS 'Correo del usuario';
+   COMMENT ON COLUMN "AXIS"."USUARIOS"."TELFUSU" IS 'Almacena el telefono de los usuarios.';
+   COMMENT ON COLUMN "AXIS"."USUARIOS"."UNIDEPT" IS 'Unidad o departamento del usuario (Valor fijo: 8000946)';
+   COMMENT ON COLUMN "AXIS"."USUARIOS"."CATEGPROF" IS 'Categoria profesional (Valor fijo: 8000947)';
+   COMMENT ON COLUMN "AXIS"."USUARIOS"."NDEBUG" IS 'Nivel de debug en la aplicaci¿n. Trazas que se guardar¿n en TAB_ERROR (1 errores, 50 errores y warnings, 99 todo, trazas informativas tambi¿n)';
+  GRANT UPDATE ON "AXIS"."USUARIOS" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."USUARIOS" TO "R_AXIS";
+  GRANT INSERT ON "AXIS"."USUARIOS" TO "R_AXIS";
+  GRANT DELETE ON "AXIS"."USUARIOS" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."USUARIOS" TO "CONF_DWH";
+  GRANT SELECT ON "AXIS"."USUARIOS" TO "PROGRAMADORESCSI";

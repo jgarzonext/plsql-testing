@@ -1,0 +1,38 @@
+--------------------------------------------------------
+--  DDL for Table SIN_IMP_SAP_LOG
+--------------------------------------------------------
+
+  CREATE TABLE "AXIS"."SIN_IMP_SAP_LOG" 
+   (	"SIMPLOG" NUMBER, 
+	"SIDEPAG" NUMBER, 
+	"CTIPRES" NUMBER, 
+	"NMOVRES" NUMBER, 
+	"NORDEN" NUMBER, 
+	"SGESTIO" NUMBER, 
+	"CTIPIND" NUMBER, 
+	"NSINIES" VARCHAR2(14 BYTE), 
+	"NTRAMIT" NUMBER
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "AXIS" ;
+
+   COMMENT ON COLUMN "AXIS"."SIN_IMP_SAP_LOG"."SIMPLOG" IS 'Secuencia (PK)';
+   COMMENT ON COLUMN "AXIS"."SIN_IMP_SAP_LOG"."SIDEPAG" IS 'Número pago (Clave sin_tramita_pago_gar)';
+   COMMENT ON COLUMN "AXIS"."SIN_IMP_SAP_LOG"."CTIPRES" IS 'Tipo de reserva (Clave sin_tramita_pago_gar)';
+   COMMENT ON COLUMN "AXIS"."SIN_IMP_SAP_LOG"."NMOVRES" IS 'Movimiento de reserva (Clave sin_tramita_pago_gar)';
+   COMMENT ON COLUMN "AXIS"."SIN_IMP_SAP_LOG"."NORDEN" IS 'Orden detalle del pago (Clave sin_tramita_pago_gar)';
+   COMMENT ON COLUMN "AXIS"."SIN_IMP_SAP_LOG"."SGESTIO" IS 'Numero gestion (Clave sin_tramita_gestion)';
+   COMMENT ON COLUMN "AXIS"."SIN_IMP_SAP_LOG"."CTIPIND" IS 'Código del tipo de indicador';
+   COMMENT ON COLUMN "AXIS"."SIN_IMP_SAP_LOG"."NSINIES" IS 'Numero siniestro (Clave sin_tramita_reserva)';
+   COMMENT ON COLUMN "AXIS"."SIN_IMP_SAP_LOG"."NTRAMIT" IS 'Numero tramitacion (Clave sin_tramita_reserva)';
+   COMMENT ON TABLE "AXIS"."SIN_IMP_SAP_LOG"  IS 'Indicadores de impuestos SAP en pagos y gestiones';
+  GRANT UPDATE ON "AXIS"."SIN_IMP_SAP_LOG" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."SIN_IMP_SAP_LOG" TO "R_AXIS";
+  GRANT INSERT ON "AXIS"."SIN_IMP_SAP_LOG" TO "R_AXIS";
+  GRANT DELETE ON "AXIS"."SIN_IMP_SAP_LOG" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."SIN_IMP_SAP_LOG" TO "CONF_DWH";
+  GRANT SELECT ON "AXIS"."SIN_IMP_SAP_LOG" TO "PROGRAMADORESCSI";

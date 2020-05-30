@@ -1,0 +1,8 @@
+--------------------------------------------------------
+--  DDL for Sequence STRAS
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "AXIS"."STRAS"  MINVALUE 0 MAXVALUE 999999999999999999999999999 INCREMENT BY 1 START WITH 793 NOCACHE  NOORDER  NOCYCLE   ;
+  GRANT SELECT ON "AXIS"."STRAS" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."STRAS" TO "CONF_DWH";
+  GRANT SELECT ON "AXIS"."STRAS" TO "PROGRAMADORESCSI";

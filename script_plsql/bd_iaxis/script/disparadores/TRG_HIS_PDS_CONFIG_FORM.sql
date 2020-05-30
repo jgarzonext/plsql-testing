@@ -1,0 +1,58 @@
+--------------------------------------------------------
+--  DDL for Trigger TRG_HIS_PDS_CONFIG_FORM
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TRIGGER "AXIS"."TRG_HIS_PDS_CONFIG_FORM" 
+   BEFORE UPDATE OR DELETE
+   ON PDS_CONFIG_FORM
+   FOR EACH ROW
+   DECLARE
+       vaccion VARCHAR2(2);
+BEGIN
+   IF UPDATING THEN
+       vaccion := 'U';
+   ELSE
+       vaccion := 'D';
+   END IF;
+
+      -- crear registro histórico
+      INSERT INTO his_PDS_CONFIG_FORM(
+CCONFORM,
+CMODO,
+SPRODUC,
+TCAMPO,
+TFORM,
+TPROPERTY,
+TVALUE,
+NORDEN,
+CUSUALT,
+FALTA,
+CUSUMOD,
+FMODIFI,
+CUSUHIST,FCREAHIST,ACCION)
+VALUES(
+:OLD.CCONFORM,
+:OLD.CMODO,
+:OLD.SPRODUC,
+:OLD.TCAMPO,
+:OLD.TFORM,
+:OLD.TPROPERTY,
+:OLD.TVALUE,
+:OLD.NORDEN,
+:OLD.CUSUALT,
+:OLD.FALTA,
+:OLD.CUSUMOD,
+:OLD.FMODIFI,
+f_user, f_sysdate, ''||vaccion||'');
+EXCEPTION
+   WHEN OTHERS THEN
+      p_tab_error(f_sysdate, f_user, 'TRIGGER trg_his_PDS_CONFIG_FORM', 1, SQLCODE, SQLERRM);
+      RAISE;
+END trg_his_PDS_CONFIG_FORM;
+
+
+
+
+
+/
+ALTER TRIGGER "AXIS"."TRG_HIS_PDS_CONFIG_FORM" ENABLE;

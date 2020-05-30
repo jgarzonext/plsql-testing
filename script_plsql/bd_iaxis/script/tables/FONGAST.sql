@@ -1,0 +1,36 @@
+--------------------------------------------------------
+--  DDL for Table FONGAST
+--------------------------------------------------------
+
+  CREATE TABLE "AXIS"."FONGAST" 
+   (	"CCODFON" NUMBER(3,0), 
+	"FINICIO" DATE, 
+	"FFIN" DATE, 
+	"IIMPMIN" NUMBER(12,3), 
+	"IIMPMAX" NUMBER(12,3), 
+	"CDIVISA" NUMBER(2,0), 
+	"PGASTOS" NUMBER(12,9), 
+	"IIMPFIJ" NUMBER(12,3), 
+	"COLUMN9" NUMBER, 
+	"CTIPCOM" NUMBER(3,0), 
+	"CCONCEP" NUMBER(3,0), 
+	"CTIPOCALCUL" NUMBER(3,0), 
+	"CLAVE" NUMBER(6,0)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "AXIS" ;
+
+   COMMENT ON COLUMN "AXIS"."FONGAST"."CTIPCOM" IS 'Tipo de comisión de los Gastos del Fondo.VF=1027';
+   COMMENT ON COLUMN "AXIS"."FONGAST"."CCONCEP" IS 'En caso de tipo comisión por cierre, la comision se calcula sobre el concepto definido en este campo.VF=1028';
+   COMMENT ON COLUMN "AXIS"."FONGAST"."CTIPOCALCUL" IS 'Tipo de Calculo para los Gastos del Fondo (tanto por cierre como por recibo).VF=1029';
+   COMMENT ON COLUMN "AXIS"."FONGAST"."CLAVE" IS 'Formula para calcular la comision de los Gastos del Fondo (tanto por cierre como por recibo)';
+  GRANT UPDATE ON "AXIS"."FONGAST" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."FONGAST" TO "R_AXIS";
+  GRANT INSERT ON "AXIS"."FONGAST" TO "R_AXIS";
+  GRANT DELETE ON "AXIS"."FONGAST" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."FONGAST" TO "CONF_DWH";
+  GRANT SELECT ON "AXIS"."FONGAST" TO "PROGRAMADORESCSI";

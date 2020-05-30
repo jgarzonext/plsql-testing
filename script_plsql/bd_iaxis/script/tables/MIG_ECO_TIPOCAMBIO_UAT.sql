@@ -1,0 +1,13 @@
+BEGIN
+  PAC_SKIP_ORA.P_COMPROVADROP('MIG_ECO_TIPOCAMBIO_UAT','TABLE');
+END;
+/
+create table MIG_ECO_TIPOCAMBIO_UAT
+(
+  cmonori VARCHAR2(3),
+  cmondes VARCHAR2(3),
+  fcambio DATE,
+  itasa   NUMBER,
+  mig_pk  VARCHAR2(50)
+);
+/

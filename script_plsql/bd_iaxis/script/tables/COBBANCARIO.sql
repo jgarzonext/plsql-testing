@@ -1,0 +1,68 @@
+--------------------------------------------------------
+--  DDL for Table COBBANCARIO
+--------------------------------------------------------
+
+  CREATE TABLE "AXIS"."COBBANCARIO" 
+   (	"CCOBBAN" NUMBER(3,0), 
+	"NCUENTA" VARCHAR2(50 BYTE), 
+	"TSUFIJO" VARCHAR2(4 BYTE), 
+	"CEMPRES" NUMBER(2,0), 
+	"CDOMENT" NUMBER(4,0), 
+	"CDOMSUC" NUMBER(4,0), 
+	"NPRISEL" NUMBER(2,0), 
+	"CBAJA" NUMBER(1,0), 
+	"DESCRIPCION" VARCHAR2(50 BYTE), 
+	"NNUMNIF" VARCHAR2(50 BYTE), 
+	"TCOBBAN" VARCHAR2(40 BYTE), 
+	"CTIPBAN" NUMBER(3,0), 
+	"CCONTABAN" NUMBER(4,0), 
+	"DOM_FILLER_LN3" VARCHAR2(1 BYTE) DEFAULT '.', 
+	"PRECIMP" NUMBER(6,2), 
+	"CAGRUPREC" NUMBER(1,0), 
+	"DOM_FILE_PREFIJO" VARCHAR2(10 BYTE), 
+	"DOM_FILE_EXT" VARCHAR2(10 BYTE), 
+	"DOM_FILE_NOMBRE" VARCHAR2(100 BYTE), 
+	"DOM_FILE_SEP" VARCHAR2(1 BYTE), 
+	"NOT_FILE_PREFIJO" VARCHAR2(10 BYTE), 
+	"TFUNC" VARCHAR2(500 BYTE), 
+	"CNOTIFI" NUMBER(2,0) DEFAULT 0, 
+	"CTARJETA" NUMBER, 
+	"NCUENTA_IBAN" VARCHAR2(50 BYTE), 
+	"TRANSF_FILE_PREFIJO" VARCHAR2(10 BYTE), 
+	"TRANSF_FILE_EXT" VARCHAR2(10 BYTE), 
+	"TRANSF_DOM_FILE_NOMBRE" VARCHAR2(100 BYTE)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "AXIS" ;
+
+   COMMENT ON COLUMN "AXIS"."COBBANCARIO"."CCOBBAN" IS 'Código de cobrador bancario';
+   COMMENT ON COLUMN "AXIS"."COBBANCARIO"."NCUENTA" IS 'Cuenta de domiciliación';
+   COMMENT ON COLUMN "AXIS"."COBBANCARIO"."TSUFIJO" IS 'Sufijo asignado en la norma 19 - [LCOL: Bancario colectivo]';
+   COMMENT ON COLUMN "AXIS"."COBBANCARIO"."CEMPRES" IS 'Código de Empresa';
+   COMMENT ON COLUMN "AXIS"."COBBANCARIO"."DESCRIPCION" IS 'Descripcion de la entidad bancaria';
+   COMMENT ON COLUMN "AXIS"."COBBANCARIO"."NNUMNIF" IS 'Excepción :Nif cobrador domis <> empresa - [LCOL: Cod. Convenio / Establecimiento / Comercio]';
+   COMMENT ON COLUMN "AXIS"."COBBANCARIO"."TCOBBAN" IS 'Literal para los recibos - [LCOL: Terminal / Compensación adquiriente / Producto]';
+   COMMENT ON COLUMN "AXIS"."COBBANCARIO"."CTIPBAN" IS 'Tipo de cuenta ( iban o cuenta bancaria). [tabla maestra: TIPOS_CUENTA]';
+   COMMENT ON COLUMN "AXIS"."COBBANCARIO"."CCONTABAN" IS 'Código contable para el cobrador bancario';
+   COMMENT ON COLUMN "AXIS"."COBBANCARIO"."DOM_FILLER_LN3" IS 'Filler para las lineas ''3'' del fichero de domiciliación';
+   COMMENT ON COLUMN "AXIS"."COBBANCARIO"."PRECIMP" IS 'Porcentaje de recargo por impago';
+   COMMENT ON COLUMN "AXIS"."COBBANCARIO"."CAGRUPREC" IS 'Check que indica si el cobrador bancario tiene la funcionalidad de la agrupación/unificación de los recibos (1) o no (0)';
+   COMMENT ON COLUMN "AXIS"."COBBANCARIO"."DOM_FILE_PREFIJO" IS 'Prefijo del fichero de domiciliación';
+   COMMENT ON COLUMN "AXIS"."COBBANCARIO"."DOM_FILE_EXT" IS 'Extensión del fichero de domiciliación';
+   COMMENT ON COLUMN "AXIS"."COBBANCARIO"."DOM_FILE_NOMBRE" IS 'Nombre del fichero de domiciliación';
+   COMMENT ON COLUMN "AXIS"."COBBANCARIO"."DOM_FILE_SEP" IS 'Separador del fichero de domiciliación';
+   COMMENT ON COLUMN "AXIS"."COBBANCARIO"."NOT_FILE_PREFIJO" IS 'Prefijo del fichero de notificación';
+   COMMENT ON COLUMN "AXIS"."COBBANCARIO"."TFUNC" IS 'Función para generar fichero específico para tipo cuenta';
+   COMMENT ON COLUMN "AXIS"."COBBANCARIO"."CNOTIFI" IS 'Requiere notificacion. 0-No, 1-Sí';
+   COMMENT ON COLUMN "AXIS"."COBBANCARIO"."CTARJETA" IS 'Si la cuenta del cliente (cbancar) es tarjeta = 1, sino = 0';
+   COMMENT ON COLUMN "AXIS"."COBBANCARIO"."NCUENTA_IBAN" IS 'Código IBAN';
+  GRANT UPDATE ON "AXIS"."COBBANCARIO" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."COBBANCARIO" TO "R_AXIS";
+  GRANT INSERT ON "AXIS"."COBBANCARIO" TO "R_AXIS";
+  GRANT DELETE ON "AXIS"."COBBANCARIO" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."COBBANCARIO" TO "CONF_DWH";
+  GRANT SELECT ON "AXIS"."COBBANCARIO" TO "PROGRAMADORESCSI";

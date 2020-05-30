@@ -1,0 +1,11 @@
+--------------------------------------------------------
+--  DDL for Type T_IAX_SITRIESGO
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TYPE "AXIS"."T_IAX_SITRIESGO" AS TABLE OF OB_IAX_SITRIESGO;
+
+/
+
+  GRANT EXECUTE ON "AXIS"."T_IAX_SITRIESGO" TO "R_AXIS";
+  GRANT EXECUTE ON "AXIS"."T_IAX_SITRIESGO" TO "CONF_DWH";
+  GRANT EXECUTE ON "AXIS"."T_IAX_SITRIESGO" TO "PROGRAMADORESCSI";

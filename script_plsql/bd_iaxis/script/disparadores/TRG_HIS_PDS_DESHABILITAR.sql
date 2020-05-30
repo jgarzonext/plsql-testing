@@ -1,0 +1,58 @@
+--------------------------------------------------------
+--  DDL for Trigger TRG_HIS_PDS_DESHABILITAR
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TRIGGER "AXIS"."TRG_HIS_PDS_DESHABILITAR" 
+   BEFORE UPDATE OR DELETE
+   ON PDS_DESHABILITAR
+   FOR EACH ROW
+   DECLARE
+       vaccion VARCHAR2(2);
+BEGIN
+   IF UPDATING THEN
+       vaccion := 'U';
+   ELSE
+       vaccion := 'D';
+   END IF;
+
+      -- crear registro histórico
+      INSERT INTO his_PDS_DESHABILITAR(
+CMOTMOV,
+SPRODUC,
+TFORM,
+CCAMPDES,
+CCAMPVAL,
+TTABLVAL,
+VALOR,
+CMODO,
+CUSUALT,
+FALTA,
+CUSUMOD,
+FMODIFI,
+CUSUHIST,FCREAHIST,ACCION)
+VALUES(
+:OLD.CMOTMOV,
+:OLD.SPRODUC,
+:OLD.TFORM,
+:OLD.CCAMPDES,
+:OLD.CCAMPVAL,
+:OLD.TTABLVAL,
+:OLD.VALOR,
+:OLD.CMODO,
+:OLD.CUSUALT,
+:OLD.FALTA,
+:OLD.CUSUMOD,
+:OLD.FMODIFI,
+f_user, f_sysdate, ''||vaccion||'');
+EXCEPTION
+   WHEN OTHERS THEN
+      p_tab_error(f_sysdate, f_user, 'TRIGGER trg_his_PDS_DESHABILITAR', 1, SQLCODE, SQLERRM);
+      RAISE;
+END trg_his_PDS_DESHABILITAR;
+
+
+
+
+
+/
+ALTER TRIGGER "AXIS"."TRG_HIS_PDS_DESHABILITAR" ENABLE;

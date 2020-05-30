@@ -1,0 +1,11 @@
+--------------------------------------------------------
+--  DDL for Type T_IAX_PROVINCIAS
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TYPE "AXIS"."T_IAX_PROVINCIAS" AS TABLE OF OB_IAX_PROVINCIAS;
+
+/
+
+  GRANT EXECUTE ON "AXIS"."T_IAX_PROVINCIAS" TO "R_AXIS";
+  GRANT EXECUTE ON "AXIS"."T_IAX_PROVINCIAS" TO "CONF_DWH";
+  GRANT EXECUTE ON "AXIS"."T_IAX_PROVINCIAS" TO "PROGRAMADORESCSI";

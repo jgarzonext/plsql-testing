@@ -1,0 +1,51 @@
+--------------------------------------------------------
+--  DDL for Table CONTAB_ASIENT_DET
+--------------------------------------------------------
+
+  CREATE TABLE "AXIS"."CONTAB_ASIENT_DET" 
+   (	"SPROCES" NUMBER, 
+	"NLINEA" NUMBER, 
+	"TOUTDIA" VARCHAR2(2000 BYTE), 
+	"FPROCESO" DATE, 
+	"NASIENT" NUMBER, 
+	"NLINEA_CONTA" NUMBER, 
+	"CCUENTA" VARCHAR2(50 BYTE), 
+	"TAPUNTE" VARCHAR2(1 BYTE), 
+	"IAPUNTE" NUMBER, 
+	"CPROCES" NUMBER, 
+	"FCONTAB" DATE, 
+	"FEFEADM" DATE, 
+	"NPOLIZA" NUMBER, 
+	"NRECIBO" NUMBER, 
+	"NSINIES" NUMBER, 
+	"CENLACE" VARCHAR2(20 BYTE), 
+	"CPAIS" NUMBER
+   ) SEGMENT CREATION DEFERRED 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "AXIS" ;
+
+   COMMENT ON COLUMN "AXIS"."CONTAB_ASIENT_DET"."SPROCES" IS 'Código secuencial del proceso';
+   COMMENT ON COLUMN "AXIS"."CONTAB_ASIENT_DET"."NLINEA" IS 'Número de línea, (relativo) dentro del proceso';
+   COMMENT ON COLUMN "AXIS"."CONTAB_ASIENT_DET"."TOUTDIA" IS 'Información contable, resultado de la ejecución de una consulta de contabilidad';
+   COMMENT ON COLUMN "AXIS"."CONTAB_ASIENT_DET"."FPROCESO" IS 'Fecha en que se ejecuta el proceso y carga la tabla';
+   COMMENT ON COLUMN "AXIS"."CONTAB_ASIENT_DET"."NASIENT" IS 'Número de asiento - SMODCON';
+   COMMENT ON COLUMN "AXIS"."CONTAB_ASIENT_DET"."NLINEA_CONTA" IS 'Número de línea en contabilidad dentro del asiento - NLINEA de DETMODCONTA';
+   COMMENT ON COLUMN "AXIS"."CONTAB_ASIENT_DET"."CCUENTA" IS 'Número de cuenta. Incluye coletilla';
+   COMMENT ON COLUMN "AXIS"."CONTAB_ASIENT_DET"."TAPUNTE" IS 'Tipo del apunte';
+   COMMENT ON COLUMN "AXIS"."CONTAB_ASIENT_DET"."IAPUNTE" IS 'Importe del apunte';
+   COMMENT ON COLUMN "AXIS"."CONTAB_ASIENT_DET"."CPROCES" IS 'Código de proceso - Sucursal';
+   COMMENT ON COLUMN "AXIS"."CONTAB_ASIENT_DET"."FCONTAB" IS 'Fecha contable del asiento';
+   COMMENT ON COLUMN "AXIS"."CONTAB_ASIENT_DET"."FEFEADM" IS 'Fecha de administración';
+   COMMENT ON COLUMN "AXIS"."CONTAB_ASIENT_DET"."NPOLIZA" IS 'Número de la póliza';
+   COMMENT ON COLUMN "AXIS"."CONTAB_ASIENT_DET"."NRECIBO" IS 'Número del recibo';
+   COMMENT ON COLUMN "AXIS"."CONTAB_ASIENT_DET"."NSINIES" IS 'Número del siniestro';
+   COMMENT ON COLUMN "AXIS"."CONTAB_ASIENT_DET"."CENLACE" IS 'Clave del enlace';
+   COMMENT ON COLUMN "AXIS"."CONTAB_ASIENT_DET"."CPAIS" IS 'Pais de residencia';
+   COMMENT ON TABLE "AXIS"."CONTAB_ASIENT_DET"  IS 'Tabla para guardar la información del informe de búsqueda de contabilidad diaria';
+  GRANT UPDATE ON "AXIS"."CONTAB_ASIENT_DET" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."CONTAB_ASIENT_DET" TO "R_AXIS";
+  GRANT INSERT ON "AXIS"."CONTAB_ASIENT_DET" TO "R_AXIS";
+  GRANT DELETE ON "AXIS"."CONTAB_ASIENT_DET" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."CONTAB_ASIENT_DET" TO "CONF_DWH";
+  GRANT SELECT ON "AXIS"."CONTAB_ASIENT_DET" TO "PROGRAMADORESCSI";

@@ -1,0 +1,66 @@
+--------------------------------------------------------
+--  DDL for Trigger TRG_HIS_CLAUSUPRO
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TRIGGER "AXIS"."TRG_HIS_CLAUSUPRO" 
+   BEFORE UPDATE OR DELETE
+   ON CLAUSUPRO
+   FOR EACH ROW
+   DECLARE
+       vaccion VARCHAR2(2);
+BEGIN
+   IF UPDATING THEN
+       vaccion := 'U';
+   ELSE
+       vaccion := 'D';
+   END IF;
+
+      -- crear registro histórico
+      INSERT INTO his_CLAUSUPRO(
+SCLAPRO,
+CCOLECT,
+CRAMO,
+CTIPSEG,
+CMODALI,
+CTIPCLA,
+SCLAGEN,
+NORDEN,
+CCAPITU,
+TIMAGEN,
+MULTIPLE,
+CCLAUCOLEC,
+CUSUALT,
+FALTA,
+CUSUMOD,
+FMODIFI,
+CUSUHIST,FCREAHIST,ACCION)
+VALUES(
+:OLD.SCLAPRO,
+:OLD.CCOLECT,
+:OLD.CRAMO,
+:OLD.CTIPSEG,
+:OLD.CMODALI,
+:OLD.CTIPCLA,
+:OLD.SCLAGEN,
+:OLD.NORDEN,
+:OLD.CCAPITU,
+:OLD.TIMAGEN,
+:OLD.MULTIPLE,
+:OLD.CCLAUCOLEC,
+:OLD.CUSUALT,
+:OLD.FALTA,
+:OLD.CUSUMOD,
+:OLD.FMODIFI,
+f_user, f_sysdate, ''||vaccion||'');
+EXCEPTION
+   WHEN OTHERS THEN
+      p_tab_error(f_sysdate, f_user, 'TRIGGER trg_his_CLAUSUPRO', 1, SQLCODE, SQLERRM);
+      RAISE;
+END trg_his_CLAUSUPRO;
+
+
+
+
+
+/
+ALTER TRIGGER "AXIS"."TRG_HIS_CLAUSUPRO" ENABLE;

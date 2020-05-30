@@ -1,0 +1,61 @@
+DECLARE 
+   V_EMPRESA             SEGUROS.CEMPRES%TYPE := 24;
+   v_contexto            NUMBER; 
+
+BEGIN
+
+SELECT pac_contexto.f_inicializarctx(pac_parametros.f_parempresa_t(v_empresa, 'USER_BBDD')) INTO v_contexto FROM DUAL;
+   delete from MENU_OPCIONROL where copcion=100;
+   delete from MENU_OPCIONES where copcion =100;
+   
+   INSERT INTO MENU_OPCIONES (COPCION, SLITERA, CINVCOD, CINVTIP, CMENPAD, NORDEN, TPARAME, CTIPMEN, CMODO) 
+   VALUES (100, 9903449, 'AXISADM106', 1, 900400, 1, NULL, 1, 'GENERAL');
+
+   insert into MENU_OPCIONROL (crolmen, copcion, cusualt, falta) values ('MENU_TOTAL', 100, f_user, f_sysdate);
+							
+   Insert into MENU_OPCIONROL (CROLMEN, COPCION, cusualt, falta) values ('0006-02',100, f_user, f_sysdate);
+
+   Insert into MENU_OPCIONROL (CROLMEN, COPCION, cusualt, falta) values ('FULL_ACCESS',100, f_user, f_sysdate);							
+   
+   delete from AXIS_LITERALES where SLITERA in (89906325, 89906326);
+   delete from AXIS_CODLITERALES where SLITERA in (89906325, 89906326);
+   
+   INSERT INTO AXIS_CODLITERALES (CLITERA, SLITERA) VALUES (3,89906325);
+	INSERT INTO AXIS_CODLITERALES (CLITERA, SLITERA) VALUES (3,89906326);
+	INSERT INTO AXIS_LITERALES VALUES (1,89906325,'Prima US$');
+	INSERT INTO AXIS_LITERALES VALUES (2,89906325,'Prima US$');
+	INSERT INTO AXIS_LITERALES VALUES (8,89906325,'Prima US$');
+	INSERT INTO AXIS_LITERALES VALUES (1,89906326,'Mad');
+	INSERT INTO AXIS_LITERALES VALUES (2,89906326,'Mad');
+	INSERT INTO AXIS_LITERALES VALUES (8,89906326,'Mad');
+	
+	delete from CFG_LANZAR_INFORMES
+	where cmap like 'Cuenta cobro';
+
+	Insert into CFG_LANZAR_INFORMES (CEMPRES,CFORM,CMAP,TEVENTO,SPRODUC,SLITERA,LPARAMS,GENERA_REPORT,CCFGFORM,LEXPORT,CTIPO,CGENREC,CAREA) values 
+	('24','AXISADM106','Cuenta cobro','GENERAL','0','9903449',null,'1','GENERAL','PDF','1','0','8');
+
+	delete from DET_LANZAR_INFORMES
+	where cmap like 'Cuenta cobro';
+
+	Insert into DET_LANZAR_INFORMES (CEMPRES,CMAP,CIDIOMA,TDESCRIP,CINFORME) values 
+	('24','Cuenta cobro','1','Reporte de Cuenta Cobro','CuentaCobro.jasper');
+	Insert into DET_LANZAR_INFORMES (CEMPRES,CMAP,CIDIOMA,TDESCRIP,CINFORME) values 
+	('24','Cuenta cobro','2','Reporte de Cuenta Cobro','CuentaCobro.jasper');
+	Insert into DET_LANZAR_INFORMES (CEMPRES,CMAP,CIDIOMA,TDESCRIP,CINFORME) values 
+	('24','Cuenta cobro','8','Reporte de Cuenta Cobro','CuentaCobro.jasper');
+
+	delete from CFG_LANZAR_INFORMES_PARAMS
+	where cmap = 'Cuenta cobro';
+
+	Insert into CFG_LANZAR_INFORMES_PARAMS (CEMPRES,CFORM,CMAP,TEVENTO,SPRODUC,CCFGFORM,TPARAM,NORDER,SLITERA,CTIPO,NOTNULL,LVALOR) 
+	values ('24','AXISADM106','Cuenta cobro','GENERAL','0','GENERAL','PTOMADOR','1','109360','1','1',null);
+	Insert into CFG_LANZAR_INFORMES_PARAMS (CEMPRES,CFORM,CMAP,TEVENTO,SPRODUC,CCFGFORM,TPARAM,NORDER,SLITERA,CTIPO,NOTNULL,LVALOR) 
+	values ('24','AXISADM106','Cuenta cobro','GENERAL','0','GENERAL','PINTERMEDIARIO','2','109360','1','0',null);
+	Insert into CFG_LANZAR_INFORMES_PARAMS (CEMPRES,CFORM,CMAP,TEVENTO,SPRODUC,CCFGFORM,TPARAM,NORDER,SLITERA,CTIPO,NOTNULL,LVALOR) 
+	values ('24','AXISADM106','Cuenta cobro','GENERAL','0','GENERAL','PUSUARIO','3','109360','1','0',null);
+	
+
+   commit;
+END;
+/

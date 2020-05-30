@@ -1,0 +1,54 @@
+--------------------------------------------------------
+--  DDL for Trigger TRG_HIS_GARANPRO_VALIDACION
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TRIGGER "AXIS"."TRG_HIS_GARANPRO_VALIDACION" 
+   BEFORE UPDATE OR DELETE
+   ON GARANPRO_VALIDACION
+   FOR EACH ROW
+   DECLARE
+       vaccion VARCHAR2(2);
+BEGIN
+   IF UPDATING THEN
+       vaccion := 'U';
+   ELSE
+       vaccion := 'D';
+   END IF;
+
+      -- crear registro histórico
+      INSERT INTO his_GARANPRO_VALIDACION(
+SPRODUC,
+CGARANT,
+CACTIVI,
+NORDVAL,
+TVALGAR,
+CPREPOST,
+CUSUALT,
+FALTA,
+CUSUMOD,
+FMODIFI,
+CUSUHIST,FCREAHIST,ACCION)
+VALUES(
+:OLD.SPRODUC,
+:OLD.CGARANT,
+:OLD.CACTIVI,
+:OLD.NORDVAL,
+:OLD.TVALGAR,
+:OLD.CPREPOST,
+:OLD.CUSUALT,
+:OLD.FALTA,
+:OLD.CUSUMOD,
+:OLD.FMODIFI,
+f_user, f_sysdate, ''||vaccion||'');
+EXCEPTION
+   WHEN OTHERS THEN
+      p_tab_error(f_sysdate, f_user, 'TRIGGER trg_his_GARANPRO_VALIDACION', 1, SQLCODE, SQLERRM);
+      RAISE;
+END trg_his_GARANPRO_VALIDACION;
+
+
+
+
+
+/
+ALTER TRIGGER "AXIS"."TRG_HIS_GARANPRO_VALIDACION" ENABLE;

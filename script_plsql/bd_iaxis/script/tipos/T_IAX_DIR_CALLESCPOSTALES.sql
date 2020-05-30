@@ -1,0 +1,11 @@
+--------------------------------------------------------
+--  DDL for Type T_IAX_DIR_CALLESCPOSTALES
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TYPE "AXIS"."T_IAX_DIR_CALLESCPOSTALES" AS TABLE OF ob_iax_dir_callescpostales;
+
+/
+
+  GRANT EXECUTE ON "AXIS"."T_IAX_DIR_CALLESCPOSTALES" TO "R_AXIS";
+  GRANT EXECUTE ON "AXIS"."T_IAX_DIR_CALLESCPOSTALES" TO "CONF_DWH";
+  GRANT EXECUTE ON "AXIS"."T_IAX_DIR_CALLESCPOSTALES" TO "PROGRAMADORESCSI";

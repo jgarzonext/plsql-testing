@@ -1,0 +1,8 @@
+--------------------------------------------------------
+--  DDL for Sequence SHISTAUT
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "AXIS"."SHISTAUT"  MINVALUE 0 MAXVALUE 99999999999 INCREMENT BY 1 START WITH 1 NOCACHE  ORDER  NOCYCLE   ;
+  GRANT SELECT ON "AXIS"."SHISTAUT" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."SHISTAUT" TO "CONF_DWH";
+  GRANT SELECT ON "AXIS"."SHISTAUT" TO "PROGRAMADORESCSI";

@@ -1,0 +1,11 @@
+--------------------------------------------------------
+--  DDL for Type T_IAX_IRPFDESCEN
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TYPE "AXIS"."T_IAX_IRPFDESCEN" AS TABLE OF OB_IAX_IRPFDESCEN;
+
+/
+
+  GRANT EXECUTE ON "AXIS"."T_IAX_IRPFDESCEN" TO "R_AXIS";
+  GRANT EXECUTE ON "AXIS"."T_IAX_IRPFDESCEN" TO "CONF_DWH";
+  GRANT EXECUTE ON "AXIS"."T_IAX_IRPFDESCEN" TO "PROGRAMADORESCSI";

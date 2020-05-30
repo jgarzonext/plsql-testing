@@ -1,0 +1,11 @@
+--------------------------------------------------------
+--  DDL for Type T_IAX_GARANSINI
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TYPE "AXIS"."T_IAX_GARANSINI" AS TABLE OF OB_IAX_GARANSINI;
+
+/
+
+  GRANT EXECUTE ON "AXIS"."T_IAX_GARANSINI" TO "R_AXIS";
+  GRANT EXECUTE ON "AXIS"."T_IAX_GARANSINI" TO "CONF_DWH";
+  GRANT EXECUTE ON "AXIS"."T_IAX_GARANSINI" TO "PROGRAMADORESCSI";

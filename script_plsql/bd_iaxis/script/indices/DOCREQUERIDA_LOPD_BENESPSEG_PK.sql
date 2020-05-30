@@ -1,0 +1,7 @@
+--------------------------------------------------------
+--  DDL for Index DOCREQUERIDA_LOPD_BENESPSEG_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "AXIS"."DOCREQUERIDA_LOPD_BENESPSEG_PK" ON "AXIS"."DOCREQUERIDA_LOPD_BENESPSEG" ("SEQDOCU", "SSEGURO", "NRIESGO", "NMOVIMI") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  TABLESPACE "AXIS" ;

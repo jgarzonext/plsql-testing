@@ -1,0 +1,62 @@
+--------------------------------------------------------
+--  DDL for Trigger TRG_HIS_DOC_PRO_DOCUMENTO
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TRIGGER "AXIS"."TRG_HIS_DOC_PRO_DOCUMENTO" 
+   BEFORE UPDATE OR DELETE
+   ON DOC_PRO_DOCUMENTO
+   FOR EACH ROW
+   DECLARE
+       vaccion VARCHAR2(2);
+BEGIN
+   IF UPDATING THEN
+       vaccion := 'U';
+   ELSE
+       vaccion := 'D';
+   END IF;
+
+      -- crear registro histórico
+      INSERT INTO his_DOC_PRO_DOCUMENTO(
+SPRODUC,
+CACTIVI,
+CDOCUME,
+CMODUL,
+COBLIGA,
+CGARANT,
+CMOTMOV,
+CCAUSIN,
+CMOTSIN,
+CUSUALT,
+FALTA,
+CUSUMOD,
+FMODIFI,
+NORDEN,
+CUSUHIST,FCREAHIST,ACCION)
+VALUES(
+:OLD.SPRODUC,
+:OLD.CACTIVI,
+:OLD.CDOCUME,
+:OLD.CMODUL,
+:OLD.COBLIGA,
+:OLD.CGARANT,
+:OLD.CMOTMOV,
+:OLD.CCAUSIN,
+:OLD.CMOTSIN,
+:OLD.CUSUALT,
+:OLD.FALTA,
+:OLD.CUSUMOD,
+:OLD.FMODIFI,
+:OLD.NORDEN,
+f_user, f_sysdate, ''||vaccion||'');
+EXCEPTION
+   WHEN OTHERS THEN
+      p_tab_error(f_sysdate, f_user, 'TRIGGER trg_his_DOC_PRO_DOCUMENTO', 1, SQLCODE, SQLERRM);
+      RAISE;
+END trg_his_DOC_PRO_DOCUMENTO;
+
+
+
+
+
+/
+ALTER TRIGGER "AXIS"."TRG_HIS_DOC_PRO_DOCUMENTO" ENABLE;

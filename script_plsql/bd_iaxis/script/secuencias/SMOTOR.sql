@@ -1,0 +1,8 @@
+--------------------------------------------------------
+--  DDL for Sequence SMOTOR
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "AXIS"."SMOTOR"  MINVALUE 0 MAXVALUE 999999999999999999999999999 INCREMENT BY 1 START WITH 0 CACHE 20 NOORDER  NOCYCLE   ;
+  GRANT SELECT ON "AXIS"."SMOTOR" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."SMOTOR" TO "CONF_DWH";
+  GRANT SELECT ON "AXIS"."SMOTOR" TO "PROGRAMADORESCSI";

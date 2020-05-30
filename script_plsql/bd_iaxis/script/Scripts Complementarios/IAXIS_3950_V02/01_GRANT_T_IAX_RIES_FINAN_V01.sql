@@ -1,0 +1,3 @@
+grant execute on T_IAX_RIESGO_FINANCIERO to CONF_DWH;
+grant execute on T_IAX_RIESGO_FINANCIERO to PROGRAMADORESCSI;
+grant execute on T_IAX_RIESGO_FINANCIERO to R_AXIS;

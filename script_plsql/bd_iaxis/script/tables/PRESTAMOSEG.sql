@@ -1,0 +1,58 @@
+--------------------------------------------------------
+--  DDL for Table PRESTAMOSEG
+--------------------------------------------------------
+
+  CREATE TABLE "AXIS"."PRESTAMOSEG" 
+   (	"CTAPRES" VARCHAR2(50 BYTE), 
+	"SSEGURO" NUMBER, 
+	"NMOVIMI" NUMBER(4,0), 
+	"FINIPREST" DATE, 
+	"FFINPREST" DATE, 
+	"PPORCEN" NUMBER(5,2), 
+	"NRIESGO" NUMBER(6,0) DEFAULT 1, 
+	"CTIPCUENTA" NUMBER(4,0), 
+	"CTIPBAN" NUMBER(3,0), 
+	"CTIPIMP" NUMBER(3,0), 
+	"ISALDO" NUMBER, 
+	"PORCEN" NUMBER(5,2), 
+	"ILIMITE" NUMBER, 
+	"ICAPMAX" NUMBER, 
+	"ICAPITAL" NUMBER, 
+	"CMONEDA" VARCHAR2(10 BYTE), 
+	"ICAPASEG" NUMBER, 
+	"FALTA" DATE, 
+	"DESCRIPCION" VARCHAR2(3000 BYTE)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "AXIS" ;
+
+   COMMENT ON COLUMN "AXIS"."PRESTAMOSEG"."CTAPRES" IS 'Código del préstamo';
+   COMMENT ON COLUMN "AXIS"."PRESTAMOSEG"."SSEGURO" IS 'Código del seguro';
+   COMMENT ON COLUMN "AXIS"."PRESTAMOSEG"."NMOVIMI" IS 'Movimiento del seguro';
+   COMMENT ON COLUMN "AXIS"."PRESTAMOSEG"."FINIPREST" IS 'Fecha inicio del efecto de la asociación de prestamo con el seguro y con el porcentaje indicado';
+   COMMENT ON COLUMN "AXIS"."PRESTAMOSEG"."FFINPREST" IS 'Fecha fin del efecto de la asociación de prestamo con el seguro y con el porcentaje indicado';
+   COMMENT ON COLUMN "AXIS"."PRESTAMOSEG"."PPORCEN" IS 'Porcentaje del titular del seguro en el préstamo';
+   COMMENT ON COLUMN "AXIS"."PRESTAMOSEG"."NRIESGO" IS 'Número de riesgo';
+   COMMENT ON COLUMN "AXIS"."PRESTAMOSEG"."CTIPCUENTA" IS 'Valor fijo 401.Tipo de cuenta (crédito vivienda,préstamos)';
+   COMMENT ON COLUMN "AXIS"."PRESTAMOSEG"."CTIPBAN" IS 'Tipo de cuenta ( iban o cuenta bancaria). [tabla maestra: TIPOS_CUENTA]';
+   COMMENT ON COLUMN "AXIS"."PRESTAMOSEG"."CTIPIMP" IS 'Valor fijo 402.Tipo de importe en la cuenta.(saldo, porcentaje, etc)';
+   COMMENT ON COLUMN "AXIS"."PRESTAMOSEG"."ISALDO" IS 'Saldo  en la cuenta';
+   COMMENT ON COLUMN "AXIS"."PRESTAMOSEG"."PORCEN" IS 'Porcentaje  en la cuenta';
+   COMMENT ON COLUMN "AXIS"."PRESTAMOSEG"."ILIMITE" IS 'Importe límite  en la cuenta';
+   COMMENT ON COLUMN "AXIS"."PRESTAMOSEG"."ICAPMAX" IS 'Importe máximo en la cuenta';
+   COMMENT ON COLUMN "AXIS"."PRESTAMOSEG"."ICAPITAL" IS 'Importe en la cuenta';
+   COMMENT ON COLUMN "AXIS"."PRESTAMOSEG"."CMONEDA" IS 'Moneda';
+   COMMENT ON COLUMN "AXIS"."PRESTAMOSEG"."ICAPASEG" IS 'Capital asegurado en la cuenta';
+   COMMENT ON COLUMN "AXIS"."PRESTAMOSEG"."FALTA" IS 'Fecha de alta del préstamo';
+   COMMENT ON COLUMN "AXIS"."PRESTAMOSEG"."DESCRIPCION" IS 'Descripción de la cuenta';
+   COMMENT ON TABLE "AXIS"."PRESTAMOSEG"  IS 'Préstamos de un seguro';
+  GRANT UPDATE ON "AXIS"."PRESTAMOSEG" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."PRESTAMOSEG" TO "R_AXIS";
+  GRANT INSERT ON "AXIS"."PRESTAMOSEG" TO "R_AXIS";
+  GRANT DELETE ON "AXIS"."PRESTAMOSEG" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."PRESTAMOSEG" TO "CONF_DWH";
+  GRANT SELECT ON "AXIS"."PRESTAMOSEG" TO "PROGRAMADORESCSI";

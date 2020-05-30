@@ -1,0 +1,4 @@
+create synonym AXIS00.SIN_TRAMITA_AMPARO for SIN_TRAMITA_AMPARO;
+create synonym AXIS00.OB_IAX_SIN_TRAMI_AMPARO for OB_IAX_SIN_TRAMI_AMPARO;
+create synonym AXIS00.T_IAX_SIN_TRAMI_AMPARO for T_IAX_SIN_TRAMI_AMPARO; 
+grant select, insert, update, delete on SIN_TRAMITA_AMPARO to R_AXIS;

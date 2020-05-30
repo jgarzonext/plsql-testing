@@ -1,0 +1,45 @@
+--------------------------------------------------------
+--  DDL for Table HIS_DEP_GARANTIAS
+--------------------------------------------------------
+
+  CREATE TABLE "AXIS"."HIS_DEP_GARANTIAS" 
+   (	"SPRODUC" NUMBER(22,0), 
+	"CACTIVI" NUMBER(22,0), 
+	"CGARANT" NUMBER(22,0), 
+	"NORDEN" NUMBER(22,0), 
+	"NSUBORD" NUMBER(22,0), 
+	"CGARPAR" NUMBER(22,0), 
+	"TVALGAR" VARCHAR2(250 BYTE), 
+	"CUSUALT" VARCHAR2(30 BYTE), 
+	"FALTA" DATE, 
+	"CUSUMOD" VARCHAR2(30 BYTE), 
+	"FMODIFI" DATE, 
+	"CUSUHIST" VARCHAR2(20 BYTE), 
+	"FCREAHIST" DATE, 
+	"ACCION" VARCHAR2(2 BYTE)
+   ) SEGMENT CREATION DEFERRED 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "AXIS" ;
+
+   COMMENT ON COLUMN "AXIS"."HIS_DEP_GARANTIAS"."SPRODUC" IS 'Identificador del producto.';
+   COMMENT ON COLUMN "AXIS"."HIS_DEP_GARANTIAS"."CACTIVI" IS 'Identificador de la actividad';
+   COMMENT ON COLUMN "AXIS"."HIS_DEP_GARANTIAS"."CGARANT" IS 'Identificador de la garantía que se está evaluando';
+   COMMENT ON COLUMN "AXIS"."HIS_DEP_GARANTIAS"."NORDEN" IS 'Número de orden dentro de la regla';
+   COMMENT ON COLUMN "AXIS"."HIS_DEP_GARANTIAS"."NSUBORD" IS 'Número de condición';
+   COMMENT ON COLUMN "AXIS"."HIS_DEP_GARANTIAS"."CGARPAR" IS 'Garantía afectada en la validación (garantías padre de las que depende el cgarant validado).';
+   COMMENT ON COLUMN "AXIS"."HIS_DEP_GARANTIAS"."TVALGAR" IS 'Función o query dinámica correspondiente a la validación';
+   COMMENT ON COLUMN "AXIS"."HIS_DEP_GARANTIAS"."CUSUALT" IS 'Usuario que crea el registro';
+   COMMENT ON COLUMN "AXIS"."HIS_DEP_GARANTIAS"."FALTA" IS 'Fecha en que se crea el registro';
+   COMMENT ON COLUMN "AXIS"."HIS_DEP_GARANTIAS"."CUSUMOD" IS 'Usuario que modifica crea el registro';
+   COMMENT ON COLUMN "AXIS"."HIS_DEP_GARANTIAS"."FMODIFI" IS 'Fecha en que se modifica el registro';
+   COMMENT ON COLUMN "AXIS"."HIS_DEP_GARANTIAS"."CUSUHIST" IS 'Usuario que realiza la acción';
+   COMMENT ON COLUMN "AXIS"."HIS_DEP_GARANTIAS"."FCREAHIST" IS 'Fecha en que se realiza la acción';
+   COMMENT ON COLUMN "AXIS"."HIS_DEP_GARANTIAS"."ACCION" IS 'Acción realizada';
+   COMMENT ON TABLE "AXIS"."HIS_DEP_GARANTIAS"  IS 'Histórico de la tabla DEP_GARANTIAS';
+  GRANT UPDATE ON "AXIS"."HIS_DEP_GARANTIAS" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."HIS_DEP_GARANTIAS" TO "R_AXIS";
+  GRANT INSERT ON "AXIS"."HIS_DEP_GARANTIAS" TO "R_AXIS";
+  GRANT DELETE ON "AXIS"."HIS_DEP_GARANTIAS" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."HIS_DEP_GARANTIAS" TO "CONF_DWH";
+  GRANT SELECT ON "AXIS"."HIS_DEP_GARANTIAS" TO "PROGRAMADORESCSI";

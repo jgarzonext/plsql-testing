@@ -1,0 +1,17 @@
+--------------------------------------------------------
+--  DDL for View VISTA_RIESGOS
+--------------------------------------------------------
+
+  CREATE OR REPLACE FORCE EDITIONABLE VIEW "AXIS"."VISTA_RIESGOS" ("NRIESGO", "SSEGURO", "NMOVIMA", "FEFECTO", "SPERSON", "CCLARIE", "NMOVIMB", "FANULAC", "TNATRIE", "CDOMICI", "NASEGUR") AS 
+  select "NRIESGO","SSEGURO","NMOVIMA","FEFECTO","SPERSON","CCLARIE","NMOVIMB","FANULAC","TNATRIE","CDOMICI","NASEGUR" from riesgos where sseguro in
+	( SELECT sseguro FROM segurosredcom sr, usuarios u
+	   WHERE u.cusuari = F_USER AND sr.cagente = u.cdelega )
+ 
+ 
+;
+  GRANT UPDATE ON "AXIS"."VISTA_RIESGOS" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."VISTA_RIESGOS" TO "R_AXIS";
+  GRANT INSERT ON "AXIS"."VISTA_RIESGOS" TO "R_AXIS";
+  GRANT DELETE ON "AXIS"."VISTA_RIESGOS" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."VISTA_RIESGOS" TO "CONF_DWH";
+  GRANT SELECT ON "AXIS"."VISTA_RIESGOS" TO "PROGRAMADORESCSI";

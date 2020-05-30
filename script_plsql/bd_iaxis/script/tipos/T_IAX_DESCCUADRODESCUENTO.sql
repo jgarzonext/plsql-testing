@@ -1,0 +1,11 @@
+--------------------------------------------------------
+--  DDL for Type T_IAX_DESCCUADRODESCUENTO
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TYPE "AXIS"."T_IAX_DESCCUADRODESCUENTO" AS TABLE OF ob_iax_desccuadrodescuento;
+
+/
+
+  GRANT EXECUTE ON "AXIS"."T_IAX_DESCCUADRODESCUENTO" TO "R_AXIS";
+  GRANT EXECUTE ON "AXIS"."T_IAX_DESCCUADRODESCUENTO" TO "CONF_DWH";
+  GRANT EXECUTE ON "AXIS"."T_IAX_DESCCUADRODESCUENTO" TO "PROGRAMADORESCSI";

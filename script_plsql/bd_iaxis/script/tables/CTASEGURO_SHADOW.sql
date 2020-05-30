@@ -1,0 +1,74 @@
+--------------------------------------------------------
+--  DDL for Table CTASEGURO_SHADOW
+--------------------------------------------------------
+
+  CREATE TABLE "AXIS"."CTASEGURO_SHADOW" 
+   (	"SSEGURO" NUMBER, 
+	"FCONTAB" DATE, 
+	"NNUMLIN" NUMBER(6,0), 
+	"FFECMOV" DATE, 
+	"FVALMOV" DATE, 
+	"CMOVIMI" NUMBER(2,0), 
+	"IMOVIMI" NUMBER, 
+	"CCALINT" NUMBER(15,0), 
+	"IMOVIM2" NUMBER, 
+	"NRECIBO" NUMBER, 
+	"NSINIES" VARCHAR2(14 BYTE), 
+	"CMOVANU" NUMBER(1,0), 
+	"SMOVREC" NUMBER, 
+	"CESTA" NUMBER(3,0), 
+	"NUNIDAD" NUMBER(15,6), 
+	"CESTADO" VARCHAR2(1 BYTE), 
+	"FASIGN" DATE, 
+	"NPARPLA" NUMBER(15,6), 
+	"CESTPAR" VARCHAR2(1 BYTE), 
+	"IEXCESO" NUMBER, 
+	"SPERMIN" NUMBER(10,0), 
+	"SIDEPAG" NUMBER(8,0), 
+	"CTIPAPOR" VARCHAR2(2 BYTE), 
+	"SRECREN" NUMBER(8,0), 
+	"IMOVIMI_MONPOL" NUMBER, 
+	"IMOVIM2_MONPOL" NUMBER, 
+	"FCAMBIO" DATE, 
+	"NSIN1" VARCHAR2(14 BYTE), 
+	"FALTA" DATE, 
+	"CUSUALT" VARCHAR2(20 BYTE), 
+	"FMODIFI" DATE, 
+	"CUSUMOD" VARCHAR2(20 BYTE), 
+	"FECTRASP" DATE
+   ) SEGMENT CREATION DEFERRED 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "AXIS" ;
+
+   COMMENT ON COLUMN "AXIS"."CTASEGURO_SHADOW"."SSEGURO" IS 'Identificador del seguro';
+   COMMENT ON COLUMN "AXIS"."CTASEGURO_SHADOW"."FCONTAB" IS 'Fecha contable';
+   COMMENT ON COLUMN "AXIS"."CTASEGURO_SHADOW"."NNUMLIN" IS 'Número de línea de ctaseguro';
+   COMMENT ON COLUMN "AXIS"."CTASEGURO_SHADOW"."FFECMOV" IS 'Fecha de efecto del movimiento';
+   COMMENT ON COLUMN "AXIS"."CTASEGURO_SHADOW"."FVALMOV" IS 'Fecha valor del movimiento';
+   COMMENT ON COLUMN "AXIS"."CTASEGURO_SHADOW"."CMOVIMI" IS 'Código de movimiento';
+   COMMENT ON COLUMN "AXIS"."CTASEGURO_SHADOW"."IMOVIMI" IS 'Importe movimiento';
+   COMMENT ON COLUMN "AXIS"."CTASEGURO_SHADOW"."CCALINT" IS 'Indicador cálculo de intereses (Deprecated). Agrupaciones de movimientos en CTASEGURO. Sequence: SCAGRCTA';
+   COMMENT ON COLUMN "AXIS"."CTASEGURO_SHADOW"."IMOVIM2" IS 'Importe movimiento 2';
+   COMMENT ON COLUMN "AXIS"."CTASEGURO_SHADOW"."NRECIBO" IS 'Número de recibo';
+   COMMENT ON COLUMN "AXIS"."CTASEGURO_SHADOW"."NSINIES" IS 'Número de siniestro';
+   COMMENT ON COLUMN "AXIS"."CTASEGURO_SHADOW"."CMOVANU" IS 'Indicador movimiento anulado';
+   COMMENT ON COLUMN "AXIS"."CTASEGURO_SHADOW"."IEXCESO" IS 'Exceso planes pensiones';
+   COMMENT ON COLUMN "AXIS"."CTASEGURO_SHADOW"."CTIPAPOR" IS 'Tipo de Aportación SP ( Servicios Pasados ) V - Voluntaria O - Obligatoria';
+   COMMENT ON COLUMN "AXIS"."CTASEGURO_SHADOW"."SRECREN" IS 'Identificador pago renta';
+   COMMENT ON COLUMN "AXIS"."CTASEGURO_SHADOW"."IMOVIMI_MONPOL" IS 'Importe del movimiento en la moneda a nivel de póliza (por defecto será la de la empresa)';
+   COMMENT ON COLUMN "AXIS"."CTASEGURO_SHADOW"."IMOVIM2_MONPOL" IS 'Importe del movimiento 2 en la moneda a nivel de póliza (por defecto será la de la empresa)';
+   COMMENT ON COLUMN "AXIS"."CTASEGURO_SHADOW"."FCAMBIO" IS 'Fecha empleada para el cálculo de los contravalores';
+   COMMENT ON COLUMN "AXIS"."CTASEGURO_SHADOW"."NSIN1" IS 'Copia de nsines por seguridad';
+   COMMENT ON COLUMN "AXIS"."CTASEGURO_SHADOW"."FALTA" IS 'Fecha de alta registro';
+   COMMENT ON COLUMN "AXIS"."CTASEGURO_SHADOW"."CUSUALT" IS 'Usuario alta registro';
+   COMMENT ON COLUMN "AXIS"."CTASEGURO_SHADOW"."FMODIFI" IS 'Fecha modificacion registro';
+   COMMENT ON COLUMN "AXIS"."CTASEGURO_SHADOW"."CUSUMOD" IS 'Usuario modificacion registro';
+   COMMENT ON COLUMN "AXIS"."CTASEGURO_SHADOW"."FECTRASP" IS 'Indicador de fecha de aportación traspasada';
+   COMMENT ON TABLE "AXIS"."CTASEGURO_SHADOW"  IS 'Más información de ctaseguro para enviar a la libreta';
+  GRANT UPDATE ON "AXIS"."CTASEGURO_SHADOW" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."CTASEGURO_SHADOW" TO "R_AXIS";
+  GRANT INSERT ON "AXIS"."CTASEGURO_SHADOW" TO "R_AXIS";
+  GRANT DELETE ON "AXIS"."CTASEGURO_SHADOW" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."CTASEGURO_SHADOW" TO "CONF_DWH";
+  GRANT SELECT ON "AXIS"."CTASEGURO_SHADOW" TO "PROGRAMADORESCSI";

@@ -1,0 +1,5 @@
+/* Actualización AXIS_LITERALES */
+UPDATE AXIS_LITERALES
+SET TLITERA = 'Gastos de Expedición'
+WHERE SLITERA = '9001509'; 
+COMMIT;

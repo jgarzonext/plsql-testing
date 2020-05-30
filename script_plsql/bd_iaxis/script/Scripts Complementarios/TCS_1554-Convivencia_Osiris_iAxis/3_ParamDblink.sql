@@ -1,0 +1,12 @@
+insert into CODPARAM (CPARAM, CUTILI, CTIPO, CGRPPAR, NORDEN, COBLIGA, TDEFECTO, CVISIBLE)
+values ('DBLINK', 4, 1, 'GEN', 1, 0, null, 1);
+insert into desparam (CPARAM, CIDIOMA, TPARAM)
+values ('DBLINK', 1, 'DBLINK DE OZIRIS A IAXIS ');
+insert into desparam (CPARAM, CIDIOMA, TPARAM)
+values ('DBLINK', 2, 'DBLINK DE OZIRIS A IAXIS');
+insert into desparam (CPARAM, CIDIOMA, TPARAM)
+values ('DBLINK', 8, 'DBLINK DE OZIRIS A IAXIS');
+insert into PARINSTALACION (CPARAME, CTIPPAR, TVALPAR, NVALPAR, FVALPAR)
+values ('DBLINK', 1, '@PREPRODUCCION', null, null);
+COMMIT;
+/

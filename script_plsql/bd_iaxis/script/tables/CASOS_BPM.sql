@@ -1,0 +1,68 @@
+--------------------------------------------------------
+--  DDL for Table CASOS_BPM
+--------------------------------------------------------
+
+  CREATE TABLE "AXIS"."CASOS_BPM" 
+   (	"CEMPRES" NUMBER(5,0), 
+	"NNUMCASO" NUMBER, 
+	"CUSUASIGNADO" VARCHAR2(32 BYTE), 
+	"CTIPOPROCESO" NUMBER(3,0), 
+	"CESTADO" NUMBER(3,0), 
+	"CESTADOENVIO" NUMBER(3,0), 
+	"FALTA" DATE, 
+	"FBAJA" DATE, 
+	"CUSUALT" VARCHAR2(32 BYTE), 
+	"FMODIFI" DATE, 
+	"CUSUMOD" VARCHAR2(32 BYTE), 
+	"SPRODUC" NUMBER, 
+	"CMOTMOV" NUMBER(5,0), 
+	"CTIPIDE" NUMBER(3,0), 
+	"NNUMIDE" VARCHAR2(50 BYTE), 
+	"TNOMCOM" VARCHAR2(300 BYTE), 
+	"NPOLIZA" NUMBER, 
+	"NCERTIF" NUMBER, 
+	"NMOVIMI" NUMBER(4,0), 
+	"NNUMCASOP" NUMBER, 
+	"NCASO_BPM" NUMBER, 
+	"NSOLICI_BPM" NUMBER, 
+	"CTIPMOV_BPM" NUMBER(3,0), 
+	"CAPROBADA_BPM" NUMBER(3,0)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "AXIS" ;
+
+   COMMENT ON COLUMN "AXIS"."CASOS_BPM"."CEMPRES" IS 'Código de empresa';
+   COMMENT ON COLUMN "AXIS"."CASOS_BPM"."NNUMCASO" IS 'Número de caso';
+   COMMENT ON COLUMN "AXIS"."CASOS_BPM"."CUSUASIGNADO" IS 'Usuario asignado al caso';
+   COMMENT ON COLUMN "AXIS"."CASOS_BPM"."CTIPOPROCESO" IS 'Tipo de proceso VF 960';
+   COMMENT ON COLUMN "AXIS"."CASOS_BPM"."CESTADO" IS 'Código de estado del caso VF 961';
+   COMMENT ON COLUMN "AXIS"."CASOS_BPM"."CESTADOENVIO" IS 'Código de estado envio del caso VF 962';
+   COMMENT ON COLUMN "AXIS"."CASOS_BPM"."FALTA" IS 'Fecha de alta';
+   COMMENT ON COLUMN "AXIS"."CASOS_BPM"."FBAJA" IS 'Fecha de baja';
+   COMMENT ON COLUMN "AXIS"."CASOS_BPM"."CUSUALT" IS 'Usuario de alta';
+   COMMENT ON COLUMN "AXIS"."CASOS_BPM"."FMODIFI" IS 'Fecha de modificación';
+   COMMENT ON COLUMN "AXIS"."CASOS_BPM"."CUSUMOD" IS 'Usuario de modificación';
+   COMMENT ON COLUMN "AXIS"."CASOS_BPM"."SPRODUC" IS 'Código de producto';
+   COMMENT ON COLUMN "AXIS"."CASOS_BPM"."CMOTMOV" IS 'Código de motivo de movimiento';
+   COMMENT ON COLUMN "AXIS"."CASOS_BPM"."CTIPIDE" IS 'Tipo de identificación persona VF 672';
+   COMMENT ON COLUMN "AXIS"."CASOS_BPM"."NNUMIDE" IS 'Número de identificación persona';
+   COMMENT ON COLUMN "AXIS"."CASOS_BPM"."TNOMCOM" IS 'Nombre completo';
+   COMMENT ON COLUMN "AXIS"."CASOS_BPM"."NPOLIZA" IS 'Número de póliza';
+   COMMENT ON COLUMN "AXIS"."CASOS_BPM"."NCERTIF" IS 'Número de certificado para pólizas colectivas';
+   COMMENT ON COLUMN "AXIS"."CASOS_BPM"."NMOVIMI" IS 'Número de movimiento';
+   COMMENT ON COLUMN "AXIS"."CASOS_BPM"."NNUMCASOP" IS 'Número de caso padre de este caso';
+   COMMENT ON COLUMN "AXIS"."CASOS_BPM"."NCASO_BPM" IS 'Número de caso BPM externo a iAxis. En productos colectivos corresponde a un movimiento del colectivo';
+   COMMENT ON COLUMN "AXIS"."CASOS_BPM"."NSOLICI_BPM" IS 'Número de solicitud BPM externo a iAxis, asociado al caso BPM. Corresponde a un movimiento del asegurado del colectivo';
+   COMMENT ON COLUMN "AXIS"."CASOS_BPM"."CTIPMOV_BPM" IS 'Código de tipo de movimiento BPM VF 964';
+   COMMENT ON COLUMN "AXIS"."CASOS_BPM"."CAPROBADA_BPM" IS 'Indica si la solicitud correspondiente al asegurado se aprobó o no en el BPM y por tanto se tiene que procesar o no en iAxis.(1-Si, 0-No)';
+   COMMENT ON TABLE "AXIS"."CASOS_BPM"  IS 'CASOS DE BPM';
+  GRANT UPDATE ON "AXIS"."CASOS_BPM" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."CASOS_BPM" TO "R_AXIS";
+  GRANT INSERT ON "AXIS"."CASOS_BPM" TO "R_AXIS";
+  GRANT DELETE ON "AXIS"."CASOS_BPM" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."CASOS_BPM" TO "CONF_DWH";
+  GRANT SELECT ON "AXIS"."CASOS_BPM" TO "PROGRAMADORESCSI";

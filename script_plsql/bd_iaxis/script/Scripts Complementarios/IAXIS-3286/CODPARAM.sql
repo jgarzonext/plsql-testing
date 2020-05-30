@@ -1,0 +1,6 @@
+
+insert into CODPARAM (CPARAM, CUTILI, CTIPO, CGRPPAR, NORDEN, COBLIGA, TDEFECTO, CVISIBLE)
+values ('UNIQUE_IDENTIFIER', 8, 1, 'GEN', 1621, 0, null, 1);
+
+commit;
+/

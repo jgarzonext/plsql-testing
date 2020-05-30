@@ -1,0 +1,11 @@
+--------------------------------------------------------
+--  DDL for Type T_IAX_GETCONSULT
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TYPE "AXIS"."T_IAX_GETCONSULT" AS TABLE OF OB_IAX_GETCONSULT;
+
+/
+
+  GRANT EXECUTE ON "AXIS"."T_IAX_GETCONSULT" TO "R_AXIS";
+  GRANT EXECUTE ON "AXIS"."T_IAX_GETCONSULT" TO "CONF_DWH";
+  GRANT EXECUTE ON "AXIS"."T_IAX_GETCONSULT" TO "PROGRAMADORESCSI";

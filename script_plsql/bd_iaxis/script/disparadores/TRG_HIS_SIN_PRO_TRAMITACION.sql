@@ -1,0 +1,54 @@
+--------------------------------------------------------
+--  DDL for Trigger TRG_HIS_SIN_PRO_TRAMITACION
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TRIGGER "AXIS"."TRG_HIS_SIN_PRO_TRAMITACION" 
+   BEFORE UPDATE OR DELETE
+   ON SIN_PRO_TRAMITACION
+   FOR EACH ROW
+   DECLARE
+       vaccion VARCHAR2(2);
+BEGIN
+   IF UPDATING THEN
+       vaccion := 'U';
+   ELSE
+       vaccion := 'D';
+   END IF;
+
+      -- crear registro histórico
+      INSERT INTO his_SIN_PRO_TRAMITACION(
+SPRODUC,
+CACTIVI,
+CTRAMIT,
+CINFORM,
+CGENAUT,
+CUSUALT,
+FALTA,
+CUSUMOD,
+FMODIFI,
+CTRAMTE,
+CUSUHIST,FCREAHIST,ACCION)
+VALUES(
+:OLD.SPRODUC,
+:OLD.CACTIVI,
+:OLD.CTRAMIT,
+:OLD.CINFORM,
+:OLD.CGENAUT,
+:OLD.CUSUALT,
+:OLD.FALTA,
+:OLD.CUSUMOD,
+:OLD.FMODIFI,
+:OLD.CTRAMTE,
+f_user, f_sysdate, ''||vaccion||'');
+EXCEPTION
+   WHEN OTHERS THEN
+      p_tab_error(f_sysdate, f_user, 'TRIGGER trg_his_SIN_PRO_TRAMITACION', 1, SQLCODE, SQLERRM);
+      RAISE;
+END trg_his_SIN_PRO_TRAMITACION;
+
+
+
+
+
+/
+ALTER TRIGGER "AXIS"."TRG_HIS_SIN_PRO_TRAMITACION" ENABLE;

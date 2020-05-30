@@ -1,0 +1,11 @@
+--------------------------------------------------------
+--  DDL for Type T_IAX_IMPRESION
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TYPE "AXIS"."T_IAX_IMPRESION" AS TABLE OF OB_IAX_IMPRESION;
+
+/
+
+  GRANT EXECUTE ON "AXIS"."T_IAX_IMPRESION" TO "R_AXIS";
+  GRANT EXECUTE ON "AXIS"."T_IAX_IMPRESION" TO "CONF_DWH";
+  GRANT EXECUTE ON "AXIS"."T_IAX_IMPRESION" TO "PROGRAMADORESCSI";

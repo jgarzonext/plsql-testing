@@ -1,0 +1,44 @@
+--------------------------------------------------------
+--  DDL for Table MIG_AGENSEGU
+--------------------------------------------------------
+
+  CREATE TABLE "AXIS"."MIG_AGENSEGU" 
+   (	"NCARGA" NUMBER, 
+	"CESTMIG" NUMBER, 
+	"MIG_PK" VARCHAR2(50 BYTE), 
+	"MIG_FK" VARCHAR2(50 BYTE), 
+	"SSEGURO" NUMBER, 
+	"FALTA" DATE, 
+	"CTIPREG" NUMBER(3,0), 
+	"CESTADO" NUMBER(1,0), 
+	"TTITULO" VARCHAR2(100 BYTE), 
+	"FFINALI" DATE, 
+	"TTEXTOS" VARCHAR2(4000 BYTE), 
+	"CMANUAL" NUMBER(1,0)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "AXIS" ;
+
+   COMMENT ON COLUMN "AXIS"."MIG_AGENSEGU"."NCARGA" IS 'Número de carga';
+   COMMENT ON COLUMN "AXIS"."MIG_AGENSEGU"."CESTMIG" IS 'Estado del registro valor inicial 1';
+   COMMENT ON COLUMN "AXIS"."MIG_AGENSEGU"."MIG_PK" IS 'Clave única de MIG_AGENSEGU';
+   COMMENT ON COLUMN "AXIS"."MIG_AGENSEGU"."MIG_FK" IS 'Clave externa para la póliza (MIG_SEGUROS)';
+   COMMENT ON COLUMN "AXIS"."MIG_AGENSEGU"."SSEGURO" IS 'Identificador de la Póliza asociada al apunte';
+   COMMENT ON COLUMN "AXIS"."MIG_AGENSEGU"."FALTA" IS 'Fecha de alta del apunte en la agenda';
+   COMMENT ON COLUMN "AXIS"."MIG_AGENSEGU"."CTIPREG" IS 'Concepto de apunte en la agenda. Valor fijo: 21';
+   COMMENT ON COLUMN "AXIS"."MIG_AGENSEGU"."CESTADO" IS 'Estado del apunte en la agenda. Valor fijo 22 (0:Pendiente/1:Finalizado/2:Anulado)';
+   COMMENT ON COLUMN "AXIS"."MIG_AGENSEGU"."TTITULO" IS 'Título del apunte en la agenda';
+   COMMENT ON COLUMN "AXIS"."MIG_AGENSEGU"."FFINALI" IS 'Fecha Finalización del apunte en la agenda';
+   COMMENT ON COLUMN "AXIS"."MIG_AGENSEGU"."TTEXTOS" IS 'Texto del apunte en la agenda';
+   COMMENT ON COLUMN "AXIS"."MIG_AGENSEGU"."CMANUAL" IS 'Indica si el apunte en la agenda es Manual o Automático. Valor fijo 108 (1:Si/0:NO) - (0:Automático/1:Manual)';
+   COMMENT ON TABLE "AXIS"."MIG_AGENSEGU"  IS 'Tabla Intermedia migración Agenda Póliza';
+  GRANT UPDATE ON "AXIS"."MIG_AGENSEGU" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."MIG_AGENSEGU" TO "R_AXIS";
+  GRANT INSERT ON "AXIS"."MIG_AGENSEGU" TO "R_AXIS";
+  GRANT DELETE ON "AXIS"."MIG_AGENSEGU" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."MIG_AGENSEGU" TO "CONF_DWH";
+  GRANT SELECT ON "AXIS"."MIG_AGENSEGU" TO "PROGRAMADORESCSI";

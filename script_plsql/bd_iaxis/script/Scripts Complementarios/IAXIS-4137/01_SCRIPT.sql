@@ -1,0 +1,78 @@
+UPDATE PREGUNPRO SET CPREOBL = 1 WHERE CPREGUN IN (6586,6587,6589) AND SPRODUC = 8063 AND CTIPSEG = 3 AND CMODALI = 1;
+
+DELETE FROM PREGUNPRO WHERE CPREGUN IN (6584,6586,6587,6589,9900,9901,9902,9903,9904, 9905, 9906) AND SPRODUC = 8063 AND CTIPSEG = 3 AND CMODALI = 1;
+
+DELETE FROM PREGUNTAS WHERE CPREGUN IN (9900,9901,9902,9903,9904, 9905, 9906);
+
+DELETE FROM CODIPREGUN WHERE CPREGUN IN (9900,9901,9902,9903,9904, 9905, 9906);
+
+Insert into CODIPREGUN (CPREGUN,CTIPPRE,CTIPPOR,CTIPGRU,TCONSULTA,TIMAGEN) values ('9906','3',null,'0',null,null);
+
+Insert into PREGUNTAS (CPREGUN,CIDIOMA,TPREGUN) values ('9906','1','Prima camas disponibles para pacientes en hospitalizacion');
+Insert into PREGUNTAS (CPREGUN,CIDIOMA,TPREGUN) values ('9906','2','Prima camas disponibles para pacientes en hospitalizacion');
+Insert into PREGUNTAS (CPREGUN,CIDIOMA,TPREGUN) values ('9906','8','Prima camas disponibles para pacientes en hospitalizacion');
+
+Insert into PREGUNPRO (CPREGUN,CMODALI,CCOLECT,CRAMO,CTIPSEG,SPRODUC,CPRETIP,NPREORD,TPREFOR,CPREOBL,NPREIMP,CRESDEF,COFERSN,CTABLA,TVALFOR,CMODO,CNIVEL,CTARPOL,CVISIBLE,ESCCERO,VISIBLECOL,VISIBLECERT,CRECARG,CCALCULAR,TMODALIDAD,CTIPCONV) values ('9906','1','0','802','3','8063','1','15',null,'1','3',null,'0',null,null,'T','R','0','2','0','1','1','0',null,null,null);
+
+Insert into CODIPREGUN (CPREGUN,CTIPPRE,CTIPPOR,CTIPGRU,TCONSULTA,TIMAGEN) values ('9905','3',null,'0',null,null);
+
+Insert into PREGUNTAS (CPREGUN,CIDIOMA,TPREGUN) values ('9905','1','Prima camas disponibles para pacientes en atencion ambulatoria');
+Insert into PREGUNTAS (CPREGUN,CIDIOMA,TPREGUN) values ('9905','2','Prima camas disponibles para pacientes en atencion ambulatoria');
+Insert into PREGUNTAS (CPREGUN,CIDIOMA,TPREGUN) values ('9905','8','Prima camas disponibles para pacientes en atencion ambulatoria');
+
+Insert into PREGUNPRO (CPREGUN,CMODALI,CCOLECT,CRAMO,CTIPSEG,SPRODUC,CPRETIP,NPREORD,TPREFOR,CPREOBL,NPREIMP,CRESDEF,COFERSN,CTABLA,TVALFOR,CMODO,CNIVEL,CTARPOL,CVISIBLE,ESCCERO,VISIBLECOL,VISIBLECERT,CRECARG,CCALCULAR,TMODALIDAD,CTIPCONV) values ('9905','1','0','802','3','8063','1','14',null,'1','3',null,'0',null,null,'T','R','0','2','0','1','1','0',null,null,null);
+
+Insert into CODIPREGUN (CPREGUN,CTIPPRE,CTIPPOR,CTIPGRU,TCONSULTA,TIMAGEN) values ('9904','3',null,'0',null,null);
+
+Insert into PREGUNTAS (CPREGUN,CIDIOMA,TPREGUN) values ('9904','1','Prima personal administrativo / paramédico');
+Insert into PREGUNTAS (CPREGUN,CIDIOMA,TPREGUN) values ('9904','2','Prima personal administrativo / paramédico');
+Insert into PREGUNTAS (CPREGUN,CIDIOMA,TPREGUN) values ('9904','8','Prima personal administrativo / paramédico');
+
+Insert into PREGUNPRO (CPREGUN,CMODALI,CCOLECT,CRAMO,CTIPSEG,SPRODUC,CPRETIP,NPREORD,TPREFOR,CPREOBL,NPREIMP,CRESDEF,COFERSN,CTABLA,TVALFOR,CMODO,CNIVEL,CTARPOL,CVISIBLE,ESCCERO,VISIBLECOL,VISIBLECERT,CRECARG,CCALCULAR,TMODALIDAD,CTIPCONV) values ('9904','1','0','802','3','8063','1','13',null,'1','3',null,'0',null,null,'T','R','0','2','0','1','1','0',null,null,null);
+
+Insert into CODIPREGUN (CPREGUN,CTIPPRE,CTIPPOR,CTIPGRU,TCONSULTA,TIMAGEN) values ('9903','3',null,'0',null,null);
+
+Insert into PREGUNTAS (CPREGUN,CIDIOMA,TPREGUN) values ('9903','1','Prima Ambulancias no Medicalizadas');
+Insert into PREGUNTAS (CPREGUN,CIDIOMA,TPREGUN) values ('9903','2','Prima Ambulancias no Medicalizadas');
+Insert into PREGUNTAS (CPREGUN,CIDIOMA,TPREGUN) values ('9903','8','Prima Ambulancias no Medicalizadas');
+
+Insert into PREGUNPRO (CPREGUN,CMODALI,CCOLECT,CRAMO,CTIPSEG,SPRODUC,CPRETIP,NPREORD,TPREFOR,CPREOBL,NPREIMP,CRESDEF,COFERSN,CTABLA,TVALFOR,CMODO,CNIVEL,CTARPOL,CVISIBLE,ESCCERO,VISIBLECOL,VISIBLECERT,CRECARG,CCALCULAR,TMODALIDAD,CTIPCONV) values ('9903','1','0','802','3','8063','1','12',null,'1','3',null,'0',null,null,'T','R','0','2','0','1','1','0',null,null,null);
+
+Insert into CODIPREGUN (CPREGUN,CTIPPRE,CTIPPOR,CTIPGRU,TCONSULTA,TIMAGEN) values ('9900','3',null,'0',null,null);
+
+Insert into PREGUNTAS (CPREGUN,CIDIOMA,TPREGUN) values ('9900','1','Prima Ambulancias Medicalizadas');
+Insert into PREGUNTAS (CPREGUN,CIDIOMA,TPREGUN) values ('9900','2','Prima Ambulancias Medicalizadas');
+Insert into PREGUNTAS (CPREGUN,CIDIOMA,TPREGUN) values ('9900','8','Prima Ambulancias Medicalizadas');
+
+Insert into PREGUNPRO (CPREGUN,CMODALI,CCOLECT,CRAMO,CTIPSEG,SPRODUC,CPRETIP,NPREORD,TPREFOR,CPREOBL,NPREIMP,CRESDEF,COFERSN,CTABLA,TVALFOR,CMODO,CNIVEL,CTARPOL,CVISIBLE,ESCCERO,VISIBLECOL,VISIBLECERT,CRECARG,CCALCULAR,TMODALIDAD,CTIPCONV) values ('9900','1','0','802','3','8063','1','11',null,'1','3',null,'0',null,null,'T','R','0','2','0','1','1','0',null,null,null);
+
+Insert into CODIPREGUN (CPREGUN,CTIPPRE,CTIPPOR,CTIPGRU,TCONSULTA,TIMAGEN) values ('9901','3',null,'0',null,null);
+
+Insert into PREGUNTAS (CPREGUN,CIDIOMA,TPREGUN) values ('9901','1','Prima Nivel de complejidad');
+Insert into PREGUNTAS (CPREGUN,CIDIOMA,TPREGUN) values ('9901','2','Prima Nivel de complejidad');
+Insert into PREGUNTAS (CPREGUN,CIDIOMA,TPREGUN) values ('9901','8','Prima Nivel de complejidad');
+
+Insert into PREGUNPRO (CPREGUN,CMODALI,CCOLECT,CRAMO,CTIPSEG,SPRODUC,CPRETIP,NPREORD,TPREFOR,CPREOBL,NPREIMP,CRESDEF,COFERSN,CTABLA,TVALFOR,CMODO,CNIVEL,CTARPOL,CVISIBLE,ESCCERO,VISIBLECOL,VISIBLECERT,CRECARG,CCALCULAR,TMODALIDAD,CTIPCONV) values ('9901','1','0','802','3','8063','1','16',null,'1','3',null,'0',null,null,'T','R','0','2','0','1','1','0',null,null,null);
+
+Insert into CODIPREGUN (CPREGUN,CTIPPRE,CTIPPOR,CTIPGRU,TCONSULTA,TIMAGEN) values ('9902','3',null,'0',null,null);
+
+Insert into PREGUNTAS (CPREGUN,CIDIOMA,TPREGUN) values ('9902','1','Prima Certificación');
+Insert into PREGUNTAS (CPREGUN,CIDIOMA,TPREGUN) values ('9902','2','Prima Certificación');
+Insert into PREGUNTAS (CPREGUN,CIDIOMA,TPREGUN) values ('9902','8','Prima Certificación');
+
+Insert into PREGUNPRO (CPREGUN,CMODALI,CCOLECT,CRAMO,CTIPSEG,SPRODUC,CPRETIP,NPREORD,TPREFOR,CPREOBL,NPREIMP,CRESDEF,COFERSN,CTABLA,TVALFOR,CMODO,CNIVEL,CTARPOL,CVISIBLE,ESCCERO,VISIBLECOL,VISIBLECERT,CRECARG,CCALCULAR,TMODALIDAD,CTIPCONV) values ('9902','1','0','802','3','8063','1','17',null,'1','3',null,'0',null,null,'T','R','0','2','0','1','1','0',null,null,null);
+
+DELETE FROM PREGUNPROGARAN WHERE CPREGUN =2442 AND SPRODUC = 8063 AND CGARANT = 7050 AND CACTIVI = 0;
+
+Insert into PREGUNPROGARAN (SPRODUC,CACTIVI,CGARANT,CPREGUN,CPRETIP,NPREORD,TPREFOR,CPREOBL,NPREIMP,CRESDEF,COFERSN,CTABLA,TVALFOR,ESCCERO,VISIBLECOL,VISIBLECERT,CVISIBLE,CMODO) values ('8063','0','7050','2442','1','3',null,'1',null,null,'1',null,null,'0','0','1','2','T');
+
+
+delete from garanformula where sproduc = 8063 and cgarant in (7030, 7033, 7034, 7035, 7036, 7037, 7032, 7031, 7042);
+
+update cfg_form_property set cvalue = 1 where cidcfg = 806301 and cform = 'AXISCTR207' and citem in ('ITOTDTO', 'IRECARG','ITOTDEV','TIPRITAR') and cprpty = 1;
+
+update cfg_form_property set cvalue = 0 where cidcfg = 806301 and cform = 'AXISCTR207' and citem = 'ICDERREG' and cprpty = 1;
+
+commit;
+/
+

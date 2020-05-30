@@ -1,0 +1,11 @@
+--------------------------------------------------------
+--  DDL for Type T_IAX_ASEGURADOS
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TYPE "AXIS"."T_IAX_ASEGURADOS" AS TABLE OF OB_IAX_ASEGURADOS;
+
+/
+
+  GRANT EXECUTE ON "AXIS"."T_IAX_ASEGURADOS" TO "PROGRAMADORESCSI";
+  GRANT EXECUTE ON "AXIS"."T_IAX_ASEGURADOS" TO "CONF_DWH";
+  GRANT EXECUTE ON "AXIS"."T_IAX_ASEGURADOS" TO "R_AXIS";

@@ -1,0 +1,11 @@
+--------------------------------------------------------
+--  DDL for Type T_IAX_PRODTITULO
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TYPE "AXIS"."T_IAX_PRODTITULO" AS TABLE OF OB_IAX_PRODTITULO;
+
+/
+
+  GRANT EXECUTE ON "AXIS"."T_IAX_PRODTITULO" TO "R_AXIS";
+  GRANT EXECUTE ON "AXIS"."T_IAX_PRODTITULO" TO "CONF_DWH";
+  GRANT EXECUTE ON "AXIS"."T_IAX_PRODTITULO" TO "PROGRAMADORESCSI";

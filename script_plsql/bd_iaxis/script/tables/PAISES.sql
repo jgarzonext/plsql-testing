@@ -1,0 +1,47 @@
+--------------------------------------------------------
+--  DDL for Table PAISES
+--------------------------------------------------------
+
+  CREATE TABLE "AXIS"."PAISES" 
+   (	"CPAIS" NUMBER(3,0), 
+	"TPAIS" VARCHAR2(100 BYTE), 
+	"CUNIEUR" NUMBER(1,0), 
+	"PRETENC" NUMBER(7,5), 
+	"CODISO" VARCHAR2(3 BYTE), 
+	"CODISOIBAN" VARCHAR2(2 BYTE), 
+	"CODISOTEL" NUMBER(5,0), 
+	"ABREVIATURA" VARCHAR2(3 BYTE), 
+	"TPAISISO" VARCHAR2(100 BYTE), 
+	"ISOMONEDA" VARCHAR2(3 BYTE), 
+	"TPOSTALFMT" VARCHAR2(10 BYTE), 
+	"CPOSTALVAL" NUMBER(1,0), 
+	"CDIRASEG" NUMBER(1,0), 
+	"CALTPOB" NUMBER(1,0)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "AXIS" ;
+
+   COMMENT ON COLUMN "AXIS"."PAISES"."CPAIS" IS 'Codigo de Pais';
+   COMMENT ON COLUMN "AXIS"."PAISES"."TPAIS" IS 'Nombre del Pais';
+   COMMENT ON COLUMN "AXIS"."PAISES"."CUNIEUR" IS 'Pertenece o no a la Union Europea';
+   COMMENT ON COLUMN "AXIS"."PAISES"."CODISO" IS 'Código ISO numérico';
+   COMMENT ON COLUMN "AXIS"."PAISES"."CODISOIBAN" IS 'Código ISO texto';
+   COMMENT ON COLUMN "AXIS"."PAISES"."CODISOTEL" IS 'Prefijo telefónico internacional ITU (International Telecommunications Union)';
+   COMMENT ON COLUMN "AXIS"."PAISES"."ABREVIATURA" IS 'Abreviatura del pais, 2 Caracteres';
+   COMMENT ON COLUMN "AXIS"."PAISES"."TPAISISO" IS 'Código ISO-3166-1 Nombre País';
+   COMMENT ON COLUMN "AXIS"."PAISES"."ISOMONEDA" IS 'Código ISO-4217 Moneda País';
+   COMMENT ON COLUMN "AXIS"."PAISES"."TPOSTALFMT" IS 'Formato Validación CPOSTAL (p.ej:AAA.NN-A:alfa,N:num,resto el caracter fijo)';
+   COMMENT ON COLUMN "AXIS"."PAISES"."CPOSTALVAL" IS 'Indica si debemos validar los CPOSTAL con direcciones';
+   COMMENT ON COLUMN "AXIS"."PAISES"."CDIRASEG" IS 'Indica si se pueden asegurar riesgos de dirección (inmuebles) en el país';
+   COMMENT ON COLUMN "AXIS"."PAISES"."CALTPOB" IS 'Indica si se pueden crear datos de ámbito igual o superior a municipio (o población)  en el país (localidades sí que se pueden crear)';
+   COMMENT ON TABLE "AXIS"."PAISES"  IS 'Paises';
+  GRANT UPDATE ON "AXIS"."PAISES" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."PAISES" TO "R_AXIS";
+  GRANT INSERT ON "AXIS"."PAISES" TO "R_AXIS";
+  GRANT DELETE ON "AXIS"."PAISES" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."PAISES" TO "CONF_DWH";
+  GRANT SELECT ON "AXIS"."PAISES" TO "PROGRAMADORESCSI";

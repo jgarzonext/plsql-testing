@@ -1,0 +1,39 @@
+--------------------------------------------------------
+--  DDL for Table AUT_DISPOSITIVOS
+--------------------------------------------------------
+
+  CREATE TABLE "AXIS"."AUT_DISPOSITIVOS" 
+   (	"CVERSION" VARCHAR2(11 BYTE), 
+	"CDISPOSITIVO" VARCHAR2(10 BYTE), 
+	"TDISPOSITIVO" VARCHAR2(100 BYTE), 
+	"CMONEDA" NUMBER, 
+	"IVALPUBL" NUMBER(15,4), 
+	"IIVALFABRICA" NUMBER(15,4), 
+	"FINICIO" DATE, 
+	"FFIN" DATE, 
+	"CACTIVO" VARCHAR2(2 BYTE), 
+	"CVEHB7" NUMBER(3,0), 
+	"CPROPDISP" VARCHAR2(100 BYTE)
+   ) SEGMENT CREATION DEFERRED 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "AXIS" ;
+
+   COMMENT ON COLUMN "AXIS"."AUT_DISPOSITIVOS"."CVERSION" IS 'Código numérico y exclusivo de cada vehículo';
+   COMMENT ON COLUMN "AXIS"."AUT_DISPOSITIVOS"."CDISPOSITIVO" IS 'Codificación del  dispositivo';
+   COMMENT ON COLUMN "AXIS"."AUT_DISPOSITIVOS"."TDISPOSITIVO" IS 'Descripción del dispositivo';
+   COMMENT ON COLUMN "AXIS"."AUT_DISPOSITIVOS"."CMONEDA" IS 'Determina precio Euro/Ptas.';
+   COMMENT ON COLUMN "AXIS"."AUT_DISPOSITIVOS"."IVALPUBL" IS 'Precio Venta Público';
+   COMMENT ON COLUMN "AXIS"."AUT_DISPOSITIVOS"."IIVALFABRICA" IS 'Precio Franco Fábrica';
+   COMMENT ON COLUMN "AXIS"."AUT_DISPOSITIVOS"."FINICIO" IS 'Fecha desde la que está disponible. Formato mes/año  (mm/aaaa)';
+   COMMENT ON COLUMN "AXIS"."AUT_DISPOSITIVOS"."FFIN" IS 'Fecha hasta la que está disponible. Formato mes/año  (mm/aaaa)';
+   COMMENT ON COLUMN "AXIS"."AUT_DISPOSITIVOS"."CACTIVO" IS 'Campo de control (S, campo activo; N, campo no activo)';
+   COMMENT ON COLUMN "AXIS"."AUT_DISPOSITIVOS"."CVEHB7" IS 'Indica si procede de base siete o no. Valor fijo=108';
+   COMMENT ON COLUMN "AXIS"."AUT_DISPOSITIVOS"."CPROPDISP" IS 'Propiedad del dispositivo (VF = 8000912)';
+   COMMENT ON TABLE "AXIS"."AUT_DISPOSITIVOS"  IS 'Tabla dónde definimos los dispositivos posibles por versión o generales(CVERSION =0)';
+  GRANT UPDATE ON "AXIS"."AUT_DISPOSITIVOS" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."AUT_DISPOSITIVOS" TO "R_AXIS";
+  GRANT INSERT ON "AXIS"."AUT_DISPOSITIVOS" TO "R_AXIS";
+  GRANT DELETE ON "AXIS"."AUT_DISPOSITIVOS" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."AUT_DISPOSITIVOS" TO "CONF_DWH";
+  GRANT SELECT ON "AXIS"."AUT_DISPOSITIVOS" TO "PROGRAMADORESCSI";

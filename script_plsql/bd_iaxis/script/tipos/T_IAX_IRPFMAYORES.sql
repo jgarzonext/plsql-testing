@@ -1,0 +1,11 @@
+--------------------------------------------------------
+--  DDL for Type T_IAX_IRPFMAYORES
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TYPE "AXIS"."T_IAX_IRPFMAYORES" AS TABLE OF OB_IAX_IRPFMAYORES;
+
+/
+
+  GRANT EXECUTE ON "AXIS"."T_IAX_IRPFMAYORES" TO "R_AXIS";
+  GRANT EXECUTE ON "AXIS"."T_IAX_IRPFMAYORES" TO "CONF_DWH";
+  GRANT EXECUTE ON "AXIS"."T_IAX_IRPFMAYORES" TO "PROGRAMADORESCSI";

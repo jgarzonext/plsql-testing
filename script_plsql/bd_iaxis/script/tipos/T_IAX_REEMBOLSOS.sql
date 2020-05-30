@@ -1,0 +1,11 @@
+--------------------------------------------------------
+--  DDL for Type T_IAX_REEMBOLSOS
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TYPE "AXIS"."T_IAX_REEMBOLSOS" AS TABLE OF OB_IAX_REEMBOLSOS;
+
+/
+
+  GRANT EXECUTE ON "AXIS"."T_IAX_REEMBOLSOS" TO "R_AXIS";
+  GRANT EXECUTE ON "AXIS"."T_IAX_REEMBOLSOS" TO "CONF_DWH";
+  GRANT EXECUTE ON "AXIS"."T_IAX_REEMBOLSOS" TO "PROGRAMADORESCSI";

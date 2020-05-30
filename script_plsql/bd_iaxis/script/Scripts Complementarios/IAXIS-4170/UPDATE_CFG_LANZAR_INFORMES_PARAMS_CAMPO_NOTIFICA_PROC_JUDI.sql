@@ -1,0 +1,2 @@
+UPDATE CFG_LANZAR_INFORMES_PARAMS SET LVALOR= 'SELECT:SELECT 0 v , ''TODAS'' d FROM dual union SELECT TO_NUMBER(mun.cprovin || LPAD(mun.cpoblac, 3, ''0'')) v, mun.tpoblac || '' - '' || dptos.tprovin d FROM poblaciones mun, provincias dptos WHERE mun.cprovin = dptos.cprovin  AND CPAIS=170  ORDER BY 1'
+WHERE UPPER(cmap) ='NOTIFICA_PROC_JUDI' AND TPARAM='PSUCUR';COMMIT;

@@ -1,0 +1,8 @@
+--------------------------------------------------------
+--  DDL for Sequence NMOVIMI
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "AXIS"."NMOVIMI"  MINVALUE 1 MAXVALUE 999999999999999999999999999 INCREMENT BY 1 START WITH 242 NOCACHE  NOORDER  NOCYCLE   ;
+  GRANT SELECT ON "AXIS"."NMOVIMI" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."NMOVIMI" TO "CONF_DWH";
+  GRANT SELECT ON "AXIS"."NMOVIMI" TO "PROGRAMADORESCSI";

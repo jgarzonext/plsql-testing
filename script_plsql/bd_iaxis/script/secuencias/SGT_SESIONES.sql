@@ -1,0 +1,8 @@
+--------------------------------------------------------
+--  DDL for Sequence SGT_SESIONES
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "AXIS"."SGT_SESIONES"  MINVALUE 0 MAXVALUE 999999 INCREMENT BY 1 START WITH 377913 NOCACHE  NOORDER  CYCLE   ;
+  GRANT SELECT ON "AXIS"."SGT_SESIONES" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."SGT_SESIONES" TO "CONF_DWH";
+  GRANT SELECT ON "AXIS"."SGT_SESIONES" TO "PROGRAMADORESCSI";

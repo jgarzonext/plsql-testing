@@ -1,0 +1,11 @@
+--------------------------------------------------------
+--  DDL for Type T_IAX_CONTRAGARAN
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TYPE "AXIS"."T_IAX_CONTRAGARAN" AS TABLE OF OB_IAX_CONTRAGARAN;
+
+/
+
+  GRANT EXECUTE ON "AXIS"."T_IAX_CONTRAGARAN" TO "R_AXIS";
+  GRANT EXECUTE ON "AXIS"."T_IAX_CONTRAGARAN" TO "CONF_DWH";
+  GRANT EXECUTE ON "AXIS"."T_IAX_CONTRAGARAN" TO "PROGRAMADORESCSI";

@@ -1,0 +1,45 @@
+--------------------------------------------------------
+--  DDL for Table BLOQUEOSEG
+--------------------------------------------------------
+
+  CREATE TABLE "AXIS"."BLOQUEOSEG" 
+   (	"SSEGURO" NUMBER, 
+	"FINICIO" DATE, 
+	"FFINAL" DATE, 
+	"IIMPORTE" NUMBER, 
+	"TTEXTO" VARCHAR2(1000 BYTE), 
+	"CMOTMOV" NUMBER(3,0), 
+	"NMOVIMI" NUMBER(4,0), 
+	"NBLOQUEO" NUMBER(3,0), 
+	"SPERSON" NUMBER(10,0), 
+	"COPCIONAL" NUMBER, 
+	"NRANGO" NUMBER, 
+	"NCOLATER" NUMBER, 
+	"CTIPOCAUSA" NUMBER(3,0)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "AXIS" ;
+
+   COMMENT ON COLUMN "AXIS"."BLOQUEOSEG"."SSEGURO" IS 'Código del seguro';
+   COMMENT ON COLUMN "AXIS"."BLOQUEOSEG"."FINICIO" IS 'Fecha de inicio del bloqueo o la pignoración';
+   COMMENT ON COLUMN "AXIS"."BLOQUEOSEG"."FFINAL" IS 'Fecha de fin del bloqueo o la pignoración';
+   COMMENT ON COLUMN "AXIS"."BLOQUEOSEG"."IIMPORTE" IS 'Importe pignorado';
+   COMMENT ON COLUMN "AXIS"."BLOQUEOSEG"."TTEXTO" IS 'Motivo del bloqueo o la pignoración';
+   COMMENT ON COLUMN "AXIS"."BLOQUEOSEG"."CMOTMOV" IS 'Motivo del movimiento que corresponde al tipo de bloqueo ( 261.- Pignoracion, 262.- Bloqueo, 263.- Despignoracion, 264.- Desbloqueo )';
+   COMMENT ON COLUMN "AXIS"."BLOQUEOSEG"."NMOVIMI" IS 'Número del movimiento al que corresponde el bloqueo';
+   COMMENT ON COLUMN "AXIS"."BLOQUEOSEG"."SPERSON" IS 'Identificador de la persona (entidad creditora)';
+   COMMENT ON COLUMN "AXIS"."BLOQUEOSEG"."COPCIONAL" IS 'Indicador de si el desbloqueo es condicional/temporal';
+   COMMENT ON COLUMN "AXIS"."BLOQUEOSEG"."NRANGO" IS 'Número de rango dentro de las pignoraciones (V.F 8000957)';
+   COMMENT ON COLUMN "AXIS"."BLOQUEOSEG"."NCOLATER" IS 'Colateral number';
+   COMMENT ON COLUMN "AXIS"."BLOQUEOSEG"."CTIPOCAUSA" IS 'Tipo de la causa (V.F 8000958)';
+   COMMENT ON TABLE "AXIS"."BLOQUEOSEG"  IS 'Bloqueo/pignoración de seguros';
+  GRANT UPDATE ON "AXIS"."BLOQUEOSEG" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."BLOQUEOSEG" TO "R_AXIS";
+  GRANT INSERT ON "AXIS"."BLOQUEOSEG" TO "R_AXIS";
+  GRANT DELETE ON "AXIS"."BLOQUEOSEG" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."BLOQUEOSEG" TO "CONF_DWH";
+  GRANT SELECT ON "AXIS"."BLOQUEOSEG" TO "PROGRAMADORESCSI";

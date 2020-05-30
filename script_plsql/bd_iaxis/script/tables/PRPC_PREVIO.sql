@@ -1,0 +1,71 @@
+--------------------------------------------------------
+--  DDL for Table PRPC_PREVIO
+--------------------------------------------------------
+
+  CREATE TABLE "AXIS"."PRPC_PREVIO" 
+   (	"CEMPRES" NUMBER(2,0), 
+	"FCALCUL" DATE, 
+	"SPROCES" NUMBER, 
+	"CRAMDGS" NUMBER(4,0), 
+	"CRAMO" NUMBER(8,0), 
+	"CMODALI" NUMBER(2,0), 
+	"CTIPSEG" NUMBER(2,0), 
+	"CCOLECT" NUMBER(2,0), 
+	"SSEGURO" NUMBER, 
+	"NRECIBO" NUMBER, 
+	"NMOVIMI" NUMBER(4,0), 
+	"FINIEFE" DATE, 
+	"CGARANT" NUMBER(4,0), 
+	"NRIESGO" NUMBER(6,0), 
+	"IPRPC" NUMBER(17,2), 
+	"CERROR" NUMBER(2,0), 
+	"IPRIMCOM" NUMBER(17,2), 
+	"IPPNAPRIMA" NUMBER(17,2), 
+	"IPPNACOMIS" NUMBER(17,2), 
+	"PREA" NUMBER(5,2), 
+	"PCOM" NUMBER(5,2), 
+	"ICOMIS" NUMBER(17,2), 
+	"IPDEVRC" NUMBER(17,2), 
+	"IPNCSRC" NUMBER(17,2), 
+	"ICOMRC" NUMBER(17,2), 
+	"ICNCSRC" NUMBER(17,2), 
+	"CTRAMO" NUMBER(3,0)
+   ) SEGMENT CREATION DEFERRED 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "AXIS" ;
+
+   COMMENT ON COLUMN "AXIS"."PRPC_PREVIO"."CEMPRES" IS 'Código empresa';
+   COMMENT ON COLUMN "AXIS"."PRPC_PREVIO"."FCALCUL" IS 'Fecha de cálculo';
+   COMMENT ON COLUMN "AXIS"."PRPC_PREVIO"."SPROCES" IS 'Identificador de proceso';
+   COMMENT ON COLUMN "AXIS"."PRPC_PREVIO"."CRAMDGS" IS 'Código ramo DGS';
+   COMMENT ON COLUMN "AXIS"."PRPC_PREVIO"."CRAMO" IS 'Código ramo';
+   COMMENT ON COLUMN "AXIS"."PRPC_PREVIO"."CMODALI" IS 'Código modalidad';
+   COMMENT ON COLUMN "AXIS"."PRPC_PREVIO"."CTIPSEG" IS 'Código tipo de seguro';
+   COMMENT ON COLUMN "AXIS"."PRPC_PREVIO"."CCOLECT" IS 'Código de colectividad';
+   COMMENT ON COLUMN "AXIS"."PRPC_PREVIO"."SSEGURO" IS 'Número consecutivo de seguro asignado automáticamente.';
+   COMMENT ON COLUMN "AXIS"."PRPC_PREVIO"."NRECIBO" IS 'Número de recibo';
+   COMMENT ON COLUMN "AXIS"."PRPC_PREVIO"."NMOVIMI" IS 'Número de movimiento';
+   COMMENT ON COLUMN "AXIS"."PRPC_PREVIO"."FINIEFE" IS 'Fecha inició efecto';
+   COMMENT ON COLUMN "AXIS"."PRPC_PREVIO"."CGARANT" IS 'Código de garantía';
+   COMMENT ON COLUMN "AXIS"."PRPC_PREVIO"."NRIESGO" IS 'Número de riesgo';
+   COMMENT ON COLUMN "AXIS"."PRPC_PREVIO"."IPRPC" IS 'Importe provisión';
+   COMMENT ON COLUMN "AXIS"."PRPC_PREVIO"."CERROR" IS 'Código de error';
+   COMMENT ON COLUMN "AXIS"."PRPC_PREVIO"."IPRIMCOM" IS 'Prima neta';
+   COMMENT ON COLUMN "AXIS"."PRPC_PREVIO"."IPPNAPRIMA" IS 'Prima no consumida';
+   COMMENT ON COLUMN "AXIS"."PRPC_PREVIO"."IPPNACOMIS" IS 'Comisión no consumida';
+   COMMENT ON COLUMN "AXIS"."PRPC_PREVIO"."PREA" IS 'Porcentaje de reaseguro';
+   COMMENT ON COLUMN "AXIS"."PRPC_PREVIO"."PCOM" IS 'Porcentaje de comisión';
+   COMMENT ON COLUMN "AXIS"."PRPC_PREVIO"."ICOMIS" IS 'Importe comisión';
+   COMMENT ON COLUMN "AXIS"."PRPC_PREVIO"."IPDEVRC" IS 'Prima reaseguro cedido';
+   COMMENT ON COLUMN "AXIS"."PRPC_PREVIO"."IPNCSRC" IS 'Prima no consumida reaseguro cedido';
+   COMMENT ON COLUMN "AXIS"."PRPC_PREVIO"."ICOMRC" IS 'Comisión reaseguro cedido';
+   COMMENT ON COLUMN "AXIS"."PRPC_PREVIO"."ICNCSRC" IS 'Comisión no consumida reaseguro cedido';
+   COMMENT ON COLUMN "AXIS"."PRPC_PREVIO"."CTRAMO" IS 'Tramo antigüedad aplicable (en meses) (v.f. 1084)';
+   COMMENT ON TABLE "AXIS"."PRPC_PREVIO"  IS 'PRPC - Provisión de Recibos Pendientes de Cobro (según descripción excel de ejemplo de TRQ) - Cálculo Previo';
+  GRANT UPDATE ON "AXIS"."PRPC_PREVIO" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."PRPC_PREVIO" TO "R_AXIS";
+  GRANT INSERT ON "AXIS"."PRPC_PREVIO" TO "R_AXIS";
+  GRANT DELETE ON "AXIS"."PRPC_PREVIO" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."PRPC_PREVIO" TO "CONF_DWH";
+  GRANT SELECT ON "AXIS"."PRPC_PREVIO" TO "PROGRAMADORESCSI";

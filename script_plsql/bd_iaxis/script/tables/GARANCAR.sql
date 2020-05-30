@@ -1,0 +1,171 @@
+--------------------------------------------------------
+--  DDL for Table GARANCAR
+--------------------------------------------------------
+
+  CREATE TABLE "AXIS"."GARANCAR" 
+   (	"SSEGURO" NUMBER, 
+	"CGARANT" NUMBER(4,0), 
+	"FINIEFE" DATE, 
+	"NRIESGO" NUMBER(6,0), 
+	"NORDEN" NUMBER(4,0), 
+	"CTARIFA" NUMBER(5,0), 
+	"ICAPITAL" NUMBER, 
+	"PRECARG" NUMBER(6,2), 
+	"IPRIANU" NUMBER, 
+	"FFINEFE" DATE, 
+	"CFORMUL" NUMBER(4,0), 
+	"IEXTRAP" NUMBER(19,12), 
+	"SPROCES" NUMBER, 
+	"CTIPFRA" NUMBER(1,0), 
+	"IFRANQU" NUMBER, 
+	"IRECARG" NUMBER, 
+	"IPRITAR" NUMBER, 
+	"PDTOCOM" NUMBER(6,2), 
+	"IDTOCOM" NUMBER, 
+	"CREVALI" NUMBER(2,0), 
+	"IREVALI" NUMBER, 
+	"PREVALI" NUMBER(8,5), 
+	"ITARIFA" NUMBER(19,12), 
+	"ITARREA" NUMBER(24,12), 
+	"IPRITOT" NUMBER, 
+	"ICAPTOT" NUMBER, 
+	"FTARIFA" DATE, 
+	"CCAMPANYA" NUMBER(3,0), 
+	"NVERSIO" NUMBER(3,0), 
+	"CDERREG" NUMBER(1,0), 
+	"FEPREV" DATE, 
+	"FPPREV" DATE, 
+	"PERCRE" NUMBER(2,0), 
+	"CREF" NUMBER(1,0), 
+	"CINTREF" NUMBER(3,0), 
+	"PDIF" NUMBER(5,2), 
+	"PINTTEC" NUMBER(5,2), 
+	"NPARBEN" NUMBER(1,0), 
+	"NBNS" NUMBER(1,0), 
+	"TMGARAN" NUMBER, 
+	"CMATCH" NUMBER(1,0), 
+	"TDESMAT" VARCHAR2(75 BYTE), 
+	"PINTFIN" NUMBER(5,2), 
+	"NMOVIMA" NUMBER(4,0) DEFAULT 1, 
+	"CAGEVEN" NUMBER, 
+	"IDTOINT" NUMBER, 
+	"NFACTOR" NUMBER, 
+	"NMOVI_ANT" NUMBER(4,0), 
+	"CANULADO" NUMBER(1,0), 
+	"NLINEA" NUMBER(3,0), 
+	"PDTOINT" NUMBER(5,2), 
+	"FINIDER" DATE, 
+	"CMOTMOV" NUMBER(3,0), 
+	"FALTA" DATE, 
+	"CTARMAN" NUMBER, 
+	"CFRANQ" NUMBER(6,0), 
+	"NFRAVER" NUMBER(6,0), 
+	"NGRPFRA" NUMBER(6,0), 
+	"NGRPGARA" NUMBER(6,0), 
+	"NORDFRA" NUMBER(6,0), 
+	"PDTOFRA" NUMBER(7,4), 
+	"CREVALCAR" NUMBER(1,0), 
+	"CACTIVI" NUMBER(4,0), 
+	"NDETGAR" NUMBER(4,0) DEFAULT 0, 
+	"FEFECTO" DATE, 
+	"FVENCIM" DATE, 
+	"NDURCOB" NUMBER(3,0), 
+	"CPARBEN" VARCHAR2(2 BYTE), 
+	"CPREPOST" NUMBER(1,0), 
+	"FFINCOB" DATE, 
+	"PROVMAT0" NUMBER, 
+	"FPROVMAT0" DATE, 
+	"PROVMAT1" NUMBER, 
+	"FPROVMAT1" DATE, 
+	"PINTMIN" NUMBER(6,2), 
+	"IPRIPUR" NUMBER, 
+	"IPRIINV" NUMBER, 
+	"CUNICA" NUMBER(1,0) DEFAULT 0, 
+	"PDTOTEC" NUMBER(6,2), 
+	"PRECCOM" NUMBER(6,2), 
+	"IDTOTEC" NUMBER, 
+	"IRECCOM" NUMBER, 
+	"IPRICOM" NUMBER, 
+	"FINIVIG" DATE, 
+	"FFINVIG" DATE, 
+	"CCOBPRIMA" NUMBER, 
+	"IPRIDEV" NUMBER
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "AXIS" ;
+
+   COMMENT ON COLUMN "AXIS"."GARANCAR"."SSEGURO" IS 'Número de seguro';
+   COMMENT ON COLUMN "AXIS"."GARANCAR"."CGARANT" IS 'Código de garantía';
+   COMMENT ON COLUMN "AXIS"."GARANCAR"."FINIEFE" IS 'Fecha inicio';
+   COMMENT ON COLUMN "AXIS"."GARANCAR"."NRIESGO" IS 'Número de riesgo';
+   COMMENT ON COLUMN "AXIS"."GARANCAR"."NORDEN" IS 'Número de orden';
+   COMMENT ON COLUMN "AXIS"."GARANCAR"."CTARIFA" IS 'Código de tarifa';
+   COMMENT ON COLUMN "AXIS"."GARANCAR"."ICAPITAL" IS 'Importe garantía';
+   COMMENT ON COLUMN "AXIS"."GARANCAR"."PRECARG" IS 'Porcentaje recargo';
+   COMMENT ON COLUMN "AXIS"."GARANCAR"."IPRIANU" IS 'Importe prima anual';
+   COMMENT ON COLUMN "AXIS"."GARANCAR"."FFINEFE" IS 'Fecha fin efecto';
+   COMMENT ON COLUMN "AXIS"."GARANCAR"."CFORMUL" IS 'Código de fórmula';
+   COMMENT ON COLUMN "AXIS"."GARANCAR"."IEXTRAP" IS 'Extraprima';
+   COMMENT ON COLUMN "AXIS"."GARANCAR"."SPROCES" IS 'Número de proceso';
+   COMMENT ON COLUMN "AXIS"."GARANCAR"."CTIPFRA" IS 'Tipo de franquicia';
+   COMMENT ON COLUMN "AXIS"."GARANCAR"."IFRANQU" IS 'Importe franquicia';
+   COMMENT ON COLUMN "AXIS"."GARANCAR"."IRECARG" IS 'Importe recargo';
+   COMMENT ON COLUMN "AXIS"."GARANCAR"."IPRITAR" IS 'Importe prima tarifa';
+   COMMENT ON COLUMN "AXIS"."GARANCAR"."PDTOCOM" IS 'Porcentaje de descuento';
+   COMMENT ON COLUMN "AXIS"."GARANCAR"."IDTOCOM" IS 'Importe de descuento';
+   COMMENT ON COLUMN "AXIS"."GARANCAR"."CREVALI" IS 'Código de revalorización';
+   COMMENT ON COLUMN "AXIS"."GARANCAR"."IREVALI" IS 'Importe de revalorización';
+   COMMENT ON COLUMN "AXIS"."GARANCAR"."PREVALI" IS 'Porcentaje de revalorización';
+   COMMENT ON COLUMN "AXIS"."GARANCAR"."CCAMPANYA" IS 'Código de campaña (promoción) asignado a esta garantía';
+   COMMENT ON COLUMN "AXIS"."GARANCAR"."NVERSIO" IS 'Número de versión de la campaña';
+   COMMENT ON COLUMN "AXIS"."GARANCAR"."PDIF" IS 'Diferencial de Intereses';
+   COMMENT ON COLUMN "AXIS"."GARANCAR"."NMOVIMA" IS 'Número de movimiento de alta';
+   COMMENT ON COLUMN "AXIS"."GARANCAR"."CAGEVEN" IS 'Código de agente de venta';
+   COMMENT ON COLUMN "AXIS"."GARANCAR"."NFACTOR" IS 'Factor multiplicador para revalorizar la prima';
+   COMMENT ON COLUMN "AXIS"."GARANCAR"."NMOVI_ANT" IS 'Código del movimiento anterior al que se esta tarifando';
+   COMMENT ON COLUMN "AXIS"."GARANCAR"."CANULADO" IS 'Garantia anulada por edad 1,vigente otros valores';
+   COMMENT ON COLUMN "AXIS"."GARANCAR"."NLINEA" IS 'Número de garantía relativa a póliza (ALN)';
+   COMMENT ON COLUMN "AXIS"."GARANCAR"."PDTOINT" IS 'Porcentaje descuento integral';
+   COMMENT ON COLUMN "AXIS"."GARANCAR"."FINIDER" IS 'Fecha Inicio de Derechos.';
+   COMMENT ON COLUMN "AXIS"."GARANCAR"."CMOTMOV" IS 'Código motivo de movimiento, solo informado en las garantías que se ha producido un cambio de producto';
+   COMMENT ON COLUMN "AXIS"."GARANCAR"."FALTA" IS 'Fecha en que se dio de alta la Garantía';
+   COMMENT ON COLUMN "AXIS"."GARANCAR"."CTARMAN" IS 'Tipo de tarifa manual';
+   COMMENT ON COLUMN "AXIS"."GARANCAR"."CFRANQ" IS 'Código de franquicia';
+   COMMENT ON COLUMN "AXIS"."GARANCAR"."NFRAVER" IS 'Número versión de franquicia';
+   COMMENT ON COLUMN "AXIS"."GARANCAR"."NGRPFRA" IS 'Código de grupo de franquicias';
+   COMMENT ON COLUMN "AXIS"."GARANCAR"."NGRPGARA" IS 'Código de grupo de garantias para franquicia';
+   COMMENT ON COLUMN "AXIS"."GARANCAR"."NORDFRA" IS 'Orden Franquicia (pk detfranquicias)';
+   COMMENT ON COLUMN "AXIS"."GARANCAR"."PDTOFRA" IS 'Porcentaje de descuento de la franquicia';
+   COMMENT ON COLUMN "AXIS"."GARANCAR"."CREVALCAR" IS '0.- No revaloritza a la cartera, 1.- Si revaloriza a la cartera';
+   COMMENT ON COLUMN "AXIS"."GARANCAR"."CACTIVI" IS 'Código de la actividad';
+   COMMENT ON COLUMN "AXIS"."GARANCAR"."NDETGAR" IS 'Número de detalle (utilizado si tiene detalle)';
+   COMMENT ON COLUMN "AXIS"."GARANCAR"."FEFECTO" IS 'Fecha efecto del detalle';
+   COMMENT ON COLUMN "AXIS"."GARANCAR"."FVENCIM" IS 'Fecha vencimiento del detalle';
+   COMMENT ON COLUMN "AXIS"."GARANCAR"."NDURCOB" IS 'Duración de los pagos del detalle';
+   COMMENT ON COLUMN "AXIS"."GARANCAR"."FFINCOB" IS 'Fecha fin de pagos del detalle';
+   COMMENT ON COLUMN "AXIS"."GARANCAR"."PROVMAT0" IS 'Provisión T0';
+   COMMENT ON COLUMN "AXIS"."GARANCAR"."FPROVMAT0" IS 'Fecha provisión T0';
+   COMMENT ON COLUMN "AXIS"."GARANCAR"."PROVMAT1" IS 'Provisión T1';
+   COMMENT ON COLUMN "AXIS"."GARANCAR"."FPROVMAT1" IS 'Fecha provisión T1';
+   COMMENT ON COLUMN "AXIS"."GARANCAR"."PINTMIN" IS 'Interés mínimo garantizado';
+   COMMENT ON COLUMN "AXIS"."GARANCAR"."IPRIPUR" IS 'Importe prima pura';
+   COMMENT ON COLUMN "AXIS"."GARANCAR"."CUNICA" IS 'Indicador de aportación única o extraordinaria';
+   COMMENT ON COLUMN "AXIS"."GARANCAR"."PDTOTEC" IS 'Porcentaje descuento técnico';
+   COMMENT ON COLUMN "AXIS"."GARANCAR"."PRECCOM" IS 'Porcentaje recargo comercial';
+   COMMENT ON COLUMN "AXIS"."GARANCAR"."IDTOTEC" IS 'Importe descuento técnico';
+   COMMENT ON COLUMN "AXIS"."GARANCAR"."IRECCOM" IS 'Importe recargo comercial';
+   COMMENT ON COLUMN "AXIS"."GARANCAR"."IPRICOM" IS 'Importe sobre el que se ha de calcular la comisión';
+   COMMENT ON COLUMN "AXIS"."GARANCAR"."FINIVIG" IS 'Fecha inicio vigencia cobertura';
+   COMMENT ON COLUMN "AXIS"."GARANCAR"."FFINVIG" IS 'Fecha fin vigencia cobertura';
+   COMMENT ON COLUMN "AXIS"."GARANCAR"."CCOBPRIMA" IS 'Cobra Prima';
+   COMMENT ON COLUMN "AXIS"."GARANCAR"."IPRIDEV" IS 'Prima Devengada';
+  GRANT UPDATE ON "AXIS"."GARANCAR" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."GARANCAR" TO "R_AXIS";
+  GRANT INSERT ON "AXIS"."GARANCAR" TO "R_AXIS";
+  GRANT DELETE ON "AXIS"."GARANCAR" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."GARANCAR" TO "CONF_DWH";
+  GRANT SELECT ON "AXIS"."GARANCAR" TO "PROGRAMADORESCSI";

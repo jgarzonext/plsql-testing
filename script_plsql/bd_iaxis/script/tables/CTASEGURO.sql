@@ -1,0 +1,77 @@
+--------------------------------------------------------
+--  DDL for Table CTASEGURO
+--------------------------------------------------------
+
+  CREATE TABLE "AXIS"."CTASEGURO" 
+   (	"SSEGURO" NUMBER, 
+	"FCONTAB" DATE, 
+	"NNUMLIN" NUMBER(6,0), 
+	"FFECMOV" DATE, 
+	"FVALMOV" DATE, 
+	"CMOVIMI" NUMBER(2,0), 
+	"IMOVIMI" NUMBER, 
+	"CCALINT" NUMBER(15,0), 
+	"IMOVIM2" NUMBER, 
+	"NRECIBO" NUMBER, 
+	"NSINIES" VARCHAR2(14 BYTE), 
+	"CMOVANU" NUMBER(1,0), 
+	"SMOVREC" NUMBER, 
+	"CESTA" NUMBER(3,0), 
+	"NUNIDAD" NUMBER(15,6), 
+	"CESTADO" VARCHAR2(1 BYTE), 
+	"FASIGN" DATE, 
+	"NPARPLA" NUMBER(15,6), 
+	"CESTPAR" VARCHAR2(1 BYTE), 
+	"IEXCESO" NUMBER, 
+	"SPERMIN" NUMBER(10,0), 
+	"SIDEPAG" NUMBER(8,0), 
+	"CTIPAPOR" VARCHAR2(2 BYTE), 
+	"SRECREN" NUMBER(8,0), 
+	"IMOVIMI_MONPOL" NUMBER, 
+	"IMOVIM2_MONPOL" NUMBER, 
+	"FCAMBIO" DATE, 
+	"NSIN1" VARCHAR2(14 BYTE), 
+	"FALTA" DATE, 
+	"CUSUALT" VARCHAR2(20 BYTE), 
+	"FMODIFI" DATE, 
+	"CUSUMOD" VARCHAR2(20 BYTE), 
+	"FECTRASP" DATE
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "AXIS"  ENABLE ROW MOVEMENT ;
+
+   COMMENT ON COLUMN "AXIS"."CTASEGURO"."SSEGURO" IS 'Identificador del seguro';
+   COMMENT ON COLUMN "AXIS"."CTASEGURO"."FCONTAB" IS 'Fecha contable';
+   COMMENT ON COLUMN "AXIS"."CTASEGURO"."NNUMLIN" IS 'Número de línea de ctaseguro';
+   COMMENT ON COLUMN "AXIS"."CTASEGURO"."FFECMOV" IS 'Fecha de efecto del movimiento';
+   COMMENT ON COLUMN "AXIS"."CTASEGURO"."FVALMOV" IS 'Fecha valor del movimiento';
+   COMMENT ON COLUMN "AXIS"."CTASEGURO"."CMOVIMI" IS 'Código de movimiento';
+   COMMENT ON COLUMN "AXIS"."CTASEGURO"."IMOVIMI" IS 'Importe movimiento';
+   COMMENT ON COLUMN "AXIS"."CTASEGURO"."CCALINT" IS 'Indicador cálculo de intereses (Deprecated). Agrupaciones de movimientos en CTASEGURO. Sequence: SCAGRCTA';
+   COMMENT ON COLUMN "AXIS"."CTASEGURO"."IMOVIM2" IS 'Importe movimiento 2';
+   COMMENT ON COLUMN "AXIS"."CTASEGURO"."NRECIBO" IS 'Número de recibo';
+   COMMENT ON COLUMN "AXIS"."CTASEGURO"."NSINIES" IS 'Número de siniestro';
+   COMMENT ON COLUMN "AXIS"."CTASEGURO"."CMOVANU" IS 'Indicador movimiento anulado';
+   COMMENT ON COLUMN "AXIS"."CTASEGURO"."IEXCESO" IS 'Exceso planes pensiones';
+   COMMENT ON COLUMN "AXIS"."CTASEGURO"."CTIPAPOR" IS 'Tipo de Aportación SP ( Servicios Pasados ) V - Voluntaria O - Obligatoria';
+   COMMENT ON COLUMN "AXIS"."CTASEGURO"."SRECREN" IS 'Identificador pago renta';
+   COMMENT ON COLUMN "AXIS"."CTASEGURO"."IMOVIMI_MONPOL" IS 'Importe del movimiento en la moneda a nivel de póliza (por defecto será la de la empresa)';
+   COMMENT ON COLUMN "AXIS"."CTASEGURO"."IMOVIM2_MONPOL" IS 'Importe del movimiento 2 en la moneda a nivel de póliza (por defecto será la de la empresa)';
+   COMMENT ON COLUMN "AXIS"."CTASEGURO"."FCAMBIO" IS 'Fecha empleada para el cálculo de los contravalores';
+   COMMENT ON COLUMN "AXIS"."CTASEGURO"."NSIN1" IS 'Copia de nsines por seguridad';
+   COMMENT ON COLUMN "AXIS"."CTASEGURO"."FALTA" IS 'Fecha de alta registro';
+   COMMENT ON COLUMN "AXIS"."CTASEGURO"."CUSUALT" IS 'Usuario alta registro';
+   COMMENT ON COLUMN "AXIS"."CTASEGURO"."FMODIFI" IS 'Fecha modificacion registro';
+   COMMENT ON COLUMN "AXIS"."CTASEGURO"."CUSUMOD" IS 'Usuario modificacion registro';
+   COMMENT ON COLUMN "AXIS"."CTASEGURO"."FECTRASP" IS 'Indicador de fecha de aportación traspasada';
+   COMMENT ON TABLE "AXIS"."CTASEGURO"  IS 'Más información de ctaseguro para enviar a la libreta';
+  GRANT SELECT ON "AXIS"."CTASEGURO" TO "PROGRAMADORESCSI";
+  GRANT SELECT ON "AXIS"."CTASEGURO" TO "CONF_DWH";
+  GRANT UPDATE ON "AXIS"."CTASEGURO" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."CTASEGURO" TO "R_AXIS";
+  GRANT INSERT ON "AXIS"."CTASEGURO" TO "R_AXIS";
+  GRANT DELETE ON "AXIS"."CTASEGURO" TO "R_AXIS";

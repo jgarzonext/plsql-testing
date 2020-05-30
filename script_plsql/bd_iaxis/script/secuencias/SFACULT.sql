@@ -1,0 +1,8 @@
+--------------------------------------------------------
+--  DDL for Sequence SFACULT
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "AXIS"."SFACULT"  MINVALUE 0 MAXVALUE 999999999999999999999999999 INCREMENT BY 1 START WITH 156 NOCACHE  NOORDER  NOCYCLE   ;
+  GRANT SELECT ON "AXIS"."SFACULT" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."SFACULT" TO "CONF_DWH";
+  GRANT SELECT ON "AXIS"."SFACULT" TO "PROGRAMADORESCSI";

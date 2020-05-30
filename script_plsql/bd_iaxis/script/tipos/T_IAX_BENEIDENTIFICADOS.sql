@@ -1,0 +1,11 @@
+--------------------------------------------------------
+--  DDL for Type T_IAX_BENEIDENTIFICADOS
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TYPE "AXIS"."T_IAX_BENEIDENTIFICADOS" AS TABLE OF ob_iax_beneidentificados;
+
+/
+
+  GRANT EXECUTE ON "AXIS"."T_IAX_BENEIDENTIFICADOS" TO "R_AXIS";
+  GRANT EXECUTE ON "AXIS"."T_IAX_BENEIDENTIFICADOS" TO "CONF_DWH";
+  GRANT EXECUTE ON "AXIS"."T_IAX_BENEIDENTIFICADOS" TO "PROGRAMADORESCSI";

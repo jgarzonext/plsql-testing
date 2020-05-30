@@ -1,0 +1,35 @@
+--------------------------------------------------------
+--  DDL for Table IBNR_SAM_UPE
+--------------------------------------------------------
+
+  CREATE TABLE "AXIS"."IBNR_SAM_UPE" 
+   (	"SPROCES" NUMBER, 
+	"FCALCUL" DATE, 
+	"FCALCUL_I" DATE, 
+	"FCALCUL_J" DATE, 
+	"CTIPO" NUMBER, 
+	"IUPE" NUMBER, 
+	"CMODO" VARCHAR2(1 BYTE), 
+	"CGARANT" NUMBER, 
+	"SPRODUC" NUMBER
+   ) SEGMENT CREATION DEFERRED 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "AXIS" ;
+
+   COMMENT ON COLUMN "AXIS"."IBNR_SAM_UPE"."SPROCES" IS 'Identificador del proceso';
+   COMMENT ON COLUMN "AXIS"."IBNR_SAM_UPE"."FCALCUL" IS 'Fecha del cálculo (real)';
+   COMMENT ON COLUMN "AXIS"."IBNR_SAM_UPE"."FCALCUL_I" IS 'Periodo de ocurrencia X';
+   COMMENT ON COLUMN "AXIS"."IBNR_SAM_UPE"."FCALCUL_J" IS 'Periodo de ocurrencia Y';
+   COMMENT ON COLUMN "AXIS"."IBNR_SAM_UPE"."CTIPO" IS 'Tipo de inflación  (0 - pagos , 1- reservas)';
+   COMMENT ON COLUMN "AXIS"."IBNR_SAM_UPE"."IUPE" IS 'Importe última pérdida';
+   COMMENT ON COLUMN "AXIS"."IBNR_SAM_UPE"."CMODO" IS 'Previo = P / Real = R';
+   COMMENT ON COLUMN "AXIS"."IBNR_SAM_UPE"."CGARANT" IS 'Identificador de la garantía';
+   COMMENT ON COLUMN "AXIS"."IBNR_SAM_UPE"."SPRODUC" IS 'Identificador del producto';
+   COMMENT ON TABLE "AXIS"."IBNR_SAM_UPE"  IS 'Tabla de Importe de última pérdida';
+  GRANT UPDATE ON "AXIS"."IBNR_SAM_UPE" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."IBNR_SAM_UPE" TO "R_AXIS";
+  GRANT INSERT ON "AXIS"."IBNR_SAM_UPE" TO "R_AXIS";
+  GRANT DELETE ON "AXIS"."IBNR_SAM_UPE" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."IBNR_SAM_UPE" TO "CONF_DWH";
+  GRANT SELECT ON "AXIS"."IBNR_SAM_UPE" TO "PROGRAMADORESCSI";

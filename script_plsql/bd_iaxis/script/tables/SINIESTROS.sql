@@ -1,0 +1,106 @@
+--------------------------------------------------------
+--  DDL for Table SINIESTROS
+--------------------------------------------------------
+
+  CREATE TABLE "AXIS"."SINIESTROS" 
+   (	"NSINIES" NUMBER(8,0), 
+	"SSEGURO" NUMBER, 
+	"NRIESGO" NUMBER(6,0), 
+	"CUSUARI" VARCHAR2(20 BYTE), 
+	"FSINIES" DATE, 
+	"FNOTIFI" DATE, 
+	"CESTSIN" NUMBER(2,0), 
+	"TSINIES" VARCHAR2(500 BYTE), 
+	"CCAUEST" NUMBER(4,0), 
+	"CCAUSIN" NUMBER(4,0), 
+	"NSINREF" NUMBER(8,0), 
+	"IPROMES" NUMBER, 
+	"IPRO31D" NUMBER, 
+	"FESTSIN" DATE, 
+	"IPROANT" NUMBER, 
+	"NSINCOA" VARCHAR2(16 BYTE), 
+	"NCUACOA" NUMBER(2,0), 
+	"FENTRAD" DATE, 
+	"CCONSOR" NUMBER(1,0), 
+	"SEVENTO" NUMBER(6,0), 
+	"CORIGEN" NUMBER(2,0), 
+	"CREFINT" VARCHAR2(50 BYTE), 
+	"CRAMO" NUMBER(8,0), 
+	"CTRAINT" VARCHAR2(20 BYTE), 
+	"CTRAEXT" VARCHAR2(20 BYTE), 
+	"CDELEGA" NUMBER, 
+	"CMOTSIN" NUMBER(4,0), 
+	"CTIPCOA" NUMBER(1,0), 
+	"CCULPAB" NUMBER(1,0), 
+	"CUNIMIX" NUMBER(1,0), 
+	"CASETA" NUMBER(1,0), 
+	"CIDEASC" NUMBER(1,0), 
+	"CUSUALT" VARCHAR2(20 BYTE), 
+	"FALTA" DATE, 
+	"CUSUMOD" VARCHAR2(20 BYTE), 
+	"FMODIFI" DATE, 
+	"NMOVIMI" NUMBER(4,0), 
+	"CINTJUD" NUMBER(2,0), 
+	"CTCAUSIN" NUMBER(1,0), 
+	"CORGJUD" NUMBER(2,0), 
+	"NORGJUD" NUMBER(3,0), 
+	"TREFJUD" VARCHAR2(20 BYTE), 
+	"CPROJUD" NUMBER(5,0), 
+	"CPOBLJUD" NUMBER(5,0), 
+	"CPAISJUD" NUMBER(3,0), 
+	"CPOSTJUD" VARCHAR2(30 BYTE), 
+	"CDIRJUD" VARCHAR2(30 BYTE), 
+	"CINTAUT" NUMBER(2,0), 
+	"FCOMCOR" DATE, 
+	"CAGUA" NUMBER(1,0), 
+	"NSUBEST" NUMBER(3,0), 
+	"NASEGUR" NUMBER(6,0)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "AXIS" ;
+
+   COMMENT ON COLUMN "AXIS"."SINIESTROS"."NSINIES" IS 'Número de siniestro';
+   COMMENT ON COLUMN "AXIS"."SINIESTROS"."SSEGURO" IS 'Id del seguro';
+   COMMENT ON COLUMN "AXIS"."SINIESTROS"."NRIESGO" IS 'Número de riesgo';
+   COMMENT ON COLUMN "AXIS"."SINIESTROS"."CUSUARI" IS 'Abridor';
+   COMMENT ON COLUMN "AXIS"."SINIESTROS"."FSINIES" IS 'Fecha del siniestro';
+   COMMENT ON COLUMN "AXIS"."SINIESTROS"."FNOTIFI" IS 'Fecha de notificación';
+   COMMENT ON COLUMN "AXIS"."SINIESTROS"."CESTSIN" IS 'Estado del siniestro.';
+   COMMENT ON COLUMN "AXIS"."SINIESTROS"."TSINIES" IS 'Desc. Siniestro';
+   COMMENT ON COLUMN "AXIS"."SINIESTROS"."CCAUEST" IS 'Código causa del estado';
+   COMMENT ON COLUMN "AXIS"."SINIESTROS"."CCAUSIN" IS 'Código causa siniestro';
+   COMMENT ON COLUMN "AXIS"."SINIESTROS"."NSINREF" IS 'Ref. a otro siniestro para temas de listado ( No se utiliza )';
+   COMMENT ON COLUMN "AXIS"."SINIESTROS"."IPROMES" IS 'Importe de la provision del mes anterior ( No se utiliza )';
+   COMMENT ON COLUMN "AXIS"."SINIESTROS"."IPRO31D" IS 'Importe de la provisión a 31 de diciembre ( No se utiliza )';
+   COMMENT ON COLUMN "AXIS"."SINIESTROS"."FESTSIN" IS 'Fecha del último cambio de estado';
+   COMMENT ON COLUMN "AXIS"."SINIESTROS"."IPROANT" IS 'Importe de la provisión mes anterior';
+   COMMENT ON COLUMN "AXIS"."SINIESTROS"."NSINCOA" IS 'Núm. del siniestro para la empresa COA';
+   COMMENT ON COLUMN "AXIS"."SINIESTROS"."NCUACOA" IS 'Cuadro de coaseguro a aplicar';
+   COMMENT ON COLUMN "AXIS"."SINIESTROS"."FENTRAD" IS 'Fecha de alta';
+   COMMENT ON COLUMN "AXIS"."SINIESTROS"."CCONSOR" IS 'Codigo consorcio ( No se utiliza )';
+   COMMENT ON COLUMN "AXIS"."SINIESTROS"."SEVENTO" IS 'Agrupación de siniestros posterior a su creacion (No se utiliza)';
+   COMMENT ON COLUMN "AXIS"."SINIESTROS"."CORIGEN" IS '(No se utiliza)';
+   COMMENT ON COLUMN "AXIS"."SINIESTROS"."CREFINT" IS 'Ref. del siniestro. Alternativa a NSINIES configurable por instalacion';
+   COMMENT ON COLUMN "AXIS"."SINIESTROS"."CRAMO" IS 'Id del ramo';
+   COMMENT ON COLUMN "AXIS"."SINIESTROS"."CTRAINT" IS 'Gestor principal';
+   COMMENT ON COLUMN "AXIS"."SINIESTROS"."CTRAEXT" IS 'Id tramitador externo';
+   COMMENT ON COLUMN "AXIS"."SINIESTROS"."CDELEGA" IS 'Delegación del seguro en la fecha del siniestro';
+   COMMENT ON COLUMN "AXIS"."SINIESTROS"."CMOTSIN" IS 'Código motivo siniestro';
+   COMMENT ON COLUMN "AXIS"."SINIESTROS"."CTIPCOA" IS 'Tipo de COA sel seguro en el momento del siniestro';
+   COMMENT ON COLUMN "AXIS"."SINIESTROS"."CCULPAB" IS 'Culpabilidad:0,Indeterminada.1,Asegurado.2,Contrario.3,Contradictorio';
+   COMMENT ON COLUMN "AXIS"."SINIESTROS"."CUNIMIX" IS 'Incluido en el convenio de Unidades mixtas';
+   COMMENT ON COLUMN "AXIS"."SINIESTROS"."CASETA" IS 'Incluido en el convenio de ASETA ( Daños en los inmuebles de la autopista )';
+   COMMENT ON COLUMN "AXIS"."SINIESTROS"."CIDEASC" IS 'Incluido en el convenio CIDE/ASCIDE ( Colision de vehiculos 1 a 1';
+   COMMENT ON COLUMN "AXIS"."SINIESTROS"."NMOVIMI" IS 'Número de movimiento de la póliza que "provoca" el siniestro (si lo hay)';
+   COMMENT ON COLUMN "AXIS"."SINIESTROS"."NSUBEST" IS 'Numero de SubEstado';
+   COMMENT ON COLUMN "AXIS"."SINIESTROS"."NASEGUR" IS 'Número de asegurado. Sólo se utilizará en productos a 2 cabezas.';
+  GRANT UPDATE ON "AXIS"."SINIESTROS" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."SINIESTROS" TO "R_AXIS";
+  GRANT INSERT ON "AXIS"."SINIESTROS" TO "R_AXIS";
+  GRANT DELETE ON "AXIS"."SINIESTROS" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."SINIESTROS" TO "CONF_DWH";
+  GRANT SELECT ON "AXIS"."SINIESTROS" TO "PROGRAMADORESCSI";

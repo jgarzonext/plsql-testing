@@ -1,0 +1,44 @@
+--------------------------------------------------------
+--  DDL for Table AGD_OBS_CONFIG
+--------------------------------------------------------
+
+  CREATE TABLE "AXIS"."AGD_OBS_CONFIG" 
+   (	"CEMPRES" NUMBER, 
+	"CTIPAGD" NUMBER(2,0), 
+	"TFILTRO" VARCHAR2(150 BYTE), 
+	"CCONOBS" NUMBER(8,0), 
+	"CROLPROP" NUMBER(9,0), 
+	"TTABLA" VARCHAR2(50 BYTE), 
+	"TPARAM_VIS" VARCHAR2(100 BYTE), 
+	"TFUNC_PARAMOUT" VARCHAR2(500 BYTE), 
+	"CUSUALT" VARCHAR2(20 BYTE), 
+	"FALTA" DATE, 
+	"CUSUMOD" VARCHAR2(20 BYTE), 
+	"FMODIFI" DATE
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "AXIS" ;
+
+   COMMENT ON COLUMN "AXIS"."AGD_OBS_CONFIG"."CEMPRES" IS 'Empresa';
+   COMMENT ON COLUMN "AXIS"."AGD_OBS_CONFIG"."CTIPAGD" IS 'Tipo de agenda : Póliza, recibo, agentes, siniestros...';
+   COMMENT ON COLUMN "AXIS"."AGD_OBS_CONFIG"."TFILTRO" IS 'Filtro de la agenda: Póliza = SSEGURO, Recibo = NRECIBO...';
+   COMMENT ON COLUMN "AXIS"."AGD_OBS_CONFIG"."CCONOBS" IS 'Valor fijo utilizado para el tipo de concepto por agenda de póliza, recibo...';
+   COMMENT ON COLUMN "AXIS"."AGD_OBS_CONFIG"."CROLPROP" IS 'Rol propietario de la agenda, siempre verá los datos de este tipo de agenda';
+   COMMENT ON COLUMN "AXIS"."AGD_OBS_CONFIG"."TTABLA" IS 'Tabla de la cual sacaremos la informacion del tipo de agenda, si es de poliza será la tabla seguros ';
+   COMMENT ON COLUMN "AXIS"."AGD_OBS_CONFIG"."TPARAM_VIS" IS 'Parametro que se visualitzara por pantalla, si es de pólizas se vera NPOLIZA,NCERTIF por ejemplo';
+   COMMENT ON COLUMN "AXIS"."AGD_OBS_CONFIG"."TFUNC_PARAMOUT" IS 'Función del cual sacaremos la descripción, la función tendra un parametro concatenado los parametros de entrada separados por ; y otro parametro que será el idioma ';
+   COMMENT ON COLUMN "AXIS"."AGD_OBS_CONFIG"."CUSUALT" IS 'USUARIO QUE DA DE ALTA EL REGISTRO';
+   COMMENT ON COLUMN "AXIS"."AGD_OBS_CONFIG"."FALTA" IS 'FECHA DE ALTA DEL REGISTRO';
+   COMMENT ON COLUMN "AXIS"."AGD_OBS_CONFIG"."CUSUMOD" IS 'USUARIO QUE MODIFICA EL REGISTRO';
+   COMMENT ON COLUMN "AXIS"."AGD_OBS_CONFIG"."FMODIFI" IS 'FECHA DE MOFICIACIÓN DEL REGISTRO';
+   COMMENT ON TABLE "AXIS"."AGD_OBS_CONFIG"  IS 'Configuración de las agendas';
+  GRANT UPDATE ON "AXIS"."AGD_OBS_CONFIG" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."AGD_OBS_CONFIG" TO "R_AXIS";
+  GRANT INSERT ON "AXIS"."AGD_OBS_CONFIG" TO "R_AXIS";
+  GRANT DELETE ON "AXIS"."AGD_OBS_CONFIG" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."AGD_OBS_CONFIG" TO "CONF_DWH";
+  GRANT SELECT ON "AXIS"."AGD_OBS_CONFIG" TO "PROGRAMADORESCSI";

@@ -1,0 +1,10 @@
+DELETE FROM AXIS_LITERALES WHERE SLITERA = 89907064;
+DELETE FROM AXIS_CODLITERALES WHERE SLITERA = 89907064;
+
+INSERT INTO AXIS_CODLITERALES(SLITERA, CLITERA) VALUES (89907064, 5);
+INSERT INTO AXIS_LITERALES (CIDIOMA, SLITERA, TLITERA) VALUES (1, 89907064, 'No fer servir-Error en Creacion del Tercer: Comunicar-se amb: "Anàlisi de clients"');
+INSERT INTO AXIS_LITERALES (CIDIOMA, SLITERA, TLITERA) VALUES (2, 89907064, 'No usar-Error en Creacion del Tercero: Comunicarse con : "Analisis de clientes"');
+INSERT INTO AXIS_LITERALES (CIDIOMA, SLITERA, TLITERA) VALUES (8, 89907064, 'No usar-Error en Creacion del Tercero: Comunicarse con : "Analisis de clientes"');
+
+COMMIT;
+/

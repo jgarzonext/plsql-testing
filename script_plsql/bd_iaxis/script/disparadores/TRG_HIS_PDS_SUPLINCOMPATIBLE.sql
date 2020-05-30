@@ -1,0 +1,48 @@
+--------------------------------------------------------
+--  DDL for Trigger TRG_HIS_PDS_SUPLINCOMPATIBLE
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TRIGGER "AXIS"."TRG_HIS_PDS_SUPLINCOMPATIBLE" 
+   BEFORE UPDATE OR DELETE
+   ON PDS_SUPLINCOMPATIBLE
+   FOR EACH ROW
+   DECLARE
+       vaccion VARCHAR2(2);
+BEGIN
+   IF UPDATING THEN
+       vaccion := 'U';
+   ELSE
+       vaccion := 'D';
+   END IF;
+
+      -- crear registro histórico
+      INSERT INTO his_PDS_SUPLINCOMPATIBLE(
+CMOTMOV,
+SPRODUC,
+CMOTINC,
+CUSUALT,
+FALTA,
+CUSUMOD,
+FMODIFI,
+CUSUHIST,FCREAHIST,ACCION)
+VALUES(
+:OLD.CMOTMOV,
+:OLD.SPRODUC,
+:OLD.CMOTINC,
+:OLD.CUSUALT,
+:OLD.FALTA,
+:OLD.CUSUMOD,
+:OLD.FMODIFI,
+f_user, f_sysdate, ''||vaccion||'');
+EXCEPTION
+   WHEN OTHERS THEN
+      p_tab_error(f_sysdate, f_user, 'TRIGGER trg_his_PDS_SUPLINCOMPATIBLE', 1, SQLCODE, SQLERRM);
+      RAISE;
+END trg_his_PDS_SUPLINCOMPATIBLE;
+
+
+
+
+
+/
+ALTER TRIGGER "AXIS"."TRG_HIS_PDS_SUPLINCOMPATIBLE" ENABLE;

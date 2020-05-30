@@ -1,0 +1,1 @@
+ALTER TABLE per_agr_marcas DISABLE CONSTRAINT per_agr_marcas_agr_marcas_fk;

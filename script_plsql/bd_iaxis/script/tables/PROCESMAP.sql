@@ -1,0 +1,30 @@
+--------------------------------------------------------
+--  DDL for Table PROCESMAP
+--------------------------------------------------------
+
+  CREATE TABLE "AXIS"."PROCESMAP" 
+   (	"CPROCES" NUMBER(6,0), 
+	"TDESCRIP" VARCHAR2(50 BYTE), 
+	"TDESCORT" VARCHAR2(20 BYTE), 
+	"TPARFROM" VARCHAR2(10 BYTE), 
+	"TPARAMETROS" VARCHAR2(100 BYTE)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "AXIS" ;
+
+   COMMENT ON COLUMN "AXIS"."PROCESMAP"."CPROCES" IS 'Código del proceso';
+   COMMENT ON COLUMN "AXIS"."PROCESMAP"."TDESCRIP" IS 'Descripción del proceso';
+   COMMENT ON COLUMN "AXIS"."PROCESMAP"."TDESCORT" IS 'Descripción corta del proceso (se guardará en PROCESOSCAB)';
+   COMMENT ON COLUMN "AXIS"."PROCESMAP"."TPARFROM" IS 'Nombre del parámetro de parinstalacion que contendrá la dirección de correo donde se enviará un mensaje si hay algún error en el proceso. Si está a NULL no se envía mensaje';
+   COMMENT ON COLUMN "AXIS"."PROCESMAP"."TPARAMETROS" IS 'Descripción de los parámetros para el proceso separados por ''|''';
+   COMMENT ON TABLE "AXIS"."PROCESMAP"  IS 'Procesos que se ejecutan a través del MAP';
+  GRANT UPDATE ON "AXIS"."PROCESMAP" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."PROCESMAP" TO "R_AXIS";
+  GRANT INSERT ON "AXIS"."PROCESMAP" TO "R_AXIS";
+  GRANT DELETE ON "AXIS"."PROCESMAP" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."PROCESMAP" TO "CONF_DWH";
+  GRANT SELECT ON "AXIS"."PROCESMAP" TO "PROGRAMADORESCSI";

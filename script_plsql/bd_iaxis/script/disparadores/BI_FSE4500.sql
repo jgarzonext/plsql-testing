@@ -1,0 +1,26 @@
+--------------------------------------------------------
+--  DDL for Trigger BI_FSE4500
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TRIGGER "AXIS"."BI_FSE4500" 
+BEFORE INSERT ON FIS_FSE4500
+FOR EACH ROW
+DECLARE
+BEGIN
+	IF :NEW.SFSE4500 IS NULL THEN
+		SELECT FSE4500_SEQ.NEXTVAL
+		INTO :NEW.SFSE4500
+		FROM DUAL;
+	END IF;
+END BI_FSE4500;
+
+
+
+
+
+
+
+
+
+/
+ALTER TRIGGER "AXIS"."BI_FSE4500" ENABLE;

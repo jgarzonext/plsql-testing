@@ -1,0 +1,11 @@
+--------------------------------------------------------
+--  DDL for Type T_IAX_SIN_TRAMITA_DETGESTION
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TYPE "AXIS"."T_IAX_SIN_TRAMITA_DETGESTION" AS TABLE OF ob_iax_sin_tramita_detgestion;
+
+/
+
+  GRANT EXECUTE ON "AXIS"."T_IAX_SIN_TRAMITA_DETGESTION" TO "R_AXIS";
+  GRANT EXECUTE ON "AXIS"."T_IAX_SIN_TRAMITA_DETGESTION" TO "CONF_DWH";
+  GRANT EXECUTE ON "AXIS"."T_IAX_SIN_TRAMITA_DETGESTION" TO "PROGRAMADORESCSI";

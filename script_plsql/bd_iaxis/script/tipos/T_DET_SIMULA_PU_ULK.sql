@@ -1,0 +1,11 @@
+--------------------------------------------------------
+--  DDL for Type T_DET_SIMULA_PU_ULK
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TYPE "AXIS"."T_DET_SIMULA_PU_ULK" AS TABLE OF OB_DET_SIMULA_PU_ULK 
+
+/
+
+  GRANT EXECUTE ON "AXIS"."T_DET_SIMULA_PU_ULK" TO "R_AXIS";
+  GRANT EXECUTE ON "AXIS"."T_DET_SIMULA_PU_ULK" TO "CONF_DWH";
+  GRANT EXECUTE ON "AXIS"."T_DET_SIMULA_PU_ULK" TO "PROGRAMADORESCSI";

@@ -1,0 +1,11 @@
+--------------------------------------------------------
+--  DDL for Type T_DET_SIMULA_RENTAS
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TYPE "AXIS"."T_DET_SIMULA_RENTAS" AS TABLE OF  OB_DET_SIMULA_RENTAS 
+
+/
+
+  GRANT EXECUTE ON "AXIS"."T_DET_SIMULA_RENTAS" TO "R_AXIS";
+  GRANT EXECUTE ON "AXIS"."T_DET_SIMULA_RENTAS" TO "CONF_DWH";
+  GRANT EXECUTE ON "AXIS"."T_DET_SIMULA_RENTAS" TO "PROGRAMADORESCSI";

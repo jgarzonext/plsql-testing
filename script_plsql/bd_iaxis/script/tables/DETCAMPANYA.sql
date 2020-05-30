@@ -1,0 +1,64 @@
+--------------------------------------------------------
+--  DDL for Table DETCAMPANYA
+--------------------------------------------------------
+
+  CREATE TABLE "AXIS"."DETCAMPANYA" 
+   (	"CCAMPANYA" NUMBER(3,0), 
+	"NVERSIO" NUMBER(3,0), 
+	"SPRODUC" NUMBER(6,0), 
+	"CACTIVI" NUMBER(4,0), 
+	"CGARANT" NUMBER(4,0), 
+	"FEFEVER" DATE, 
+	"FFINVER" DATE, 
+	"CESTADO" NUMBER(1,0), 
+	"FINICAM" DATE, 
+	"FFINCAM" DATE, 
+	"CTIPDTO" NUMBER(1,0), 
+	"IDTO" NUMBER, 
+	"PDTO" NUMBER(5,2), 
+	"CAPLIDTO" NUMBER(1,0), 
+	"CDURACI" NUMBER(1,0), 
+	"NMESES" NUMBER(3,0), 
+	"NEDALIM" NUMBER(3,0), 
+	"NEDAMAX" NUMBER(3,0), 
+	"NEDAMIN" NUMBER(3,0), 
+	"CSEXE" NUMBER(1,0), 
+	"FALTA" DATE, 
+	"CUSUALT" VARCHAR2(20 BYTE), 
+	"FMODIF" DATE, 
+	"CUSUMOD" VARCHAR2(20 BYTE)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "AXIS" ;
+
+   COMMENT ON COLUMN "AXIS"."DETCAMPANYA"."CCAMPANYA" IS 'Código de campaña';
+   COMMENT ON COLUMN "AXIS"."DETCAMPANYA"."NVERSIO" IS 'Número de versión de la campaña';
+   COMMENT ON COLUMN "AXIS"."DETCAMPANYA"."SPRODUC" IS 'Identificador de producto';
+   COMMENT ON COLUMN "AXIS"."DETCAMPANYA"."CACTIVI" IS 'Código de actividad';
+   COMMENT ON COLUMN "AXIS"."DETCAMPANYA"."CGARANT" IS 'Código de garantía';
+   COMMENT ON COLUMN "AXIS"."DETCAMPANYA"."FEFEVER" IS 'Fecha de efecto de la versión';
+   COMMENT ON COLUMN "AXIS"."DETCAMPANYA"."FFINVER" IS 'Fecha fin de la versión';
+   COMMENT ON COLUMN "AXIS"."DETCAMPANYA"."CESTADO" IS 'Estado de la versión 1.- En construcción 2.- Activa. Valores fijos 194';
+   COMMENT ON COLUMN "AXIS"."DETCAMPANYA"."FINICAM" IS 'Fecha inicio de la campaña para esta garantía';
+   COMMENT ON COLUMN "AXIS"."DETCAMPANYA"."FFINCAM" IS 'Fecha fin de la campaña para esta garantía';
+   COMMENT ON COLUMN "AXIS"."DETCAMPANYA"."CTIPDTO" IS 'Clase de descuento. 1.- Porcentaje 2.- fIJO. Valores fijos 819';
+   COMMENT ON COLUMN "AXIS"."DETCAMPANYA"."IDTO" IS 'Importe de descuento';
+   COMMENT ON COLUMN "AXIS"."DETCAMPANYA"."PDTO" IS 'Porcentaje descuento';
+   COMMENT ON COLUMN "AXIS"."DETCAMPANYA"."CAPLIDTO" IS 'Tipo de descuento. 1.- Descuento sobre cuota  2.- Cuotas gratis. Valores fijos 192';
+   COMMENT ON COLUMN "AXIS"."DETCAMPANYA"."CDURACI" IS 'Tipo de duración 0.- Ilimitada 1.- Meses  2.- Edad límite. 3.- Meses y edad límite. Valores fijos 193';
+   COMMENT ON COLUMN "AXIS"."DETCAMPANYA"."NMESES" IS 'Nº de meses';
+   COMMENT ON COLUMN "AXIS"."DETCAMPANYA"."NEDALIM" IS 'Edad límite';
+   COMMENT ON COLUMN "AXIS"."DETCAMPANYA"."NEDAMAX" IS 'Edad máxima para aplicar la campaña';
+   COMMENT ON COLUMN "AXIS"."DETCAMPANYA"."NEDAMIN" IS 'Edad mínima para aplicar la campaña';
+   COMMENT ON COLUMN "AXIS"."DETCAMPANYA"."CSEXE" IS 'Sexo para aplicar campaña 1.- Hombre  2.- Mujer. Valores fijos 11';
+   COMMENT ON TABLE "AXIS"."DETCAMPANYA"  IS 'Características de la campaña para cada producto/actividad/garantía';
+  GRANT UPDATE ON "AXIS"."DETCAMPANYA" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."DETCAMPANYA" TO "R_AXIS";
+  GRANT INSERT ON "AXIS"."DETCAMPANYA" TO "R_AXIS";
+  GRANT DELETE ON "AXIS"."DETCAMPANYA" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."DETCAMPANYA" TO "CONF_DWH";
+  GRANT SELECT ON "AXIS"."DETCAMPANYA" TO "PROGRAMADORESCSI";

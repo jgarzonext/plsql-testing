@@ -1,0 +1,14 @@
+BEGIN 
+  PAC_SKIP_ORA.P_COMPROVADROP('MIG_SIN_PROF_PROFESIONALES_UAT','TABLE');
+END;
+/
+create table MIG_SIN_PROF_PROFESIONALES_UAT
+(
+  mig_pk  VARCHAR2(50),
+  mig_fk  VARCHAR2(50),
+  mig_fk2 VARCHAR2(50),
+  nregmer VARCHAR2(20),
+  fregmer DATE,
+  nlimite NUMBER
+);
+/

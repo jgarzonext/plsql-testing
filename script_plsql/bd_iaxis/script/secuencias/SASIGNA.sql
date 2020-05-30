@@ -1,0 +1,8 @@
+--------------------------------------------------------
+--  DDL for Sequence SASIGNA
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "AXIS"."SASIGNA"  MINVALUE 0 MAXVALUE 999999999999999999999999999 INCREMENT BY 1 START WITH 0 NOCACHE  NOORDER  NOCYCLE   ;
+  GRANT SELECT ON "AXIS"."SASIGNA" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."SASIGNA" TO "CONF_DWH";
+  GRANT SELECT ON "AXIS"."SASIGNA" TO "PROGRAMADORESCSI";

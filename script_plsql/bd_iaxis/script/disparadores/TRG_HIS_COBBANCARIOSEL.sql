@@ -1,0 +1,62 @@
+--------------------------------------------------------
+--  DDL for Trigger TRG_HIS_COBBANCARIOSEL
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TRIGGER "AXIS"."TRG_HIS_COBBANCARIOSEL" 
+   BEFORE UPDATE OR DELETE
+   ON COBBANCARIOSEL
+   FOR EACH ROW
+   DECLARE
+       vaccion VARCHAR2(2);
+BEGIN
+   IF UPDATING THEN
+       vaccion := 'U';
+   ELSE
+       vaccion := 'D';
+   END IF;
+
+      -- crear registro histórico
+      INSERT INTO his_COBBANCARIOSEL(
+CCOBBAN,
+NORDEN,
+CRAMO,
+CTIPSEG,
+CEMPRES,
+CCOLECT,
+CBANCO,
+CMODALI,
+CAGENTE,
+CTIPAGE,
+CUSUALT,
+FALTA,
+CUSUMOD,
+FMODIFI,
+CUSUHIST,FCREAHIST,ACCION)
+VALUES(
+:OLD.CCOBBAN,
+:OLD.NORDEN,
+:OLD.CRAMO,
+:OLD.CTIPSEG,
+:OLD.CEMPRES,
+:OLD.CCOLECT,
+:OLD.CBANCO,
+:OLD.CMODALI,
+:OLD.CAGENTE,
+:OLD.CTIPAGE,
+:OLD.CUSUALT,
+:OLD.FALTA,
+:OLD.CUSUMOD,
+:OLD.FMODIFI,
+f_user, f_sysdate, ''||vaccion||'');
+EXCEPTION
+   WHEN OTHERS THEN
+      p_tab_error(f_sysdate, f_user, 'TRIGGER trg_his_COBBANCARIOSEL', 1, SQLCODE, SQLERRM);
+      RAISE;
+END trg_his_COBBANCARIOSEL;
+
+
+
+
+
+/
+ALTER TRIGGER "AXIS"."TRG_HIS_COBBANCARIOSEL" ENABLE;

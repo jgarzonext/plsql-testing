@@ -1,0 +1,38 @@
+--------------------------------------------------------
+--  DDL for Materialized View DIM_RIESGOS
+--------------------------------------------------------
+
+  CREATE MATERIALIZED VIEW "CONF_DWH"."DIM_RIESGOS" ("RIES_PRODUCTO", "RIES_DETALLE", "RIES_PRODUCTO_DESC", "RIESGO", "RIESGO_DESC", "FECHA_REGISTRO", "ESTADO", "START_ESTADO", "END_ESTADO", "FECHA_CONTROL", "FECHA_INICIAL", "FECHA_FIN")
+  ORGANIZATION HEAP PCTFREE 10 PCTUSED 0 INITRANS 2 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "CONF_DWH" 
+  BUILD IMMEDIATE
+  USING INDEX 
+  REFRESH FORCE ON DEMAND
+  USING DEFAULT LOCAL ROLLBACK SEGMENT
+  USING ENFORCED CONSTRAINTS DISABLE QUERY REWRITE
+  AS select s.sproduc RIES_PRODUCTO,
+       'codigo del detalle de osiris' RIES_DETALLE,
+       t.ttitulo RIES_PRODUCTO_DESC,
+       a.sperson RIESGO,
+       'descripcion del riesgo' RIESGO_DESC,
+       f_sysdate FECHA_REGISTRO,
+       'ACTIVO' ESTADO,
+       to_date('01/01/1986') START_ESTADO,
+       ' ' END_ESTADO,
+       f_sysdate FECHA_CONTROL,
+       TRUNC(f_sysdate, 'month') FECHA_INICIAL,
+       trunc(last_day(sysdate)) FECHA_FIN
+from riesgos a ,seguros s,productos p, titulopro t
+where a.sseguro = s.sseguro
+and p.SPRODUC = s.SPRODUC
+and p.CRAMO = t.CRAMO
+and p.CMODALI = t.CMODALI
+and p.CTIPSEG = t.CTIPSEG
+and p.CCOLECT = t.CCOLECT
+and t.cidioma = 8;
+
+   COMMENT ON MATERIALIZED VIEW "CONF_DWH"."DIM_RIESGOS"  IS 'snapshot table for snapshot DWH_CONF.DIM_RIESGOS';

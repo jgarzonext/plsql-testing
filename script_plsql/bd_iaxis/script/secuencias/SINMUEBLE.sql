@@ -1,0 +1,8 @@
+--------------------------------------------------------
+--  DDL for Sequence SINMUEBLE
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "AXIS"."SINMUEBLE"  MINVALUE 0 MAXVALUE 9999999999 INCREMENT BY 1 START WITH 100 CACHE 20 NOORDER  NOCYCLE   ;
+  GRANT SELECT ON "AXIS"."SINMUEBLE" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."SINMUEBLE" TO "CONF_DWH";
+  GRANT SELECT ON "AXIS"."SINMUEBLE" TO "PROGRAMADORESCSI";

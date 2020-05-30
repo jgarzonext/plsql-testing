@@ -1,0 +1,8 @@
+--------------------------------------------------------
+--  DDL for Sequence FINV_SEQ
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "AXIS"."FINV_SEQ"  MINVALUE 0 MAXVALUE 999999999999999999999999999 INCREMENT BY 1 START WITH 22 NOCACHE  NOORDER  NOCYCLE   ;
+  GRANT SELECT ON "AXIS"."FINV_SEQ" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."FINV_SEQ" TO "CONF_DWH";
+  GRANT SELECT ON "AXIS"."FINV_SEQ" TO "PROGRAMADORESCSI";

@@ -1,0 +1,11 @@
+--------------------------------------------------------
+--  DDL for Type T_IAX_DIR_RIESGOS_HIS
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TYPE "AXIS"."T_IAX_DIR_RIESGOS_HIS" AS TABLE OF OB_IAX_DIR_RIESGOS_HIS;
+
+/
+
+  GRANT EXECUTE ON "AXIS"."T_IAX_DIR_RIESGOS_HIS" TO "R_AXIS";
+  GRANT EXECUTE ON "AXIS"."T_IAX_DIR_RIESGOS_HIS" TO "CONF_DWH";
+  GRANT EXECUTE ON "AXIS"."T_IAX_DIR_RIESGOS_HIS" TO "PROGRAMADORESCSI";

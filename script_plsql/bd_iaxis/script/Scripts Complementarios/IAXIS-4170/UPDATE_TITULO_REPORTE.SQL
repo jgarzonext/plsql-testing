@@ -1,0 +1,1 @@
+update  axis_literales  set tlitera='NOTIFICACION DE PROCESOS JUDICIALES' where slitera=9910445;commit;

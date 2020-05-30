@@ -1,0 +1,58 @@
+--------------------------------------------------------
+--  DDL for Trigger TRG_HIS_PDS_SUPL_AUTOMATIC
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TRIGGER "AXIS"."TRG_HIS_PDS_SUPL_AUTOMATIC" 
+   BEFORE UPDATE OR DELETE
+   ON PDS_SUPL_AUTOMATIC
+   FOR EACH ROW
+   DECLARE
+       vaccion VARCHAR2(2);
+BEGIN
+   IF UPDATING THEN
+       vaccion := 'U';
+   ELSE
+       vaccion := 'D';
+   END IF;
+
+      -- crear registro histórico
+      INSERT INTO his_PDS_SUPL_AUTOMATIC(
+CMOTMOV,
+SPRODUC,
+NORDEN,
+FVALFUN,
+NORDENSUP,
+SDESCRIP,
+CBLOQUEA,
+CEMITE,
+CUSUALT,
+FALTA,
+CUSUMOD,
+FMODIFI,
+CUSUHIST,FCREAHIST,ACCION)
+VALUES(
+:OLD.CMOTMOV,
+:OLD.SPRODUC,
+:OLD.NORDEN,
+:OLD.FVALFUN,
+:OLD.NORDENSUP,
+:OLD.SDESCRIP,
+:OLD.CBLOQUEA,
+:OLD.CEMITE,
+:OLD.CUSUALT,
+:OLD.FALTA,
+:OLD.CUSUMOD,
+:OLD.FMODIFI,
+f_user, f_sysdate, ''||vaccion||'');
+EXCEPTION
+   WHEN OTHERS THEN
+      p_tab_error(f_sysdate, f_user, 'TRIGGER trg_his_PDS_SUPL_AUTOMATIC', 1, SQLCODE, SQLERRM);
+      RAISE;
+END trg_his_PDS_SUPL_AUTOMATIC;
+
+
+
+
+
+/
+ALTER TRIGGER "AXIS"."TRG_HIS_PDS_SUPL_AUTOMATIC" ENABLE;

@@ -1,0 +1,58 @@
+--------------------------------------------------------
+--  DDL for Trigger TRG_HIS_MODINVFONDO
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TRIGGER "AXIS"."TRG_HIS_MODINVFONDO" 
+   BEFORE UPDATE OR DELETE
+   ON MODINVFONDO
+   FOR EACH ROW
+   DECLARE
+       vaccion VARCHAR2(2);
+BEGIN
+   IF UPDATING THEN
+       vaccion := 'U';
+   ELSE
+       vaccion := 'D';
+   END IF;
+
+      -- crear registro histórico
+      INSERT INTO his_MODINVFONDO(
+CCODFON,
+PINVERS,
+CRAMO,
+CMODALI,
+CTIPSEG,
+CCOLECT,
+CMODINV,
+PMAXCONT,
+CUSUALT,
+FALTA,
+CUSUMOD,
+FMODIFI,
+CUSUHIST,FCREAHIST,ACCION)
+VALUES(
+:OLD.CCODFON,
+:OLD.PINVERS,
+:OLD.CRAMO,
+:OLD.CMODALI,
+:OLD.CTIPSEG,
+:OLD.CCOLECT,
+:OLD.CMODINV,
+:OLD.PMAXCONT,
+:OLD.CUSUALT,
+:OLD.FALTA,
+:OLD.CUSUMOD,
+:OLD.FMODIFI,
+f_user, f_sysdate, ''||vaccion||'');
+EXCEPTION
+   WHEN OTHERS THEN
+      p_tab_error(f_sysdate, f_user, 'TRIGGER trg_his_MODINVFONDO', 1, SQLCODE, SQLERRM);
+      RAISE;
+END trg_his_MODINVFONDO;
+
+
+
+
+
+/
+ALTER TRIGGER "AXIS"."TRG_HIS_MODINVFONDO" ENABLE;

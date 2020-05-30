@@ -1,0 +1,21 @@
+--------------------------------------------------------
+--  DDL for Table USUARIOS_CAMBPASS
+--------------------------------------------------------
+
+  CREATE TABLE "AXIS"."USUARIOS_CAMBPASS" 
+   (	"CUSUARI" VARCHAR2(20 BYTE), 
+	"CCAMBPASS" NUMBER
+   ) SEGMENT CREATION DEFERRED 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "AXIS" ;
+
+   COMMENT ON COLUMN "AXIS"."USUARIOS_CAMBPASS"."CUSUARI" IS 'Codigo del usuario segun tabla usurios';
+   COMMENT ON COLUMN "AXIS"."USUARIOS_CAMBPASS"."CCAMBPASS" IS 'Indicador de cambio de password. 0/Null: No obliga cambio, 1: Obliga cambio siempre';
+   COMMENT ON TABLE "AXIS"."USUARIOS_CAMBPASS"  IS 'Tabla de registro de obligatoriedad de cambio de password del los usuarios';
+  GRANT UPDATE ON "AXIS"."USUARIOS_CAMBPASS" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."USUARIOS_CAMBPASS" TO "R_AXIS";
+  GRANT INSERT ON "AXIS"."USUARIOS_CAMBPASS" TO "R_AXIS";
+  GRANT DELETE ON "AXIS"."USUARIOS_CAMBPASS" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."USUARIOS_CAMBPASS" TO "CONF_DWH";
+  GRANT SELECT ON "AXIS"."USUARIOS_CAMBPASS" TO "PROGRAMADORESCSI";

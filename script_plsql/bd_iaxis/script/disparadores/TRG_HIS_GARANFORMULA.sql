@@ -1,0 +1,60 @@
+--------------------------------------------------------
+--  DDL for Trigger TRG_HIS_GARANFORMULA
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TRIGGER "AXIS"."TRG_HIS_GARANFORMULA" 
+   BEFORE UPDATE OR DELETE
+   ON GARANFORMULA
+   FOR EACH ROW
+   DECLARE
+       vaccion VARCHAR2(2);
+BEGIN
+   IF UPDATING THEN
+       vaccion := 'U';
+   ELSE
+       vaccion := 'D';
+   END IF;
+
+      -- crear registro histórico
+      INSERT INTO his_GARANFORMULA(
+CGARANT,
+CCAMPO,
+CRAMO,
+CMODALI,
+CTIPSEG,
+CCOLECT,
+CACTIVI,
+CLAVE,
+SPRODUC,
+CUSUALT,
+FALTA,
+CUSUMOD,
+FMODIFI,
+CUSUHIST,FCREAHIST,ACCION)
+VALUES(
+:OLD.CGARANT,
+:OLD.CCAMPO,
+:OLD.CRAMO,
+:OLD.CMODALI,
+:OLD.CTIPSEG,
+:OLD.CCOLECT,
+:OLD.CACTIVI,
+:OLD.CLAVE,
+:OLD.SPRODUC,
+:OLD.CUSUALT,
+:OLD.FALTA,
+:OLD.CUSUMOD,
+:OLD.FMODIFI,
+f_user, f_sysdate, ''||vaccion||'');
+EXCEPTION
+   WHEN OTHERS THEN
+      p_tab_error(f_sysdate, f_user, 'TRIGGER trg_his_GARANFORMULA', 1, SQLCODE, SQLERRM);
+      RAISE;
+END trg_his_GARANFORMULA;
+
+
+
+
+
+/
+ALTER TRIGGER "AXIS"."TRG_HIS_GARANFORMULA" ENABLE;

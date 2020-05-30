@@ -1,0 +1,56 @@
+--------------------------------------------------------
+--  DDL for Trigger TRG_HIS_SIMULAESTADIST
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TRIGGER "AXIS"."TRG_HIS_SIMULAESTADIST" 
+   BEFORE UPDATE OR DELETE
+   ON SIMULAESTADIST
+   FOR EACH ROW
+   DECLARE
+       vaccion VARCHAR2(2);
+BEGIN
+   IF UPDATING THEN
+       vaccion := 'U';
+   ELSE
+       vaccion := 'D';
+   END IF;
+
+      -- crear registro histórico
+      INSERT INTO his_SIMULAESTADIST(
+SSIMULA,
+CAGENTE,
+SPRODUC,
+CTIPO,
+FECHA,
+CUSUARI,
+SSEGURO,
+CUSUALT,
+FALTA,
+CUSUMOD,
+FMODIFI,
+CUSUHIST,FCREAHIST,ACCION)
+VALUES(
+:OLD.SSIMULA,
+:OLD.CAGENTE,
+:OLD.SPRODUC,
+:OLD.CTIPO,
+:OLD.FECHA,
+:OLD.CUSUARI,
+:OLD.SSEGURO,
+:OLD.CUSUALT,
+:OLD.FALTA,
+:OLD.CUSUMOD,
+:OLD.FMODIFI,
+f_user, f_sysdate, ''||vaccion||'');
+EXCEPTION
+   WHEN OTHERS THEN
+      p_tab_error(f_sysdate, f_user, 'TRIGGER trg_his_SIMULAESTADIST', 1, SQLCODE, SQLERRM);
+      RAISE;
+END trg_his_SIMULAESTADIST;
+
+
+
+
+
+/
+ALTER TRIGGER "AXIS"."TRG_HIS_SIMULAESTADIST" ENABLE;

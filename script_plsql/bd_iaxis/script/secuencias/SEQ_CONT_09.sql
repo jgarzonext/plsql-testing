@@ -1,0 +1,8 @@
+--------------------------------------------------------
+--  DDL for Sequence SEQ_CONT_09
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "AXIS"."SEQ_CONT_09"  MINVALUE 0 MAXVALUE 9999999999 INCREMENT BY 1 START WITH 900002888 NOCACHE  NOORDER  NOCYCLE   ;
+  GRANT SELECT ON "AXIS"."SEQ_CONT_09" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."SEQ_CONT_09" TO "CONF_DWH";
+  GRANT SELECT ON "AXIS"."SEQ_CONT_09" TO "PROGRAMADORESCSI";

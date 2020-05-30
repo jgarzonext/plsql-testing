@@ -1,0 +1,61 @@
+--------------------------------------------------------
+--  DDL for Table PRODUCTOS_ULK
+--------------------------------------------------------
+
+  CREATE TABLE "AXIS"."PRODUCTOS_ULK" 
+   (	"CRAMO" NUMBER(8,0), 
+	"CMODALI" NUMBER(2,0), 
+	"CTIPSEG" NUMBER(2,0), 
+	"CCOLECT" NUMBER(2,0), 
+	"CCODFON" NUMBER(3,0), 
+	"NDIARIA" NUMBER(2,0), 
+	"PSALCUE" NUMBER(5,2), 
+	"ISALCUE" NUMBER, 
+	"CCAPDEF" NUMBER(1,0), 
+	"NCAPDEF" NUMBER(6,0), 
+	"NPOLHOS" VARCHAR2(13 BYTE), 
+	"NCERHOS" NUMBER(13,0), 
+	"CMONEDA" NUMBER(1,0), 
+	"NDIACAR" NUMBER(2,0), 
+	"CPRORAT" VARCHAR2(1 BYTE) DEFAULT 0, 
+	"CANURES" VARCHAR2(1 BYTE) DEFAULT 0, 
+	"CPROVAL" NUMBER(1,0), 
+	"ISALMIN" NUMBER, 
+	"CUSUALT" VARCHAR2(30 BYTE), 
+	"FALTA" DATE, 
+	"CUSUMOD" VARCHAR2(30 BYTE), 
+	"FMODIFI" DATE
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "AXIS" ;
+
+   COMMENT ON COLUMN "AXIS"."PRODUCTOS_ULK"."CRAMO" IS 'Código de ramo';
+   COMMENT ON COLUMN "AXIS"."PRODUCTOS_ULK"."CMODALI" IS 'Código de modalidad';
+   COMMENT ON COLUMN "AXIS"."PRODUCTOS_ULK"."CTIPSEG" IS 'Código de tipo de seguro';
+   COMMENT ON COLUMN "AXIS"."PRODUCTOS_ULK"."CCOLECT" IS 'Código de colectivo';
+   COMMENT ON COLUMN "AXIS"."PRODUCTOS_ULK"."CCODFON" IS 'Indica a que fondo se cargan los gastos, prima de riesgo, etc.';
+   COMMENT ON COLUMN "AXIS"."PRODUCTOS_ULK"."NDIARIA" IS 'Dias que han de pasar entre reasignaciones';
+   COMMENT ON COLUMN "AXIS"."PRODUCTOS_ULK"."PSALCUE" IS '% del saldo total acumulado que ha de estar en la CC o fondo de liquidez (5%)';
+   COMMENT ON COLUMN "AXIS"."PRODUCTOS_ULK"."ISALCUE" IS 'Saldo mínimo que ha de tener la CC o fondo de liquidez';
+   COMMENT ON COLUMN "AXIS"."PRODUCTOS_ULK"."CCAPDEF" IS 'Indica como se calcula el capital de defunción (0=como hasta ahora, 1=funcion externa';
+   COMMENT ON COLUMN "AXIS"."PRODUCTOS_ULK"."NCAPDEF" IS 'Código de la fórmula que realiza el cálculo';
+   COMMENT ON COLUMN "AXIS"."PRODUCTOS_ULK"."NPOLHOS" IS 'Número de póliza en el HOST';
+   COMMENT ON COLUMN "AXIS"."PRODUCTOS_ULK"."NCERHOS" IS 'Número de certificado en el HOST';
+   COMMENT ON COLUMN "AXIS"."PRODUCTOS_ULK"."CMONEDA" IS 'Código de moneda';
+   COMMENT ON COLUMN "AXIS"."PRODUCTOS_ULK"."NDIACAR" IS 'Número de días entre fecha efecto y fecha de cargo';
+   COMMENT ON COLUMN "AXIS"."PRODUCTOS_ULK"."ISALMIN" IS 'Saldo mínimo en cuenta';
+   COMMENT ON COLUMN "AXIS"."PRODUCTOS_ULK"."CUSUALT" IS 'Usuario que crea el registro';
+   COMMENT ON COLUMN "AXIS"."PRODUCTOS_ULK"."FALTA" IS 'Fecha en que se crea el registro';
+   COMMENT ON COLUMN "AXIS"."PRODUCTOS_ULK"."CUSUMOD" IS 'Usuario que modifica crea el registro';
+   COMMENT ON COLUMN "AXIS"."PRODUCTOS_ULK"."FMODIFI" IS 'Fecha en que se modifica el registro';
+   COMMENT ON TABLE "AXIS"."PRODUCTOS_ULK"  IS 'Definición de producto Unit-Linked';
+  GRANT UPDATE ON "AXIS"."PRODUCTOS_ULK" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."PRODUCTOS_ULK" TO "R_AXIS";
+  GRANT INSERT ON "AXIS"."PRODUCTOS_ULK" TO "R_AXIS";
+  GRANT DELETE ON "AXIS"."PRODUCTOS_ULK" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."PRODUCTOS_ULK" TO "CONF_DWH";
+  GRANT SELECT ON "AXIS"."PRODUCTOS_ULK" TO "PROGRAMADORESCSI";

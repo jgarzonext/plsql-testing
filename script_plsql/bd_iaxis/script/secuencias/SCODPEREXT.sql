@@ -1,0 +1,8 @@
+--------------------------------------------------------
+--  DDL for Sequence SCODPEREXT
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "AXIS"."SCODPEREXT"  MINVALUE 0 MAXVALUE 9999999999 INCREMENT BY 1 START WITH 8187 NOCACHE  NOORDER  NOCYCLE   ;
+  GRANT SELECT ON "AXIS"."SCODPEREXT" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."SCODPEREXT" TO "CONF_DWH";
+  GRANT SELECT ON "AXIS"."SCODPEREXT" TO "PROGRAMADORESCSI";

@@ -1,0 +1,12 @@
+
+ALTER TABLE MOVCONTASAP ADD NUM_INTENTO NUMBER;
+ 
+insert into CODPARAM (CPARAM, CUTILI, CTIPO, CGRPPAR, NORDEN, COBLIGA, TDEFECTO, CVISIBLE)
+values ('CONTABLE_INTENTO', 5, 3, 'GEN', null, 0, null, 1);
+commit;
+/
+
+insert into parempresas (CEMPRES, CPARAM, NVALPAR, TVALPAR, FVALPAR)
+values (24, 'CONTABLE_INTENTO', 3, null, null);
+commit;
+/

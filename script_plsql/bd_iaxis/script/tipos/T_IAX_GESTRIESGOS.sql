@@ -1,0 +1,11 @@
+--------------------------------------------------------
+--  DDL for Type T_IAX_GESTRIESGOS
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TYPE "AXIS"."T_IAX_GESTRIESGOS" AS TABLE OF OB_IAX_GESTRIESGOS;
+
+/
+
+  GRANT EXECUTE ON "AXIS"."T_IAX_GESTRIESGOS" TO "R_AXIS";
+  GRANT EXECUTE ON "AXIS"."T_IAX_GESTRIESGOS" TO "CONF_DWH";
+  GRANT EXECUTE ON "AXIS"."T_IAX_GESTRIESGOS" TO "PROGRAMADORESCSI";

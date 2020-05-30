@@ -1,0 +1,11 @@
+--------------------------------------------------------
+--  DDL for Type T_IAX_PREGUNTAS
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TYPE "AXIS"."T_IAX_PREGUNTAS" AS TABLE OF OB_IAX_PREGUNTAS;
+
+/
+
+  GRANT EXECUTE ON "AXIS"."T_IAX_PREGUNTAS" TO "R_AXIS";
+  GRANT EXECUTE ON "AXIS"."T_IAX_PREGUNTAS" TO "CONF_DWH";
+  GRANT EXECUTE ON "AXIS"."T_IAX_PREGUNTAS" TO "PROGRAMADORESCSI";

@@ -1,0 +1,42 @@
+--------------------------------------------------------
+--  DDL for Table DEP_GARANTIAS
+--------------------------------------------------------
+
+  CREATE TABLE "AXIS"."DEP_GARANTIAS" 
+   (	"SPRODUC" NUMBER(6,0), 
+	"CACTIVI" NUMBER(4,0), 
+	"CGARANT" NUMBER(4,0), 
+	"NORDEN" NUMBER(3,0), 
+	"NSUBORD" NUMBER(3,0), 
+	"CGARPAR" NUMBER(4,0), 
+	"TVALGAR" VARCHAR2(250 BYTE), 
+	"CUSUALT" VARCHAR2(30 BYTE), 
+	"FALTA" DATE, 
+	"CUSUMOD" VARCHAR2(30 BYTE), 
+	"FMODIFI" DATE
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "AXIS" ;
+
+   COMMENT ON COLUMN "AXIS"."DEP_GARANTIAS"."SPRODUC" IS 'Identificador del producto.';
+   COMMENT ON COLUMN "AXIS"."DEP_GARANTIAS"."CACTIVI" IS 'Identificador de la actividad';
+   COMMENT ON COLUMN "AXIS"."DEP_GARANTIAS"."CGARANT" IS 'Identificador de la garantía que se está evaluando';
+   COMMENT ON COLUMN "AXIS"."DEP_GARANTIAS"."NORDEN" IS 'Número de orden dentro de la regla';
+   COMMENT ON COLUMN "AXIS"."DEP_GARANTIAS"."NSUBORD" IS 'Número de condición';
+   COMMENT ON COLUMN "AXIS"."DEP_GARANTIAS"."CGARPAR" IS 'Garantía afectada en la validación (garantías padre de las que depende el cgarant validado).';
+   COMMENT ON COLUMN "AXIS"."DEP_GARANTIAS"."TVALGAR" IS 'Función o query dinámica correspondiente a la validación';
+   COMMENT ON COLUMN "AXIS"."DEP_GARANTIAS"."CUSUALT" IS 'Usuario que crea el registro';
+   COMMENT ON COLUMN "AXIS"."DEP_GARANTIAS"."FALTA" IS 'Fecha en que se crea el registro';
+   COMMENT ON COLUMN "AXIS"."DEP_GARANTIAS"."CUSUMOD" IS 'Usuario que modifica crea el registro';
+   COMMENT ON COLUMN "AXIS"."DEP_GARANTIAS"."FMODIFI" IS 'Fecha en que se modifica el registro';
+   COMMENT ON TABLE "AXIS"."DEP_GARANTIAS"  IS 'Tabla de dependencias de garantías';
+  GRANT UPDATE ON "AXIS"."DEP_GARANTIAS" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."DEP_GARANTIAS" TO "R_AXIS";
+  GRANT INSERT ON "AXIS"."DEP_GARANTIAS" TO "R_AXIS";
+  GRANT DELETE ON "AXIS"."DEP_GARANTIAS" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."DEP_GARANTIAS" TO "CONF_DWH";
+  GRANT SELECT ON "AXIS"."DEP_GARANTIAS" TO "PROGRAMADORESCSI";

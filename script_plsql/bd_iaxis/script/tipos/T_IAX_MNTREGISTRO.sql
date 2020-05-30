@@ -1,0 +1,11 @@
+--------------------------------------------------------
+--  DDL for Type T_IAX_MNTREGISTRO
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TYPE "AXIS"."T_IAX_MNTREGISTRO" AS TABLE OF OB_IAX_MNTREGISTRO;
+
+/
+
+  GRANT EXECUTE ON "AXIS"."T_IAX_MNTREGISTRO" TO "R_AXIS";
+  GRANT EXECUTE ON "AXIS"."T_IAX_MNTREGISTRO" TO "CONF_DWH";
+  GRANT EXECUTE ON "AXIS"."T_IAX_MNTREGISTRO" TO "PROGRAMADORESCSI";

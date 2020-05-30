@@ -1,0 +1,8 @@
+--------------------------------------------------------
+--  DDL for Sequence SEQDOCU
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "AXIS"."SEQDOCU"  MINVALUE 0 MAXVALUE 999999999999999999999999999 INCREMENT BY 1 START WITH 36 NOCACHE  NOORDER  NOCYCLE   ;
+  GRANT SELECT ON "AXIS"."SEQDOCU" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."SEQDOCU" TO "CONF_DWH";
+  GRANT SELECT ON "AXIS"."SEQDOCU" TO "PROGRAMADORESCSI";

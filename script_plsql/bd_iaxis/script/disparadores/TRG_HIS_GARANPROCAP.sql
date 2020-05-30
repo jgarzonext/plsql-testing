@@ -1,0 +1,60 @@
+--------------------------------------------------------
+--  DDL for Trigger TRG_HIS_GARANPROCAP
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TRIGGER "AXIS"."TRG_HIS_GARANPROCAP" 
+   BEFORE UPDATE OR DELETE
+   ON GARANPROCAP
+   FOR EACH ROW
+   DECLARE
+       vaccion VARCHAR2(2);
+BEGIN
+   IF UPDATING THEN
+       vaccion := 'U';
+   ELSE
+       vaccion := 'D';
+   END IF;
+
+      -- crear registro histórico
+      INSERT INTO his_GARANPROCAP(
+CRAMO,
+CMODALI,
+CTIPSEG,
+CCOLECT,
+CGARANT,
+CACTIVI,
+NORDEN,
+ICAPITAL,
+CDEFECTO,
+CUSUALT,
+FALTA,
+CUSUMOD,
+FMODIFI,
+CUSUHIST,FCREAHIST,ACCION)
+VALUES(
+:OLD.CRAMO,
+:OLD.CMODALI,
+:OLD.CTIPSEG,
+:OLD.CCOLECT,
+:OLD.CGARANT,
+:OLD.CACTIVI,
+:OLD.NORDEN,
+:OLD.ICAPITAL,
+:OLD.CDEFECTO,
+:OLD.CUSUALT,
+:OLD.FALTA,
+:OLD.CUSUMOD,
+:OLD.FMODIFI,
+f_user, f_sysdate, ''||vaccion||'');
+EXCEPTION
+   WHEN OTHERS THEN
+      p_tab_error(f_sysdate, f_user, 'TRIGGER trg_his_GARANPROCAP', 1, SQLCODE, SQLERRM);
+      RAISE;
+END trg_his_GARANPROCAP;
+
+
+
+
+
+/
+ALTER TRIGGER "AXIS"."TRG_HIS_GARANPROCAP" ENABLE;

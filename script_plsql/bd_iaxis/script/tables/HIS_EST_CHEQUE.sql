@@ -1,0 +1,31 @@
+--------------------------------------------------------
+--  DDL for Table HIS_EST_CHEQUE
+--------------------------------------------------------
+
+  CREATE TABLE "AXIS"."HIS_EST_CHEQUE" 
+   (	"SEQCAJA" NUMBER(10,0), 
+	"NCHEQUE" VARCHAR2(20 BYTE), 
+	"CESTCHQ" NUMBER(4,0), 
+	"CESTCHQ_ANT" NUMBER(4,0), 
+	"FMOVIMIENTO" DATE, 
+	"FESTADO" DATE, 
+	"FCONTABLE" DATE
+   ) SEGMENT CREATION DEFERRED 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "AXIS" ;
+
+   COMMENT ON COLUMN "AXIS"."HIS_EST_CHEQUE"."SEQCAJA" IS 'Secuencial del movimiento';
+   COMMENT ON COLUMN "AXIS"."HIS_EST_CHEQUE"."NCHEQUE" IS 'Numero de cheque';
+   COMMENT ON COLUMN "AXIS"."HIS_EST_CHEQUE"."CESTCHQ" IS 'Estado del cheque (0 pendiente, 1 Aceptado, 3 protestado)';
+   COMMENT ON COLUMN "AXIS"."HIS_EST_CHEQUE"."CESTCHQ_ANT" IS 'Estado del cheque anterior';
+   COMMENT ON COLUMN "AXIS"."HIS_EST_CHEQUE"."FMOVIMIENTO" IS 'Fecha del movimiento para historico';
+   COMMENT ON COLUMN "AXIS"."HIS_EST_CHEQUE"."FESTADO" IS 'Fecha de modificacion del estado por pantalla';
+   COMMENT ON COLUMN "AXIS"."HIS_EST_CHEQUE"."FCONTABLE" IS 'Fecha contable';
+   COMMENT ON TABLE "AXIS"."HIS_EST_CHEQUE"  IS 'Historial de movimiento estados de cheques';
+  GRANT UPDATE ON "AXIS"."HIS_EST_CHEQUE" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."HIS_EST_CHEQUE" TO "R_AXIS";
+  GRANT INSERT ON "AXIS"."HIS_EST_CHEQUE" TO "R_AXIS";
+  GRANT DELETE ON "AXIS"."HIS_EST_CHEQUE" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."HIS_EST_CHEQUE" TO "CONF_DWH";
+  GRANT SELECT ON "AXIS"."HIS_EST_CHEQUE" TO "PROGRAMADORESCSI";

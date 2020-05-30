@@ -1,0 +1,8 @@
+--------------------------------------------------------
+--  DDL for Sequence DIVISA_SEC
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "AXIS"."DIVISA_SEC"  MINVALUE 4 MAXVALUE 9999999999 INCREMENT BY 1 START WITH 4 NOCACHE  NOORDER  NOCYCLE   ;
+  GRANT SELECT ON "AXIS"."DIVISA_SEC" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."DIVISA_SEC" TO "CONF_DWH";
+  GRANT SELECT ON "AXIS"."DIVISA_SEC" TO "PROGRAMADORESCSI";

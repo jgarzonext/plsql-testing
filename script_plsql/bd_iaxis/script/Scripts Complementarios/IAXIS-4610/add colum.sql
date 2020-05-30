@@ -1,0 +1,11 @@
+BEGIN
+  PAC_SKIP_ORA.p_comprovacolumn('REASEGURO','IRETENCIONF_MONCON');
+END;
+/
+ALTER TABLE REASEGURO
+ADD IRETENCIONF_MONCON NUMBER;
+/
+COMMENT ON COLUMN REASEGURO.IRETENCIONF_MONCON IS 'Conversion a moneda de contabilidad de la retencion en la fuente';
+/
+COMMIT;
+/

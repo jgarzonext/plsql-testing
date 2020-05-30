@@ -1,0 +1,26 @@
+--------------------------------------------------------
+--  DDL for Trigger MOD_FSINIES_BAJA_ASEG
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TRIGGER "AXIS"."MOD_FSINIES_BAJA_ASEG" 
+  AFTER UPDATE ON SINIESTROS
+  FOR EACH ROW
+          WHEN (
+(NEW.fsinies <> OLD.fsinies) AND NEW.CCAUSIN = 1 AND NEW.CMOTSIN = 4 ) BEGIN
+   UPDATE ASEGURADOS SET
+   FFECFIN = :NEW.FSINIES,
+   FFECMUE = :NEW.FSINIES
+   WHERE SSEGURO = :OLD.SSEGURO
+   AND NORDEN = :OLD.NASEGUR;
+END;
+
+
+
+
+
+
+
+
+
+/
+ALTER TRIGGER "AXIS"."MOD_FSINIES_BAJA_ASEG" ENABLE;

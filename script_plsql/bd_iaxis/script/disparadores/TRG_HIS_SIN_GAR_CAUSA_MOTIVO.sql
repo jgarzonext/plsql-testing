@@ -1,0 +1,56 @@
+--------------------------------------------------------
+--  DDL for Trigger TRG_HIS_SIN_GAR_CAUSA_MOTIVO
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TRIGGER "AXIS"."TRG_HIS_SIN_GAR_CAUSA_MOTIVO" 
+   BEFORE UPDATE OR DELETE
+   ON SIN_GAR_CAUSA_MOTIVO
+   FOR EACH ROW
+   DECLARE
+       vaccion VARCHAR2(2);
+BEGIN
+   IF UPDATING THEN
+       vaccion := 'U';
+   ELSE
+       vaccion := 'D';
+   END IF;
+
+      -- crear registro histórico
+      INSERT INTO his_SIN_GAR_CAUSA_MOTIVO(
+SCAUMOT,
+SPRODUC,
+CACTIVI,
+CGARANT,
+CTRAMIT,
+CUSUALT,
+FALTA,
+CUSUMOD,
+FMODIFI,
+ICOSMIN,
+ICOSMAX,
+CUSUHIST,FCREAHIST,ACCION)
+VALUES(
+:OLD.SCAUMOT,
+:OLD.SPRODUC,
+:OLD.CACTIVI,
+:OLD.CGARANT,
+:OLD.CTRAMIT,
+:OLD.CUSUALT,
+:OLD.FALTA,
+:OLD.CUSUMOD,
+:OLD.FMODIFI,
+:OLD.ICOSMIN,
+:OLD.ICOSMAX,
+f_user, f_sysdate, ''||vaccion||'');
+EXCEPTION
+   WHEN OTHERS THEN
+      p_tab_error(f_sysdate, f_user, 'TRIGGER trg_his_SIN_GAR_CAUSA_MOTIVO', 1, SQLCODE, SQLERRM);
+      RAISE;
+END trg_his_SIN_GAR_CAUSA_MOTIVO;
+
+
+
+
+
+/
+ALTER TRIGGER "AXIS"."TRG_HIS_SIN_GAR_CAUSA_MOTIVO" ENABLE;

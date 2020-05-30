@@ -1,0 +1,43 @@
+--------------------------------------------------------
+--  DDL for Table PRODTRARESC
+--------------------------------------------------------
+
+  CREATE TABLE "AXIS"."PRODTRARESC" 
+   (	"SIDRESC" NUMBER(6,0), 
+	"SPRODUC" NUMBER(6,0), 
+	"CTIPMOV" NUMBER(2,0), 
+	"FINICIO" DATE, 
+	"FFIN" DATE, 
+	"CTIPO" NUMBER(3,0), 
+	"NMESESSINPENALI" NUMBER(3,0), 
+	"NANYOSEFECTO" NUMBER(3,0), 
+	"CUSUALT" VARCHAR2(30 BYTE), 
+	"FALTA" DATE, 
+	"CUSUMOD" VARCHAR2(30 BYTE), 
+	"FMODIFI" DATE
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "AXIS" ;
+
+   COMMENT ON COLUMN "AXIS"."PRODTRARESC"."SPRODUC" IS 'Clave del Producto';
+   COMMENT ON COLUMN "AXIS"."PRODTRARESC"."CTIPMOV" IS 'Tipo de movto. 1-traspasos 2-rescates parciales 3- rescates totales 4-aportaciones';
+   COMMENT ON COLUMN "AXIS"."PRODTRARESC"."FINICIO" IS 'Fecha inicio de vigencia del registro';
+   COMMENT ON COLUMN "AXIS"."PRODTRARESC"."FFIN" IS 'Fecha final de vigencia del registro';
+   COMMENT ON COLUMN "AXIS"."PRODTRARESC"."CTIPO" IS 'Cómo tener en cuenta los años (v.f.360)';
+   COMMENT ON COLUMN "AXIS"."PRODTRARESC"."NMESESSINPENALI" IS 'Meses sin penalización desde última revisión';
+   COMMENT ON COLUMN "AXIS"."PRODTRARESC"."NANYOSEFECTO" IS 'Si ctipo in (4,5) años desde la última fecha de revisión';
+   COMMENT ON COLUMN "AXIS"."PRODTRARESC"."CUSUALT" IS 'Usuario que crea el registro';
+   COMMENT ON COLUMN "AXIS"."PRODTRARESC"."FALTA" IS 'Fecha en que se crea el registro';
+   COMMENT ON COLUMN "AXIS"."PRODTRARESC"."CUSUMOD" IS 'Usuario que modifica crea el registro';
+   COMMENT ON COLUMN "AXIS"."PRODTRARESC"."FMODIFI" IS 'Fecha en que se modifica el registro';
+   COMMENT ON TABLE "AXIS"."PRODTRARESC"  IS 'Parametrización para productos que se realizan traspasos o Rescates';
+  GRANT UPDATE ON "AXIS"."PRODTRARESC" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."PRODTRARESC" TO "R_AXIS";
+  GRANT INSERT ON "AXIS"."PRODTRARESC" TO "R_AXIS";
+  GRANT DELETE ON "AXIS"."PRODTRARESC" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."PRODTRARESC" TO "CONF_DWH";
+  GRANT SELECT ON "AXIS"."PRODTRARESC" TO "PROGRAMADORESCSI";

@@ -1,0 +1,19 @@
+UPDATE INT_CODIGOS_EMP T
+   SET T.CVALAXIS = 21
+ WHERE T.CVALEMP = 'J' 
+   AND T.CEMPRES = 24
+   AND T.CCODIGO = 'FORMA_PAGO';
+
+insert into detvalores
+  (CVALOR, CIDIOMA, CATRIBU, TATRIBU)
+values
+  (552, 8, 36, 'Financiacion Primas');
+
+UPDATE INT_CODIGOS_EMP T
+   SET T.CVALAXIS = 36
+ WHERE  T.CVALEMP = 'P'
+    AND T.CEMPRES = 24
+    AND T.CCODIGO = 'FORMA_PAGO';
+	
+commit;
+/	

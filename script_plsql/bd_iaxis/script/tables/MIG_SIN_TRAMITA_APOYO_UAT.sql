@@ -1,0 +1,53 @@
+BEGIN 
+  PAC_SKIP_ORA.P_COMPROVADROP('MIG_SIN_TRAMITA_APOYO_UAT','TABLE');
+END;
+/
+create table MIG_SIN_TRAMITA_APOYO_UAT
+(
+  mig_pk    VARCHAR2(50),
+  mig_fk    VARCHAR2(50),
+  mig_fk2   VARCHAR2(50),
+  sintapo   NUMBER,
+  nsinies   VARCHAR2(50),
+  ntramit   NUMBER(4),
+  napoyo    NUMBER,
+  cunitra   VARCHAR2(150),
+  ctramitad VARCHAR2(150),
+  fingreso  DATE,
+  ftermino  DATE,
+  fsalida   DATE,
+  tobserva  VARCHAR2(150),
+  tlocali   VARCHAR2(150),
+  csiglas   NUMBER,
+  tnomvia   VARCHAR2(150),
+  nnumvia   NUMBER,
+  tcomple   VARCHAR2(150),
+  cpais     NUMBER,
+  cprovin   NUMBER,
+  cpoblac   NUMBER,
+  cpostal   VARCHAR2(150),
+  cviavp    NUMBER,
+  clitvp    NUMBER,
+  cbisvp    NUMBER,
+  corvp     NUMBER,
+  nviaadco  NUMBER,
+  clitco    NUMBER,
+  corco     NUMBER,
+  nplacaco  NUMBER,
+  cor2co    NUMBER,
+  cdet1ia   NUMBER,
+  tnum1ia   VARCHAR2(150),
+  cdet2ia   NUMBER,
+  tnum2ia   VARCHAR2(150),
+  cdet3ia   NUMBER,
+  tnum3ia   VARCHAR2(150),
+  localidad VARCHAR2(150),
+  falta     DATE,
+  cusualt   VARCHAR2(150),
+  fmodifi   DATE,
+  cusumod   VARCHAR2(150),
+  tobserva2 VARCHAR2(100),
+  cagente   NUMBER,
+  sperson   NUMBER
+)
+/

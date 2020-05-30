@@ -1,0 +1,3 @@
+UPDATE AXIS_LITERALES x SET x.TLITERA='Gestion cartera recobros' WHERE x.CIDIOMA=8 AND x.SLITERA=9910400;
+Commit;
+/

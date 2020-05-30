@@ -1,0 +1,51 @@
+--------------------------------------------------------
+--  DDL for Table HISREEMBFACT
+--------------------------------------------------------
+
+  CREATE TABLE "AXIS"."HISREEMBFACT" 
+   (	"NREEMB" NUMBER(8,0), 
+	"NFACT" NUMBER(8,0), 
+	"NFACT_CLI" VARCHAR2(20 BYTE), 
+	"NCASS_ASE" VARCHAR2(20 BYTE), 
+	"NCASS" VARCHAR2(20 BYTE), 
+	"FACUSE" DATE, 
+	"FFACTURA" DATE, 
+	"FBAJA" DATE, 
+	"CUSUBAJA" VARCHAR2(20 BYTE), 
+	"IMPFACT" NUMBER, 
+	"FALTA" DATE, 
+	"CUSUALTA" VARCHAR2(20 BYTE), 
+	"CORIGEN" NUMBER(2,0), 
+	"FECHA" DATE, 
+	"USUARIO" VARCHAR2(20 BYTE), 
+	"CIMPRESION" VARCHAR2(1 BYTE), 
+	"CTIPOFAC" NUMBER(1,0)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "AXIS"  ENABLE ROW MOVEMENT ;
+
+   COMMENT ON COLUMN "AXIS"."HISREEMBFACT"."NREEMB" IS 'Nº de reembolso';
+   COMMENT ON COLUMN "AXIS"."HISREEMBFACT"."NFACT" IS 'Nº de factura interno, por defecto yyyymmxx, donde xx es un contador. Ej. 20080501';
+   COMMENT ON COLUMN "AXIS"."HISREEMBFACT"."NFACT_CLI" IS 'Nº de factura proveedor. En el caso de ficheros CASS corresponde con el campo cassdet.nhoja';
+   COMMENT ON COLUMN "AXIS"."HISREEMBFACT"."NCASS_ASE" IS 'Solo se cumplimenta cuando el registro procede de fichero CASS: “Número CASS de l’assegurat” (no confundir con el asegurado de la póliza)';
+   COMMENT ON COLUMN "AXIS"."HISREEMBFACT"."NCASS" IS 'Nº de CASS del riesgo-asegurado';
+   COMMENT ON COLUMN "AXIS"."HISREEMBFACT"."FACUSE" IS 'Cuando el registro procede de fichero CASS: "Número CASS del beneficiari"';
+   COMMENT ON COLUMN "AXIS"."HISREEMBFACT"."FFACTURA" IS 'Fecha recepción factura ';
+   COMMENT ON COLUMN "AXIS"."HISREEMBFACT"."FBAJA" IS 'Fecha factura. En caso de fichero CASS corresponde a fecha remesa ';
+   COMMENT ON COLUMN "AXIS"."HISREEMBFACT"."CUSUBAJA" IS 'Fecha de baja de la factura. ';
+   COMMENT ON COLUMN "AXIS"."HISREEMBFACT"."IMPFACT" IS 'Usuario de baja ';
+   COMMENT ON COLUMN "AXIS"."HISREEMBFACT"."FALTA" IS 'Tipo de centro: 0 Convencionado, 1 No convencionado. Valor fijo';
+   COMMENT ON COLUMN "AXIS"."HISREEMBFACT"."CUSUALTA" IS 'Fecha alta';
+   COMMENT ON COLUMN "AXIS"."HISREEMBFACT"."CORIGEN" IS 'Usuario de alta Valor Fijo "Origen": 0- Automático 1- Manual';
+   COMMENT ON COLUMN "AXIS"."HISREEMBFACT"."CIMPRESION" IS 'Valores S -> Si , N -> No';
+   COMMENT ON COLUMN "AXIS"."HISREEMBFACT"."CTIPOFAC" IS 'V.F. 896. 0 -> Complementaria , 1 -> Ordinaria';
+  GRANT UPDATE ON "AXIS"."HISREEMBFACT" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."HISREEMBFACT" TO "R_AXIS";
+  GRANT INSERT ON "AXIS"."HISREEMBFACT" TO "R_AXIS";
+  GRANT DELETE ON "AXIS"."HISREEMBFACT" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."HISREEMBFACT" TO "CONF_DWH";
+  GRANT SELECT ON "AXIS"."HISREEMBFACT" TO "PROGRAMADORESCSI";

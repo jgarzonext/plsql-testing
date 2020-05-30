@@ -1,0 +1,11 @@
+--------------------------------------------------------
+--  DDL for Type T_IAX_PRODULKMODINVFONDO
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TYPE "AXIS"."T_IAX_PRODULKMODINVFONDO" AS TABLE OF ob_iax_produlkmodinvfondo;
+
+/
+
+  GRANT EXECUTE ON "AXIS"."T_IAX_PRODULKMODINVFONDO" TO "R_AXIS";
+  GRANT EXECUTE ON "AXIS"."T_IAX_PRODULKMODINVFONDO" TO "CONF_DWH";
+  GRANT EXECUTE ON "AXIS"."T_IAX_PRODULKMODINVFONDO" TO "PROGRAMADORESCSI";

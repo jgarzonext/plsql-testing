@@ -1,0 +1,11 @@
+--------------------------------------------------------
+--  DDL for Type T_IAX_PRODPARTICIPACION_AGE
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TYPE "AXIS"."T_IAX_PRODPARTICIPACION_AGE" AS TABLE OF ob_iax_prodparticipacion_age;
+
+/
+
+  GRANT EXECUTE ON "AXIS"."T_IAX_PRODPARTICIPACION_AGE" TO "R_AXIS";
+  GRANT EXECUTE ON "AXIS"."T_IAX_PRODPARTICIPACION_AGE" TO "CONF_DWH";
+  GRANT EXECUTE ON "AXIS"."T_IAX_PRODPARTICIPACION_AGE" TO "PROGRAMADORESCSI";

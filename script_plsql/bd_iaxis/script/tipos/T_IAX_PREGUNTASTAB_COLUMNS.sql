@@ -1,0 +1,11 @@
+--------------------------------------------------------
+--  DDL for Type T_IAX_PREGUNTASTAB_COLUMNS
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TYPE "AXIS"."T_IAX_PREGUNTASTAB_COLUMNS" AS TABLE OF ob_iax_preguntastab_columns;
+
+/
+
+  GRANT EXECUTE ON "AXIS"."T_IAX_PREGUNTASTAB_COLUMNS" TO "R_AXIS";
+  GRANT EXECUTE ON "AXIS"."T_IAX_PREGUNTASTAB_COLUMNS" TO "CONF_DWH";
+  GRANT EXECUTE ON "AXIS"."T_IAX_PREGUNTASTAB_COLUMNS" TO "PROGRAMADORESCSI";

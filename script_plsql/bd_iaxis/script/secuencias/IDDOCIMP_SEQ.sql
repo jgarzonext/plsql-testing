@@ -1,0 +1,8 @@
+--------------------------------------------------------
+--  DDL for Sequence IDDOCIMP_SEQ
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "AXIS"."IDDOCIMP_SEQ"  MINVALUE 1 MAXVALUE 9999999999 INCREMENT BY 1 START WITH 8720 NOCACHE  NOORDER  NOCYCLE   ;
+  GRANT SELECT ON "AXIS"."IDDOCIMP_SEQ" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."IDDOCIMP_SEQ" TO "CONF_DWH";
+  GRANT SELECT ON "AXIS"."IDDOCIMP_SEQ" TO "PROGRAMADORESCSI";

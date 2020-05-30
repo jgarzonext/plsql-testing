@@ -1,0 +1,11 @@
+--------------------------------------------------------
+--  DDL for Type T_IAX_CONTRATOS
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TYPE "AXIS"."T_IAX_CONTRATOS" AS TABLE OF OB_IAX_CONTRATOS;
+
+/
+
+  GRANT EXECUTE ON "AXIS"."T_IAX_CONTRATOS" TO "R_AXIS";
+  GRANT EXECUTE ON "AXIS"."T_IAX_CONTRATOS" TO "CONF_DWH";
+  GRANT EXECUTE ON "AXIS"."T_IAX_CONTRATOS" TO "PROGRAMADORESCSI";

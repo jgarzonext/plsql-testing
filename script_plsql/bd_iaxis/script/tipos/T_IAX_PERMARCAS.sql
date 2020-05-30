@@ -1,0 +1,11 @@
+--------------------------------------------------------
+--  DDL for Type T_IAX_PERMARCAS
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TYPE "AXIS"."T_IAX_PERMARCAS" AS TABLE OF OB_IAX_PERMARCAS;
+
+/
+
+  GRANT EXECUTE ON "AXIS"."T_IAX_PERMARCAS" TO "R_AXIS";
+  GRANT EXECUTE ON "AXIS"."T_IAX_PERMARCAS" TO "CONF_DWH";
+  GRANT EXECUTE ON "AXIS"."T_IAX_PERMARCAS" TO "PROGRAMADORESCSI";

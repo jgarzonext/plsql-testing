@@ -1,0 +1,73 @@
+--------------------------------------------------------
+--  DDL for Table READEPOSITO
+--------------------------------------------------------
+
+  CREATE TABLE "AXIS"."READEPOSITO" 
+   (	"CCOMPANI" NUMBER(3,0), 
+	"NVERSIO" NUMBER(2,0), 
+	"SCONTRA" NUMBER(6,0), 
+	"CTRAMO" NUMBER(2,0), 
+	"SPROCES" NUMBER, 
+	"SCESREA" NUMBER(8,0), 
+	"CEMPRES" NUMBER(2,0), 
+	"FCIERRE" DATE, 
+	"SPRODUC" NUMBER(6,0), 
+	"SSEGURO" NUMBER, 
+	"NPOLIZA" NUMBER, 
+	"NCERTIF" NUMBER, 
+	"NSINIES" NUMBER, 
+	"CAGENTE" NUMBER, 
+	"PPARTICI" NUMBER(6,2), 
+	"CCOMPAPR" NUMBER(3,0), 
+	"ICESION" NUMBER, 
+	"PRESERV" NUMBER(6,2), 
+	"IRESERV" NUMBER, 
+	"ICESION_MONCON" NUMBER, 
+	"IRESERV_MONCON" NUMBER, 
+	"PINTERESDEP" NUMBER(6,2), 
+	"IINTERDEP" NUMBER, 
+	"IINTERDEP_MONCON" NUMBER, 
+	"PIMPINT" NUMBER(6,2), 
+	"IIMPINT" NUMBER, 
+	"IIMPINT_MONCON" NUMBER
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "AXIS" ;
+
+   COMMENT ON COLUMN "AXIS"."READEPOSITO"."CCOMPANI" IS 'Código de compañía';
+   COMMENT ON COLUMN "AXIS"."READEPOSITO"."NVERSIO" IS 'Número de versión';
+   COMMENT ON COLUMN "AXIS"."READEPOSITO"."SCONTRA" IS 'Código del contrato';
+   COMMENT ON COLUMN "AXIS"."READEPOSITO"."CTRAMO" IS 'Código del tramo';
+   COMMENT ON COLUMN "AXIS"."READEPOSITO"."SPROCES" IS 'Código del proceso';
+   COMMENT ON COLUMN "AXIS"."READEPOSITO"."SCESREA" IS 'Secuencia de la cesión del reaseguro';
+   COMMENT ON COLUMN "AXIS"."READEPOSITO"."CEMPRES" IS 'Código de empresa';
+   COMMENT ON COLUMN "AXIS"."READEPOSITO"."FCIERRE" IS 'Fecha de cierre';
+   COMMENT ON COLUMN "AXIS"."READEPOSITO"."SPRODUC" IS 'Secuencia del producto';
+   COMMENT ON COLUMN "AXIS"."READEPOSITO"."SSEGURO" IS 'Código de seguro';
+   COMMENT ON COLUMN "AXIS"."READEPOSITO"."NPOLIZA" IS 'Número de póliza';
+   COMMENT ON COLUMN "AXIS"."READEPOSITO"."NCERTIF" IS 'Número de certificado para pólizas colectivas';
+   COMMENT ON COLUMN "AXIS"."READEPOSITO"."NSINIES" IS 'Número de siniestro';
+   COMMENT ON COLUMN "AXIS"."READEPOSITO"."CAGENTE" IS 'Código del agente';
+   COMMENT ON COLUMN "AXIS"."READEPOSITO"."PPARTICI" IS 'Porcentaje de participación del agente en la póliza';
+   COMMENT ON COLUMN "AXIS"."READEPOSITO"."CCOMPAPR" IS 'Código compañía propia (CCOMPANI de SEGUROS)';
+   COMMENT ON COLUMN "AXIS"."READEPOSITO"."ICESION" IS 'Importe de la cesión por agente';
+   COMMENT ON COLUMN "AXIS"."READEPOSITO"."PRESERV" IS 'Porcentaje que se aplica a la cesión para calcular la reserva';
+   COMMENT ON COLUMN "AXIS"."READEPOSITO"."IRESERV" IS 'Importe de la reserva';
+   COMMENT ON COLUMN "AXIS"."READEPOSITO"."ICESION_MONCON" IS 'Importe de la cesión por agente en la moneda contable';
+   COMMENT ON COLUMN "AXIS"."READEPOSITO"."IRESERV_MONCON" IS 'Importe de la reserva en la moneda contable';
+   COMMENT ON COLUMN "AXIS"."READEPOSITO"."PINTERESDEP" IS 'Porcentaje de interés sobre el depósito de la reserva';
+   COMMENT ON COLUMN "AXIS"."READEPOSITO"."IINTERDEP" IS 'Importe del interés sobre el depósito de la reserva';
+   COMMENT ON COLUMN "AXIS"."READEPOSITO"."IINTERDEP_MONCON" IS 'Importe del interés sobre el depósito en la moneda contable';
+   COMMENT ON COLUMN "AXIS"."READEPOSITO"."PIMPINT" IS 'Porcentaje del impuesto sobre los intereses del depósito';
+   COMMENT ON COLUMN "AXIS"."READEPOSITO"."IIMPINT" IS 'Importe del impuesto sobre los intereses del depósito';
+   COMMENT ON COLUMN "AXIS"."READEPOSITO"."IIMPINT_MONCON" IS 'Importe del impuesto sobre los intereses del depósito en la moneda contable';
+  GRANT SELECT ON "AXIS"."READEPOSITO" TO "PROGRAMADORESCSI";
+  GRANT DELETE ON "AXIS"."READEPOSITO" TO "R_AXIS";
+  GRANT INSERT ON "AXIS"."READEPOSITO" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."READEPOSITO" TO "R_AXIS";
+  GRANT UPDATE ON "AXIS"."READEPOSITO" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."READEPOSITO" TO "CONF_DWH";

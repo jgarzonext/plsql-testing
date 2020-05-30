@@ -1,0 +1,31 @@
+--------------------------------------------------------
+--  DDL for Table SIN_IMP_TBL
+--------------------------------------------------------
+
+  CREATE TABLE "AXIS"."SIN_IMP_TBL" 
+   (	"CTABLA" NUMBER, 
+	"CCOD1" NUMBER, 
+	"CCOD2" NUMBER, 
+	"CCOD3" NUMBER, 
+	"CCOD4" NUMBER, 
+	"VALOR" NUMBER, 
+	"FDESDE" DATE
+   ) SEGMENT CREATION DEFERRED 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "AXIS" ;
+
+   COMMENT ON COLUMN "AXIS"."SIN_IMP_TBL"."CTABLA" IS 'Código de tabla (se corresponde con atributo del VF.1098)';
+   COMMENT ON COLUMN "AXIS"."SIN_IMP_TBL"."CCOD1" IS 'Primera variable';
+   COMMENT ON COLUMN "AXIS"."SIN_IMP_TBL"."CCOD2" IS 'Segunda variable';
+   COMMENT ON COLUMN "AXIS"."SIN_IMP_TBL"."CCOD3" IS 'Tercera variable';
+   COMMENT ON COLUMN "AXIS"."SIN_IMP_TBL"."CCOD4" IS 'Cuarta variable';
+   COMMENT ON COLUMN "AXIS"."SIN_IMP_TBL"."VALOR" IS 'Valor impuesto';
+   COMMENT ON COLUMN "AXIS"."SIN_IMP_TBL"."FDESDE" IS 'Fecha inicio vigor';
+   COMMENT ON TABLE "AXIS"."SIN_IMP_TBL"  IS 'Obtiene un valor a partir de varias variables';
+  GRANT UPDATE ON "AXIS"."SIN_IMP_TBL" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."SIN_IMP_TBL" TO "R_AXIS";
+  GRANT INSERT ON "AXIS"."SIN_IMP_TBL" TO "R_AXIS";
+  GRANT DELETE ON "AXIS"."SIN_IMP_TBL" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."SIN_IMP_TBL" TO "CONF_DWH";
+  GRANT SELECT ON "AXIS"."SIN_IMP_TBL" TO "PROGRAMADORESCSI";

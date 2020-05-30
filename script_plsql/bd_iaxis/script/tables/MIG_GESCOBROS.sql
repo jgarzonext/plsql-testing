@@ -1,0 +1,33 @@
+--------------------------------------------------------
+--  DDL for Table MIG_GESCOBROS
+--------------------------------------------------------
+
+  CREATE TABLE "AXIS"."MIG_GESCOBROS" 
+   (	"NCARGA" NUMBER, 
+	"CESTMIG" NUMBER, 
+	"MIG_PK" VARCHAR2(50 BYTE), 
+	"MIG_FK" VARCHAR2(50 BYTE), 
+	"MIG_FK2" VARCHAR2(50 BYTE), 
+	"SSEGURO" NUMBER, 
+	"SPERSON" NUMBER(10,0), 
+	"CDOMICI" NUMBER
+   ) SEGMENT CREATION DEFERRED 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "AXIS" ;
+
+   COMMENT ON COLUMN "AXIS"."MIG_GESCOBROS"."NCARGA" IS 'Número de carga';
+   COMMENT ON COLUMN "AXIS"."MIG_GESCOBROS"."CESTMIG" IS 'Estado del registro';
+   COMMENT ON COLUMN "AXIS"."MIG_GESCOBROS"."MIG_PK" IS 'Clave única de MIG_GESCOBROS';
+   COMMENT ON COLUMN "AXIS"."MIG_GESCOBROS"."MIG_FK" IS 'Clave externa para el asegurado (MIG_PERSONAS)';
+   COMMENT ON COLUMN "AXIS"."MIG_GESCOBROS"."MIG_FK2" IS 'Clave externa para la póliza (MIG_SEGUROS)';
+   COMMENT ON COLUMN "AXIS"."MIG_GESCOBROS"."SSEGURO" IS 'Número de secuencia de seguro, valor=0, lo calcula el proceso de migración';
+   COMMENT ON COLUMN "AXIS"."MIG_GESCOBROS"."SPERSON" IS 'Número de secuencia de persona, valor=0, lo calcula el proceso de migración';
+   COMMENT ON COLUMN "AXIS"."MIG_GESCOBROS"."CDOMICI" IS 'Indica el numero de la dirección de MIG_PERSONAS (1 o 2)';
+   COMMENT ON TABLE "AXIS"."MIG_GESCOBROS"  IS 'Tabla Intermedia migración de GESCOBROS';
+  GRANT UPDATE ON "AXIS"."MIG_GESCOBROS" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."MIG_GESCOBROS" TO "R_AXIS";
+  GRANT INSERT ON "AXIS"."MIG_GESCOBROS" TO "R_AXIS";
+  GRANT DELETE ON "AXIS"."MIG_GESCOBROS" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."MIG_GESCOBROS" TO "CONF_DWH";
+  GRANT SELECT ON "AXIS"."MIG_GESCOBROS" TO "PROGRAMADORESCSI";

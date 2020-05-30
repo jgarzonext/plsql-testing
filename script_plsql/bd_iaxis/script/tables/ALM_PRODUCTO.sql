@@ -1,0 +1,50 @@
+--------------------------------------------------------
+--  DDL for Table ALM_PRODUCTO
+--------------------------------------------------------
+
+  CREATE TABLE "AXIS"."ALM_PRODUCTO" 
+   (	"CRAMO" NUMBER(8,0), 
+	"CMODALI" NUMBER, 
+	"CTIPSEG" NUMBER, 
+	"CCOLECT" NUMBER, 
+	"MES" NUMBER, 
+	"ANYO" NUMBER, 
+	"IRESCAT" NUMBER DEFAULT 0, 
+	"IPM" NUMBER DEFAULT 0, 
+	"ISINISTRES" NUMBER DEFAULT 0, 
+	"PIT" NUMBER DEFAULT 0, 
+	"PITAPLICAT" NUMBER DEFAULT 0, 
+	"NSSEGUROS" NUMBER DEFAULT 0, 
+	"ICARTERA" NUMBER DEFAULT 0, 
+	"IPRIMES" NUMBER DEFAULT 0, 
+	"ISOBREPRIMES" NUMBER DEFAULT 0, 
+	"ISOBRECARTERA" NUMBER DEFAULT 0, 
+	"IPRIMARISC" NUMBER DEFAULT 0, 
+	"IVENCIMENTS" NUMBER DEFAULT 0, 
+	"ISOBREPM" NUMBER DEFAULT 0
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "AXIS" ;
+
+   COMMENT ON COLUMN "AXIS"."ALM_PRODUCTO"."MES" IS 'Mes del ALM';
+   COMMENT ON COLUMN "AXIS"."ALM_PRODUCTO"."ANYO" IS 'Año del ALM';
+   COMMENT ON COLUMN "AXIS"."ALM_PRODUCTO"."IRESCAT" IS 'Importe del rescate del mes actual para el producto considerado';
+   COMMENT ON COLUMN "AXIS"."ALM_PRODUCTO"."IPM" IS 'Importe de la provisión matemática del mes actual para el producto considerado';
+   COMMENT ON COLUMN "AXIS"."ALM_PRODUCTO"."ISINISTRES" IS 'Importe de los siniestros del mes actual para el producto considerado';
+   COMMENT ON COLUMN "AXIS"."ALM_PRODUCTO"."PIT" IS 'Interés técnico por defecto del producto en el periodo adecuado';
+   COMMENT ON COLUMN "AXIS"."ALM_PRODUCTO"."NSSEGUROS" IS 'Número de pólizas consideradas en el cálculo';
+   COMMENT ON COLUMN "AXIS"."ALM_PRODUCTO"."ICARTERA" IS 'Importe de la cartera del mes actual para el producto considerado';
+   COMMENT ON COLUMN "AXIS"."ALM_PRODUCTO"."IPRIMES" IS 'Importe de las primas del mes actual para el producto considerado';
+   COMMENT ON COLUMN "AXIS"."ALM_PRODUCTO"."IPRIMARISC" IS 'Import de la Prima de Risc';
+   COMMENT ON COLUMN "AXIS"."ALM_PRODUCTO"."IVENCIMENTS" IS 'Import del Capital Garantit al Venciment';
+   COMMENT ON TABLE "AXIS"."ALM_PRODUCTO"  IS 'Asset Liability Management,respecto de cada uno de los producutos para cada mes y año';
+  GRANT UPDATE ON "AXIS"."ALM_PRODUCTO" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."ALM_PRODUCTO" TO "R_AXIS";
+  GRANT INSERT ON "AXIS"."ALM_PRODUCTO" TO "R_AXIS";
+  GRANT DELETE ON "AXIS"."ALM_PRODUCTO" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."ALM_PRODUCTO" TO "CONF_DWH";
+  GRANT SELECT ON "AXIS"."ALM_PRODUCTO" TO "PROGRAMADORESCSI";

@@ -1,0 +1,39 @@
+--------------------------------------------------------
+--  DDL for Table JOB_COLAPROCES
+--------------------------------------------------------
+
+  CREATE TABLE "AXIS"."JOB_COLAPROCES" 
+   (	"IDJOB" VARCHAR2(25 BYTE), 
+	"CPROCES" NUMBER, 
+	"NPRIOR" NUMBER, 
+	"TSENTENCIA" VARCHAR2(4000 BYTE), 
+	"TCLAVE" VARCHAR2(50 BYTE), 
+	"PPROCES" VARCHAR2(300 BYTE), 
+	"CUSUARI" VARCHAR2(20 BYTE), 
+	"FPROPRG" DATE, 
+	"FPROINI" DATE, 
+	"FPROFIN" DATE, 
+	"CESTADO" NUMBER
+   ) SEGMENT CREATION DEFERRED 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "AXIS" ;
+
+   COMMENT ON COLUMN "AXIS"."JOB_COLAPROCES"."IDJOB" IS 'Identificador del job';
+   COMMENT ON COLUMN "AXIS"."JOB_COLAPROCES"."CPROCES" IS 'Código proceso';
+   COMMENT ON COLUMN "AXIS"."JOB_COLAPROCES"."NPRIOR" IS 'Prioridad del proceso. 0-10. 10 Máx. Prioridad';
+   COMMENT ON COLUMN "AXIS"."JOB_COLAPROCES"."TSENTENCIA" IS 'Sentencia a ejecutar por el job';
+   COMMENT ON COLUMN "AXIS"."JOB_COLAPROCES"."TCLAVE" IS 'Clave del proceso. Clave de la entidad que afecta el proceso.';
+   COMMENT ON COLUMN "AXIS"."JOB_COLAPROCES"."PPROCES" IS 'Parámetros significativos del proceso';
+   COMMENT ON COLUMN "AXIS"."JOB_COLAPROCES"."CUSUARI" IS 'Usuario que lanza el job';
+   COMMENT ON COLUMN "AXIS"."JOB_COLAPROCES"."FPROPRG" IS 'Día y hora en la que se programa el proceso';
+   COMMENT ON COLUMN "AXIS"."JOB_COLAPROCES"."FPROINI" IS 'Día y hora en la que se inicia el proceso';
+   COMMENT ON COLUMN "AXIS"."JOB_COLAPROCES"."FPROFIN" IS 'Día y hora en la que finaliza el proceso';
+   COMMENT ON COLUMN "AXIS"."JOB_COLAPROCES"."CESTADO" IS 'Estado del proceso: 0-Wait; 1-Run; 2-Finish';
+   COMMENT ON TABLE "AXIS"."JOB_COLAPROCES"  IS 'Tabla procesos lanzados por job';
+  GRANT UPDATE ON "AXIS"."JOB_COLAPROCES" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."JOB_COLAPROCES" TO "R_AXIS";
+  GRANT INSERT ON "AXIS"."JOB_COLAPROCES" TO "R_AXIS";
+  GRANT DELETE ON "AXIS"."JOB_COLAPROCES" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."JOB_COLAPROCES" TO "CONF_DWH";
+  GRANT SELECT ON "AXIS"."JOB_COLAPROCES" TO "PROGRAMADORESCSI";

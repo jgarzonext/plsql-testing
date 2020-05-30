@@ -1,0 +1,52 @@
+--------------------------------------------------------
+--  DDL for Table AUD_RASTROS
+--------------------------------------------------------
+
+  CREATE TABLE "AXIS"."AUD_RASTROS" 
+   (	"SRASTRO" NUMBER, 
+	"CCANAL" VARCHAR2(10 BYTE), 
+	"TIPIDCLI" VARCHAR2(25 BYTE), 
+	"NUMIDCLI" VARCHAR2(50 BYTE), 
+	"TIPIDUDU" VARCHAR2(25 BYTE), 
+	"NUMIDUSU" VARCHAR2(50 BYTE), 
+	"LOGIN" VARCHAR2(20 BYTE), 
+	"CCODEVEN" VARCHAR2(20 BYTE), 
+	"FRASTRO" DATE, 
+	"CTERMINAL" VARCHAR2(50 BYTE), 
+	"CSEVERIDAD" VARCHAR2(10 BYTE), 
+	"CRESPUE" VARCHAR2(10 BYTE), 
+	"CCONFIRM" VARCHAR2(10 BYTE), 
+	"CCODENT" VARCHAR2(50 BYTE), 
+	"CTIPPROD" VARCHAR2(50 BYTE), 
+	"CNUMPROD" VARCHAR2(50 BYTE)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ ROW STORE COMPRESS ADVANCED LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "AXIS" ;
+
+   COMMENT ON COLUMN "AXIS"."AUD_RASTROS"."SRASTRO" IS 'Identificador único del registro log (secuencia)';
+   COMMENT ON COLUMN "AXIS"."AUD_RASTROS"."CCANAL" IS 'Identificador único del canal/sistema';
+   COMMENT ON COLUMN "AXIS"."AUD_RASTROS"."TIPIDCLI" IS 'Tipo de identificación del cliente';
+   COMMENT ON COLUMN "AXIS"."AUD_RASTROS"."NUMIDCLI" IS 'Número de identificación del usuario';
+   COMMENT ON COLUMN "AXIS"."AUD_RASTROS"."TIPIDUDU" IS 'Tipo de identificación del usuario';
+   COMMENT ON COLUMN "AXIS"."AUD_RASTROS"."NUMIDUSU" IS 'Número de identificación del usuario';
+   COMMENT ON COLUMN "AXIS"."AUD_RASTROS"."LOGIN" IS 'Identidad del usuario en el sistema';
+   COMMENT ON COLUMN "AXIS"."AUD_RASTROS"."CCODEVEN" IS 'Código único de la operación';
+   COMMENT ON COLUMN "AXIS"."AUD_RASTROS"."FRASTRO" IS 'Fecha/hora de la operación';
+   COMMENT ON COLUMN "AXIS"."AUD_RASTROS"."CTERMINAL" IS 'Identificación única de la terminal';
+   COMMENT ON COLUMN "AXIS"."AUD_RASTROS"."CSEVERIDAD" IS 'Tipificación de código de respuesta';
+   COMMENT ON COLUMN "AXIS"."AUD_RASTROS"."CRESPUE" IS 'Código de exito o error de la respuesta';
+   COMMENT ON COLUMN "AXIS"."AUD_RASTROS"."CCONFIRM" IS 'Código de autorización de la operación';
+   COMMENT ON COLUMN "AXIS"."AUD_RASTROS"."CCODENT" IS 'Código de la entidad que genera la operación';
+   COMMENT ON COLUMN "AXIS"."AUD_RASTROS"."CTIPPROD" IS 'Código del tipo de producto de donde se genera la operación';
+   COMMENT ON COLUMN "AXIS"."AUD_RASTROS"."CNUMPROD" IS 'Número del producto de donde se genera la operación';
+   COMMENT ON TABLE "AXIS"."AUD_RASTROS"  IS 'Tabla de registro de Auditoria';
+  GRANT UPDATE ON "AXIS"."AUD_RASTROS" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."AUD_RASTROS" TO "R_AXIS";
+  GRANT INSERT ON "AXIS"."AUD_RASTROS" TO "R_AXIS";
+  GRANT DELETE ON "AXIS"."AUD_RASTROS" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."AUD_RASTROS" TO "CONF_DWH";
+  GRANT SELECT ON "AXIS"."AUD_RASTROS" TO "PROGRAMADORESCSI";

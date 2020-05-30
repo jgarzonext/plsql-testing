@@ -1,0 +1,11 @@
+--------------------------------------------------------
+--  DDL for Type T_PERSIS_IAXPAR_PRODUCTOS
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TYPE "AXIS"."T_PERSIS_IAXPAR_PRODUCTOS" AS VARRAY(1) OF ob_persis_iaxpar_productos;
+
+/
+
+  GRANT EXECUTE ON "AXIS"."T_PERSIS_IAXPAR_PRODUCTOS" TO "R_AXIS";
+  GRANT EXECUTE ON "AXIS"."T_PERSIS_IAXPAR_PRODUCTOS" TO "CONF_DWH";
+  GRANT EXECUTE ON "AXIS"."T_PERSIS_IAXPAR_PRODUCTOS" TO "PROGRAMADORESCSI";

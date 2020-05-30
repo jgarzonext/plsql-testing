@@ -1,0 +1,11 @@
+--------------------------------------------------------
+--  DDL for Type T_IAX_SINIESTRO_REFERENCIAS
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TYPE "AXIS"."T_IAX_SINIESTRO_REFERENCIAS" AS TABLE OF ob_iax_siniestro_referencias;
+
+/
+
+  GRANT EXECUTE ON "AXIS"."T_IAX_SINIESTRO_REFERENCIAS" TO "R_AXIS";
+  GRANT EXECUTE ON "AXIS"."T_IAX_SINIESTRO_REFERENCIAS" TO "CONF_DWH";
+  GRANT EXECUTE ON "AXIS"."T_IAX_SINIESTRO_REFERENCIAS" TO "PROGRAMADORESCSI";

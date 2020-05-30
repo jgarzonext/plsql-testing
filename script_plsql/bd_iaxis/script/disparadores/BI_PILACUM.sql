@@ -1,0 +1,26 @@
+--------------------------------------------------------
+--  DDL for Trigger BI_PILACUM
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TRIGGER "AXIS"."BI_PILACUM" 
+BEFORE INSERT ON PILA_CUMULOS
+FOR EACH ROW
+DECLARE
+BEGIN
+	IF :NEW.PILAPK IS NULL THEN
+		SELECT PILACUM_SEQ.NEXTVAL
+		INTO :NEW.PILAPK
+		FROM DUAL;
+	END IF;
+END BI_PILAIF;
+
+
+
+
+
+
+
+
+
+/
+ALTER TRIGGER "AXIS"."BI_PILACUM" ENABLE;

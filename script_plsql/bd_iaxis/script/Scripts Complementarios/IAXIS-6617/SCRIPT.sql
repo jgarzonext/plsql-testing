@@ -1,0 +1,14 @@
+DECLARE
+	v_contexto NUMBER := 0;
+	
+BEGIN
+
+	v_contexto := pac_contexto.f_inicializarctx(pac_parametros.f_parempresa_t(24,'USER_BBDD'));
+	
+	INSERT INTO CFG_FORM_PROPERTY (CEMPRES, CIDCFG, CFORM, CITEM, CPRPTY, CVALUE) VALUES ('24', '1', 'AXISAGE008', 'GRECIBO', '1', '0');
+	INSERT INTO CFG_FORM_PROPERTY (CEMPRES, CIDCFG, CFORM, CITEM, CPRPTY, CVALUE) VALUES ('24', '1', 'AXISAGE008', 'RECIBO', '1', '0');
+
+	COMMIT;
+	
+END;
+/

@@ -1,0 +1,58 @@
+--------------------------------------------------------
+--  DDL for Table DELPER_PERSONAS
+--------------------------------------------------------
+
+  CREATE TABLE "AXIS"."DELPER_PERSONAS" 
+   (	"CUSUARIDEL" VARCHAR2(40 BYTE), 
+	"FDEL" DATE, 
+	"SPERSON" NUMBER(10,0), 
+	"NNUMIDE" VARCHAR2(50 BYTE), 
+	"NORDIDE" NUMBER(10,0), 
+	"CTIPIDE" NUMBER(3,0), 
+	"CSEXPER" NUMBER(1,0), 
+	"FNACIMI" DATE, 
+	"CESTPER" NUMBER(2,0) DEFAULT 0, 
+	"FJUBILA" DATE, 
+	"CUSUARI" VARCHAR2(20 BYTE), 
+	"FMOVIMI" DATE, 
+	"CMUTUALISTA" NUMBER(1,0) DEFAULT 0, 
+	"FDEFUNC" DATE, 
+	"SNIP" VARCHAR2(15 BYTE), 
+	"SWPUBLI" NUMBER(1,0), 
+	"CTIPPER" NUMBER(3,0), 
+	"TDIGITOIDE" VARCHAR2(1 BYTE), 
+	"CPREAVISO" NUMBER(1,0), 
+	"CAGENTE" NUMBER, 
+	"CUSUALT" VARCHAR2(20 BYTE), 
+	"FALTA" DATE
+   ) SEGMENT CREATION DEFERRED 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "AXIS" ;
+
+   COMMENT ON COLUMN "AXIS"."DELPER_PERSONAS"."SPERSON" IS 'Secuencia unica de identificacion de una persona';
+   COMMENT ON COLUMN "AXIS"."DELPER_PERSONAS"."NNUMIDE" IS 'Numero de Censo/Pasaporte de la persona';
+   COMMENT ON COLUMN "AXIS"."DELPER_PERSONAS"."NORDIDE" IS 'Numero orden para posibles Censos/Pasaportes repetidos.';
+   COMMENT ON COLUMN "AXIS"."DELPER_PERSONAS"."CTIPIDE" IS 'Tipo de identificación persona ( V.F. 672.  NIf, pasaporte, etc.';
+   COMMENT ON COLUMN "AXIS"."DELPER_PERSONAS"."CSEXPER" IS 'Sexo de la persona';
+   COMMENT ON COLUMN "AXIS"."DELPER_PERSONAS"."FNACIMI" IS 'Fecha de Nacimiento de la persona';
+   COMMENT ON COLUMN "AXIS"."DELPER_PERSONAS"."CESTPER" IS 'Estado de la persona (V.F. 13)';
+   COMMENT ON COLUMN "AXIS"."DELPER_PERSONAS"."FJUBILA" IS 'Fecha de Jubilacion de la persona';
+   COMMENT ON COLUMN "AXIS"."DELPER_PERSONAS"."CUSUARI" IS 'Código usuario modificación registro';
+   COMMENT ON COLUMN "AXIS"."DELPER_PERSONAS"."FMOVIMI" IS 'Fecha modificación registro';
+   COMMENT ON COLUMN "AXIS"."DELPER_PERSONAS"."CMUTUALISTA" IS 'Indica si es mutualista o no. 0.- No es mutualista, 1.- Sí es mutualista';
+   COMMENT ON COLUMN "AXIS"."DELPER_PERSONAS"."FDEFUNC" IS 'Fecha de Defunción';
+   COMMENT ON COLUMN "AXIS"."DELPER_PERSONAS"."SWPUBLI" IS 'Vale 1 si la persona es publica (la pueden ver todos), 0 en caso contrario';
+   COMMENT ON COLUMN "AXIS"."DELPER_PERSONAS"."CTIPPER" IS 'Tipo de persona. Física o Jurídica (V.F. 85)';
+   COMMENT ON COLUMN "AXIS"."DELPER_PERSONAS"."TDIGITOIDE" IS 'Dígito verificación';
+   COMMENT ON COLUMN "AXIS"."DELPER_PERSONAS"."CPREAVISO" IS 'Tiene preaviso (0.-No/1.-Si)';
+   COMMENT ON COLUMN "AXIS"."DELPER_PERSONAS"."CAGENTE" IS 'Código del agente';
+   COMMENT ON COLUMN "AXIS"."DELPER_PERSONAS"."CUSUALT" IS 'Usuario de alta';
+   COMMENT ON COLUMN "AXIS"."DELPER_PERSONAS"."FALTA" IS 'Fecha de alta';
+   COMMENT ON TABLE "AXIS"."DELPER_PERSONAS"  IS 'Tabla Maestra de información de personas';
+  GRANT UPDATE ON "AXIS"."DELPER_PERSONAS" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."DELPER_PERSONAS" TO "R_AXIS";
+  GRANT INSERT ON "AXIS"."DELPER_PERSONAS" TO "R_AXIS";
+  GRANT DELETE ON "AXIS"."DELPER_PERSONAS" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."DELPER_PERSONAS" TO "CONF_DWH";
+  GRANT SELECT ON "AXIS"."DELPER_PERSONAS" TO "PROGRAMADORESCSI";

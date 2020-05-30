@@ -1,0 +1,46 @@
+--------------------------------------------------------
+--  DDL for Table PER_LOPD
+--------------------------------------------------------
+
+  CREATE TABLE "AXIS"."PER_LOPD" 
+   (	"SPERSON" NUMBER(10,0), 
+	"CAGENTE" NUMBER, 
+	"FMOVIMI" DATE, 
+	"CUSUARI" VARCHAR2(20 BYTE), 
+	"CESTADO" NUMBER, 
+	"CTIPDOC" NUMBER(2,0), 
+	"FTIPDOC" DATE, 
+	"CATENDIDO" NUMBER, 
+	"FATENDIDO" DATE, 
+	"NORDEN" NUMBER(2,0), 
+	"CESION" NUMBER(2,0) DEFAULT 0, 
+	"PUBLICIDAD" NUMBER(2,0) DEFAULT 0, 
+	"CANCELACION" NUMBER(2,0) DEFAULT 0, 
+	"ACCESO" NUMBER(2,0) DEFAULT 0, 
+	"RECTIFICACION" NUMBER(2,0) DEFAULT 0
+   ) SEGMENT CREATION DEFERRED 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "AXIS" ;
+
+   COMMENT ON COLUMN "AXIS"."PER_LOPD"."SPERSON" IS 'Identificador único de la Personas';
+   COMMENT ON COLUMN "AXIS"."PER_LOPD"."CAGENTE" IS 'Agente del detalle';
+   COMMENT ON COLUMN "AXIS"."PER_LOPD"."FMOVIMI" IS 'Fecha del movimiento';
+   COMMENT ON COLUMN "AXIS"."PER_LOPD"."CUSUARI" IS 'Usuario de alta';
+   COMMENT ON COLUMN "AXIS"."PER_LOPD"."CESTADO" IS 'VF. 276 Estado movimiento LOPD';
+   COMMENT ON COLUMN "AXIS"."PER_LOPD"."CTIPDOC" IS 'Tipo de documento VF. 277';
+   COMMENT ON COLUMN "AXIS"."PER_LOPD"."FTIPDOC" IS 'Fecha de entrada del tipo de documento';
+   COMMENT ON COLUMN "AXIS"."PER_LOPD"."CATENDIDO" IS 'Atendido el derecho. SI/NO (0:No. 1:Si.)';
+   COMMENT ON COLUMN "AXIS"."PER_LOPD"."FATENDIDO" IS 'Fecha de Atención';
+   COMMENT ON COLUMN "AXIS"."PER_LOPD"."NORDEN" IS 'Número de orden de los movimientos';
+   COMMENT ON COLUMN "AXIS"."PER_LOPD"."CESION" IS '0:No. 1:Si. (Si se opone) default 0';
+   COMMENT ON COLUMN "AXIS"."PER_LOPD"."PUBLICIDAD" IS '0:No. 1:Si. (Si se opone) default 0';
+   COMMENT ON COLUMN "AXIS"."PER_LOPD"."CANCELACION" IS '0:No. 1:Si. (Hay movimientos de cancelación) default 0';
+   COMMENT ON COLUMN "AXIS"."PER_LOPD"."ACCESO" IS '0:No. 1:Si. (Derecho acceso ejercido) default 0 ';
+   COMMENT ON COLUMN "AXIS"."PER_LOPD"."RECTIFICACION" IS '0:No. 1:Si. (Derecho rectificación ejercido) default 0 ';
+  GRANT UPDATE ON "AXIS"."PER_LOPD" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."PER_LOPD" TO "R_AXIS";
+  GRANT INSERT ON "AXIS"."PER_LOPD" TO "R_AXIS";
+  GRANT DELETE ON "AXIS"."PER_LOPD" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."PER_LOPD" TO "CONF_DWH";
+  GRANT SELECT ON "AXIS"."PER_LOPD" TO "PROGRAMADORESCSI";

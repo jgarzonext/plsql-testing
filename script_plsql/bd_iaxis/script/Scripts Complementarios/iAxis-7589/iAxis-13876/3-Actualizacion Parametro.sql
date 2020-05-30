@@ -1,0 +1,6 @@
+UPDATE CFG_LANZAR_INFORMES_PARAMS
+SET NOTNULL = '0'
+WHERE cmap = 'CancelSinCancel'
+and tparam = 'PFINICIO';
+
+COMMIT;

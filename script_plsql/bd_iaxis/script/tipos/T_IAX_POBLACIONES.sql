@@ -1,0 +1,11 @@
+--------------------------------------------------------
+--  DDL for Type T_IAX_POBLACIONES
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TYPE "AXIS"."T_IAX_POBLACIONES" AS TABLE OF OB_IAX_POBLACIONES;
+
+/
+
+  GRANT EXECUTE ON "AXIS"."T_IAX_POBLACIONES" TO "R_AXIS";
+  GRANT EXECUTE ON "AXIS"."T_IAX_POBLACIONES" TO "CONF_DWH";
+  GRANT EXECUTE ON "AXIS"."T_IAX_POBLACIONES" TO "PROGRAMADORESCSI";

@@ -1,0 +1,26 @@
+--------------------------------------------------------
+--  DDL for Trigger BI_PILA_DUP
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TRIGGER "AXIS"."BI_PILA_DUP" 
+BEFORE INSERT ON PILA_PENDIENTES_DUP
+FOR EACH ROW
+DECLARE
+BEGIN
+	IF :NEW.PILAPK IS NULL THEN
+		SELECT PILAPEND_DUP_SEQ.NEXTVAL
+		INTO :NEW.PILAPK
+		FROM DUAL;
+	END IF;
+END BI_PILA_DUP;
+
+
+
+
+
+
+
+
+
+/
+ALTER TRIGGER "AXIS"."BI_PILA_DUP" ENABLE;

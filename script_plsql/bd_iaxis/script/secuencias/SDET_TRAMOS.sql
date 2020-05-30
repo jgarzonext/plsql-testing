@@ -1,0 +1,8 @@
+--------------------------------------------------------
+--  DDL for Sequence SDET_TRAMOS
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "AXIS"."SDET_TRAMOS"  MINVALUE 0 MAXVALUE 999999 INCREMENT BY 1 START WITH 800000 CACHE 20 NOORDER  NOCYCLE   ;
+  GRANT SELECT ON "AXIS"."SDET_TRAMOS" TO "R_AXIS";
+  GRANT SELECT ON "AXIS"."SDET_TRAMOS" TO "CONF_DWH";
+  GRANT SELECT ON "AXIS"."SDET_TRAMOS" TO "PROGRAMADORESCSI";
